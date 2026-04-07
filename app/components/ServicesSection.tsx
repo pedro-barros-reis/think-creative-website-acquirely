@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { Testimonial } from "./ui/TestimonialCard";
 
 function IconSEO() {
   return (
@@ -122,7 +123,7 @@ function ServiceCard({
   icon: React.ReactNode;
 }) {
   return (
-    <article className="group flex flex-col gap-6 rounded-lg bg-[#101012] p-8 transition-colors hover:bg-[#18181b]">
+    <article className="group flex flex-col gap-6 rounded-lg bg-[#101012] p-8 ">
     
       <div className="h-[88px] w-auto">{icon}</div>
 
@@ -217,27 +218,15 @@ export default function ServicesSection() {
           </Link>
         </div>
 
-        {/* ── Testimonial ────────────────────────────────────────────── */}
-        <div className="mt-30 flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-start lg:gap-20">
-
-          
-          <div className="relative shrink-0">
-            <div
-              aria-hidden="true"
-              className="absolute -left-4 -top-4"
-            />
-            <div className="relative h-90 w-90 ring-4 ring-black">
-              <Image
-                src="/images/bob-chapa-photography.png"
-                alt="Bob Chapa, Founder & CEO of Signarama"
-                fill
-              />
-            </div>
-          </div>
-
-          {/* Quote + attribution */}
-          <div className="flex flex-col gap-16">
-            <blockquote className="font-['IBM_Plex_Sans'] text-[18px] font-normal leading-[1.7] tracking-[1%] text-white/90 lg:text-[28px]">
+        
+        <Testimonial 
+          imageSrc="/images/bob-chapa-photography.png"
+          imageAlt="Bob Chapa, Founder & CEO of Signarama"
+          authorName="Bob Chapa"
+          authorTitle="Founder & CEO, Signarama"
+          Logo={SignaramaLogo}
+          quote={
+            <>
               "As we approach our 20th year in business, I can absolutely claim
               we've never worked with a <br/> marketing agency even close to the skill
               level of Think Creative. Think Creative is basically a <br/> mind-reading
@@ -246,22 +235,9 @@ export default function ServicesSection() {
               the results are showing for <br/> themselves. It's truly a pleasure
               working with their entire team, and I see many years of a great <br/>
               relationship in our future."
-            </blockquote>
-
-            {/* Author */}
-            <footer className="flex items-center gap-4">
-              <SignaramaLogo />
-              <div className="flex flex-col">
-                <span className="font-['Geist'] text-[20px] font-bold text-white">
-                  Bob Chapa
-                </span>
-                <span className="font-['IBM_Plex_Sans'] text-[20px] font-normal text-white">
-                  Founder &amp; CEO, Signarama
-                </span>
-              </div>
-            </footer>
-          </div>
-        </div>
+            </>
+          }
+        />
 
       </div>
     </section>
