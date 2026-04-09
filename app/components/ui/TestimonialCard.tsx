@@ -7,6 +7,7 @@ interface TestimonialProps {
   quote: React.ReactNode;
   authorName: string;
   authorTitle: string;
+  bgLight?: boolean;
   Logo: React.ElementType;
 }
 
@@ -16,10 +17,12 @@ export const Testimonial = ({
   quote,
   authorName,
   authorTitle,
+  bgLight,
   Logo
 }: TestimonialProps) => {
+
   return (
-    <div className="mt-30 flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-start lg:gap-20">
+    <div className={`mt-30 flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-start lg:gap-20 ${bgLight ? 'text-black' : 'text-[#F0F0F1]'}`}>
       <div className="relative shrink-0">
         <div 
           aria-hidden="true"
@@ -37,17 +40,17 @@ export const Testimonial = ({
 
       
       <div className="flex flex-col gap-16">
-        <blockquote className="font-['IBM_Plex_Sans'] text-[18px] font-normal leading-[1.7] tracking-[1%] text-white/90 lg:text-[28px]">
+        <blockquote className={`font-['IBM_Plex_Sans'] text-[18px] font-normal leading-[1.7] tracking-[1%] ${bgLight ? 'text-black' : 'text-[#F0F0F1]'} lg:text-[28px]`}>
           {quote}
         </blockquote>
 
         <footer className="flex items-center gap-4">
           <Logo />
           <div className="flex flex-col">
-            <span className="font-['Geist'] text-[20px] font-bold text-white">
+            <span className={`font-['Geist'] text-[20px] font-bold ${bgLight ? 'text-black' : 'text-[#F0F0F1]'}`}>
               {authorName}
             </span>
-            <span className="font-['IBM_Plex_Sans'] text-[20px] font-normal text-white">
+            <span className={`font-['IBM_Plex_Sans'] text-[20px] font-normal ${bgLight ? 'text-black' : 'text-[#F0F0F1]'}`}>
               {authorTitle}
             </span>
           </div>

@@ -3,8 +3,8 @@ import { Testimonial } from "./ui/TestimonialCard";
 
 
 const INDUSTRIES = [
-  { label: "Home Services",         active: true  },
-  { label: "Professional Services", active: false },
+  { label: "Home Services",         active: false },
+  { label: "Professional Services", active: true },
   { label: "Health & Medical",      active: false },
   { label: "RV & Automotive",       active: false },
   { label: "Government",            active: false },
@@ -53,26 +53,23 @@ export default function IndustriesSection() {
       <div className="mx-auto max-w-468 px-6 lg:px-12">
 
        
-        <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
-
-       
-          <div className="flex flex-col gap-10">
-           
+        <div className="grid grid-cols-1 items-start gap-26 lg:grid-cols-2">
+          <div className="flex flex-col w-full gap-10">
             <div className="relative w-full overflow-hidden rounded-lg">
               <Image
                 src="/images/rating-image.png"
                 alt="DumpDog website displayed on a monitor — an example of Think Creative's web work"
-                width={660}
-                height={500}
+                width={664}
+                height={622}
                 className="h-auto w-full object-cover"
                 priority={false}
               />
             </div>
 
             
-            <div className="flex flex-wrap items-start gap-16 border border-[#18181C] px-11 py-6.75 rounded-lg">
+            <div className="flex flex-wrap w-full items-start border border-[#18181C] px-11 py-6.75 rounded-lg">
             
-              <div className="flex flex-col items-center gap-2 h-full border-r border-[#18181C] pr-11">
+              <div className="flex flex-col items-center gap-2 w-1/2 h-full border-r border-[#18181C] pr-11">
                 <div className="flex items-center gap-3">
                   <span
                     className="font-['Geist'] text-[48px] font-semibold leading-none text-[#FF5F1F]"
@@ -88,7 +85,7 @@ export default function IndustriesSection() {
               </div>
 
               
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col mx-auto gap-2 h-full">
                 <span
                   className="font-['Geist'] text-[48px] font-semibold leading-none text-[#FF5F1F]"
                   aria-label="98% retention rate"
@@ -103,7 +100,7 @@ export default function IndustriesSection() {
           </div>
 
           <div className="flex flex-col gap-16 lg:pt-4">
-            <header className="flex flex-col gap-5">
+            <header className="flex flex-col gap-8">
               <h2
                 id="industries-heading"
                 className="font-['Geist'] text-[48px] font-semibold leading-[1.2] tracking-[-2%] text-white"
@@ -111,8 +108,8 @@ export default function IndustriesSection() {
                 Marketing For All Industries
               </h2>
               <p className="font-['IBM_Plex_Sans'] text-[22px] font-normal leading-[1.4] tracking-[-1%] text-white">
-                While most businesses we do work for can be grouped by a handful
-                of major categories, if you name it, we do it.
+                While most businesses we do work for can be grouped by a<br/>
+                handful of major categories, if you name it, we do it.
               </p>
             </header>
 
@@ -122,7 +119,7 @@ export default function IndustriesSection() {
                   <li
                     key={label}
                     className={`
-                      flex items-center border-l-2 py-5 pl-6 transition-colors
+                      flex items-center border-l-2 py-6 pl-6 transition-colors
                       ${active ? "border-[#FF5F1F]" : "border-[#18181C]"
                       }
                     `}
@@ -142,9 +139,7 @@ export default function IndustriesSection() {
           </div>
         </div>
 
-        <div className="mt-28 flex flex-col items-start gap-10 lg:flex-row lg:items-start lg:gap-16">
-
-          <Testimonial 
+        <Testimonial 
             imageSrc="/images/mike-harvey.png"
             imageAlt="Mike Harvey, Owner of The Roof Resource"
             authorName="Mike Harvey"
@@ -160,7 +155,6 @@ export default function IndustriesSection() {
             </>
             }
         />
-        </div>
 
       </div>
     </section>
