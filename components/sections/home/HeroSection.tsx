@@ -15,14 +15,14 @@ const STATS = [
 /** Single stat card */
 function StatCard({ value, label }: { value: string; label: string }) {
   return (
-    <div className="flex flex-col gap-2 px-8 py-6 my-10">
+    <div className="flex flex-col gap-2 px-6 md:px-8 py-6 my-10">
       <span
-        className="font-['Geist'] text-[56px] font-semibold leading-none tracking-tight text-white lg:text-[62px]"
+        className="font-['Geist'] text-[34px] md:text-[56px] font-semibold leading-none tracking-tight text-white lg:text-[62px]"
         aria-label={`${value} — ${label}`}
       >
         {value}
       </span>
-      <span className="font-['IBM_Plex_Sans'] text-[20px] font-normal leading-snug text-[#595A65]">
+      <span className="font-['IBM_Plex_Sans'] text-[16px] md:text-[20px] font-normal leading-snug text-[#595A65]">
         {label}
       </span>
     </div>
@@ -71,22 +71,22 @@ export default function HeroSection() {
             </h1>
 
             {/* Subtitle */}
-            <p className="font-['IBM_Plex_Sans'] text-[24px] font-normal leading-relaxed text-[#F0F0F1]">
+            <p className="font-['IBM_Plex_Sans'] text-[24px] font-normal leading-relaxed text-[#F0F0F1] text-center lg:text-left">
               Successful companies partner with Think Creative to <br/> drive more
               revenue, leads, and awareness.
             </p>
 
             {/* CTA */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 items-center lg:items-start">
               <Link
                 href="/free-marketing-plan"
-                className="inline-flex w-fit items-center rounded-lg bg-[#FF5F1F] px-8 py-4 font-['Geist'] text-[20px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                className="inline-flex w-fit items-center rounded-lg bg-[#FF5F1F] px-8 py-4 font-['Geist'] md:text-[20px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               >
                 Get Your Free Marketing Plan
               </Link>
 
               {/* Social proof line */}
-              <p className="font-['IBM_Plex_Sans'] text-[16px] font-normal text-white/70">
+              <p className="font-['IBM_Plex_Sans'] text-[16px] font-normal text-white/70 text-center lg:text-left">
                 Winning marketing advice from our experience with{" "}
                 <strong className="font-bold text-white">1,000+ clients</strong>
               </p>
@@ -96,7 +96,7 @@ export default function HeroSection() {
           {/* ── RIGHT: Stats 2×2 grid ────────────────────────────────── */}
           <div
             aria-label="Agency statistics"
-            className="grid grid-cols-2"
+            className="grid grid-cols-2 mx-auto"
           >
             {/* Row 1 */}
             <div className="contents">
@@ -122,7 +122,7 @@ export default function HeroSection() {
 
             {/* Row 2 */}
             <div className="contents">
-              <div className="relative mt-6">
+              <div className="relative">
                 <div
                   aria-hidden="true"
                   className="absolute left-0 top-[10%] h-[80%] w-px bg-[#FF5F1F]"
@@ -131,7 +131,7 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="relative mt-6">
+            <div className="relative">
               <div
                 aria-hidden="true"
                 className="absolute left-0 top-[10%] h-[80%] w-px bg-[#FF5F1F]"

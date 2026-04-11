@@ -87,7 +87,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.8fr]">
 
           {/* ── LEFT — logo + contact card ──────────────────────── */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col items-center lg:items-start gap-8">
             {/* Large logo */}
             <Link href="/" aria-label="Think Creative — Home">
               <ThinkLogoLg />
@@ -172,7 +172,7 @@ export default function Footer() {
         </div>
 
         {/* ── Press logos strip ──────────────────────────────────── */}
-        <div className="mt-16 pt-12">
+        <div className="mt-6 pt-12">
           <ul
             className="flex flex-wrap items-center justify-between gap-x-6 gap-y-6"
             role="list"
@@ -197,7 +197,7 @@ export default function Footer() {
       </div>
 
       {/* ── Copyright bar ─────────────────────────────────────────── */}
-      <div>
+      <div className="mb-4">
         <div className="mx-auto flex max-w-468 px-6 lg:px-12 flex-wrap items-center justify-between gap-4 py-6">
           <p className="font-['Inter'] text-[15px] font-normal text-[#AAA]">
             © Think Creative 2026

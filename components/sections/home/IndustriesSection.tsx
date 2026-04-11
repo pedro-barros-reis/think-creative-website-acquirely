@@ -35,7 +35,8 @@ function StarRating({ count = 5 }: { count?: number }) {
           key={i}
           width={37}
           height={37}
-          className="fill-[#FF5F1F] text-[#FF5F1F]"
+          // Aqui a mágica acontece: 20px no mobile, 37px a partir da tela média (md)
+          className="w-4 h-4 md:w-[37px] md:h-[37px] fill-[#FF5F1F] text-[#FF5F1F]"
           aria-hidden="true"
         />
       ))}
@@ -63,37 +64,37 @@ export default function IndustriesSection() {
               />
             </div>
 
-            <div className="flex flex-wrap w-full items-start border border-[#18181C] px-11 py-6.75 rounded-lg">
+            <div className="flex flex-wrap w-full items-start border border-[#18181C] px-6 lg:px-11 py-6.75 rounded-lg">
               <div className="flex flex-col items-center gap-2 w-1/2 h-full border-r border-[#18181C] pr-11">
                 <div className="flex items-center gap-3">
                   <span
-                    className="font-['Geist'] text-[48px] font-semibold leading-none text-[#FF5F1F]"
+                    className="font-['Geist'] text-[32px] lg:text-[48px] font-semibold leading-none text-[#FF5F1F]"
                     aria-hidden="true"
                   >
                     5
                   </span>
                   <StarRating count={5} />
                 </div>
-                <span className="font-['IBM_Plex_Sans'] text-[16px] font-normal text-white">
+                <span className="font-['IBM_Plex_Sans'] text-[12px] lg:text-[16px] font-normal text-white">
                   rated services
                 </span>
               </div>
 
               <div className="flex flex-col mx-auto gap-2 h-full">
                 <span
-                  className="font-['Geist'] text-[48px] font-semibold leading-none text-[#FF5F1F]"
+                  className="font-['Geist'] text-[32px] lg:text-[48px] font-semibold leading-none text-[#FF5F1F]"
                   aria-label="98% retention rate"
                 >
                   98%
                 </span>
-                <span className="font-['IBM_Plex_Sans'] text-[16px] font-normal text-white">
+                <span className="font-['IBM_Plex_Sans'] text-[12px] lg:text-[16px] font-normal text-white">
                   retention rate
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col gap-16 lg:pt-4">
+          <div className="flex flex-col items-center gap-16 lg:pt-4">
             <header className="flex flex-col gap-8">
               <h2
                 id="industries-heading"

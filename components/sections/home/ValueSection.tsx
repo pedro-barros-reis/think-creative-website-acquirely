@@ -83,10 +83,10 @@ export default function ValueSection() {
     >
       <div className="mx-auto max-w-468 px-6 lg:px-12">
 
-        <div className="grid grid-cols-1 gap-112 lg:grid-cols-[1fr_1.4fr] lg:items-start">
+        <div className="grid grid-cols-1 gap-20 lg:gap-112 lg:grid-cols-[1fr_1.4fr] lg:items-start">
 
-          <div className="flex flex-col gap-8 lg:top-28">
-            <header className="flex flex-col gap-5">
+          <div className="flex flex-col items-center lg:items-star gap-8 lg:top-28">
+            <header className="flex flex-col gap-5 items-center lg:items-start text-center lg:text-left">
               <h2
                 id="experience-heading"
                 className="font-['Geist'] text-[48px] font-semibold leading-[1.2] tracking-[-0.02em] text-white"

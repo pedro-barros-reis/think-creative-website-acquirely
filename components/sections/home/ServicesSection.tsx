@@ -214,11 +214,11 @@ export default function ServicesSection() {
         {/* ── CTA button ─────────────────────────────────────────────── */}
         <div className="mt-16 flex justify-center">
           <Link
-            href="/free-marketing-plan"
-            className="inline-flex items-center rounded-md bg-[#FF5F1F] px-10 py-4 font-['Geist'] text-[20px] font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-          >
-            Get Your Free Marketing Plan
-          </Link>
+                href="/free-marketing-plan"
+                className="inline-flex w-fit items-center rounded-lg bg-[#FF5F1F] px-8 py-4 font-['Geist'] md:text-[20px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              >
+                Get Your Free Marketing Plan
+              </Link>
         </div>
 
         <Testimonial

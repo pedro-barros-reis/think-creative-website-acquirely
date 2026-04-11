@@ -2,8 +2,7 @@
 
 import { useRef, useState, useCallback, useEffect } from "react";
 import Image from "next/image";
-import { MoveLeft, MoveRight} from "lucide-react";
-
+import { MoveLeft, MoveRight } from "lucide-react";
 
 function GoogleLogo() {
   return (
@@ -11,30 +10,28 @@ function GoogleLogo() {
       src="/svg/google-logo.svg"
       alt="Google"
       width={36}
-      height={37}    
+      height={37}
     />
   );
 }
-
 
 function StarRow({ count = 5 }: { count?: number }) {
   return (
     <div className="flex items-center gap-1" aria-label={`${count} stars`} role="img">
       {Array.from({ length: count }).map((_, i) => (
-        <Image 
-        alt="Star Rating"
-        src="/svg/rate-star.svg"
-        key={i}
-        width={20}
-        height={20}
-        className="fill-[#FF5F1F] text-[#FF5F1F]"
-        aria-hidden="true"
+        <Image
+          alt="Star Rating"
+          src="/svg/rate-star.svg"
+          key={i}
+          width={20}
+          height={20}
+          className="fill-[#FF5F1F] text-[#FF5F1F]"
+          aria-hidden="true"
         />
       ))}
     </div>
   );
 }
-
 
 export interface Testimonial {
   id: string;
@@ -47,46 +44,40 @@ export interface Testimonial {
 const TESTIMONIALS: Testimonial[] = [
   {
     id: "t1",
-    quote:
-      '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
+    quote: '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
     name: "Mike Bennett",
     avatar: "/images/mike-bennett.png",
     stars: 5,
   },
   {
     id: "t2",
-    quote:
-      '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
+    quote: '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
     name: "Mike Bennett",
     avatar: "/images/mike-bennett.png",
     stars: 5,
   },
   {
     id: "t3",
-    quote:
-      '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
+    quote: '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
     name: "Mike Bennett",
     avatar: "/images/mike-bennett.png",
     stars: 5,
   },
   {
     id: "t4",
-    quote:
-      '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
+    quote: '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
     name: "Mike Bennett",
     avatar: "/images/mike-bennett.png",
     stars: 5,
   },
   {
     id: "t5",
-    quote:
-      '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
+    quote: '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
     name: "Mike Bennett",
     avatar: "/images/mike-bennett.png",
     stars: 5,
   },
 ];
-
 
 function RatingCards({ testimonial }: { testimonial: Testimonial }) {
   return (
@@ -94,20 +85,17 @@ function RatingCards({ testimonial }: { testimonial: Testimonial }) {
       className="flex h-full w-full flex-col justify-between rounded-lg bg-white"
       style={{ padding: "46px 54px" }}
     >
-
       <div className="flex flex-col gap-6">
         <div className="flex items-center gap-4">
           <GoogleLogo />
           <StarRow count={testimonial.stars ?? 5} />
         </div>
 
-        
         <p className="font-['IBM_Plex_Sans'] text-[20px] font-normal leading-[-1%] text-[#101012]">
           {testimonial.quote}
         </p>
       </div>
 
-  
       <footer className="mt-10 flex items-center gap-4">
         <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full">
           <Image
@@ -126,34 +114,45 @@ function RatingCards({ testimonial }: { testimonial: Testimonial }) {
   );
 }
 
-// ─── Infinite Carousel ─────────────────────────────────────────────────────
-// Shows 3 cards at a time (desktop), 1 on mobile.
-// Clones [last, ...items, first] to enable seamless looping.
-
-const VISIBLE = 3;   // cards visible at once on desktop
-const GAP     = 24;  // px gap between cards (= gap-6)
+const GAP = 24; // px gap between cards
 
 export default function TestimonialsSection() {
   const total = TESTIMONIALS.length;
 
-  // Build extended list: [last clone, ...originals, first clone]
-  // For 3 visible we clone the last 3 at the front and first 3 at the back.
-  const cloneBefore = TESTIMONIALS.slice(-VISIBLE);
-  const cloneAfter  = TESTIMONIALS.slice(0, VISIBLE);
-  const extended    = [...cloneBefore, ...TESTIMONIALS, ...cloneAfter];
-
-  // Start index points to first real item (after the clones)
-  const startIdx = VISIBLE;
-  const [current, setCurrent] = useState(startIdx);
+  // 1. Estado para controlar quantos cards são visíveis (Responsividade)
+  const [visibleCards, setVisibleCards] = useState(3);
+  const [current, setCurrent] = useState(3); // Inicia apontando para o primeiro item real
   const [animated, setAnimated] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
+  
   const trackRef = useRef<HTMLDivElement>(null);
   const isTransitioning = useRef(false);
 
-  // Dot index (0-based, relative to originals)
-  const dotIdx = ((current - VISIBLE) % total + total) % total;
+  // Efeito para lidar com o redimensionamento da janela e SSR
+  useEffect(() => {
+    setIsMounted(true);
+    
+    const handleResize = () => {
+      // Se a tela for menor que 1024px (lg no Tailwind), exibe 1 card. Caso contrário, 3.
+      const newVisible = window.innerWidth < 1024 ? 1 : 3;
+      
+      if (visibleCards !== newVisible) {
+        setVisibleCards(newVisible);
+        setCurrent(newVisible); // Reseta a posição para evitar bugs visuais durante o redimensionamento
+      }
+    };
 
-  // Width of a single card (as percentage of track — handled via CSS flex)
-  // We use CSS custom properties so we don't need to measure anything.
+    handleResize(); // Checa na primeira montagem
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [visibleCards]);
+
+  // Clonagem dinâmica baseada na quantidade de cards visíveis no momento
+  const cloneBefore = TESTIMONIALS.slice(-visibleCards);
+  const cloneAfter = TESTIMONIALS.slice(0, visibleCards);
+  const extended = [...cloneBefore, ...TESTIMONIALS, ...cloneAfter];
+
+  const dotIdx = ((current - visibleCards) % total + total) % total;
 
   const goTo = useCallback((idx: number, withAnimation = true) => {
     if (isTransitioning.current) return;
@@ -165,24 +164,20 @@ export default function TestimonialsSection() {
   const next = () => goTo(current + 1);
   const prev = () => goTo(current - 1);
 
-  // After transition ends, silently snap if we're on a clone
   const handleTransitionEnd = useCallback(() => {
     isTransitioning.current = false;
-    const len = extended.length;
-    // If we've scrolled into the leading clones, jump to real end
-    if (current < VISIBLE) {
+    // Se rolou para os clones do início, pula silenciosamente para o final real
+    if (current < visibleCards) {
       setAnimated(false);
-      setCurrent(total + VISIBLE + current - VISIBLE); // mirror position
+      setCurrent(total + visibleCards + current - visibleCards);
     }
-    // If we've scrolled into the trailing clones, jump to real start
-    if (current >= VISIBLE + total) {
+    // Se rolou para os clones do final, pula silenciosamente para o início real
+    if (current >= visibleCards + total) {
       setAnimated(false);
-      setCurrent(VISIBLE + (current - VISIBLE - total));
+      setCurrent(visibleCards + (current - visibleCards - total));
     }
-    void len; // suppress unused
-  }, [current, total, extended.length]);
+  }, [current, total, visibleCards]);
 
-  // Re-enable animation after silent snap
   useEffect(() => {
     if (!animated) {
       const id = requestAnimationFrame(() => {
@@ -194,26 +189,26 @@ export default function TestimonialsSection() {
     }
   }, [animated]);
 
-  // Keyboard navigation
   useEffect(() => {
     const el = trackRef.current?.parentElement;
     if (!el) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight") next();
-      if (e.key === "ArrowLeft")  prev();
+      if (e.key === "ArrowLeft") prev();
     };
     el.addEventListener("keydown", onKey);
     return () => el.removeEventListener("keydown", onKey);
   });
+
+  // Evita renderização quebrada no servidor antes da hidratação do tamanho da tela
+  if (!isMounted) return null;
 
   return (
     <section
       aria-labelledby="testimonials-heading"
       className="w-full bg-[#F0F0F1] py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-468 px-6 lg:px-12">
-
-        
+      <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <h2
           id="testimonials-heading"
           className="mb-12 text-center font-['Geist'] text-[48px] font-semibold leading-[1.2] tracking-[-0.02em] text-[#101012]"
@@ -221,22 +216,20 @@ export default function TestimonialsSection() {
           What Others Think
         </h2>
 
-        {/* Carousel viewport */}
         <div
           className="relative overflow-hidden"
           role="region"
           aria-label="Client testimonials carousel"
           tabIndex={0}
         >
-          {/* Track */}
           <div
             ref={trackRef}
-            className="flex"
+            // 2. Removido o flex-col, o track deve ser SEMPRE em linha
+            className="flex items-stretch w-full"
             style={{
               gap: `${GAP}px`,
-              transform: `translateX(calc(-${current} * (100% / ${VISIBLE} + ${GAP / VISIBLE}px) + ${VISIBLE * (100 / VISIBLE)}% / ${extended.length} ))`,
-              // Simpler, layout-independent approach:
-              transform: `translateX(calc(-${current} * (calc((100% - ${GAP * (VISIBLE - 1)}px) / ${VISIBLE} + ${GAP}px))))`,
+              // O cálculo agora usa a variável de estado 'visibleCards' dinamicamente
+              transform: `translateX(calc(-${current} * (calc((100% - ${GAP * (visibleCards - 1)}px) / ${visibleCards} + ${GAP}px))))`,
               transition: animated ? "transform 500ms cubic-bezier(0.4,0,0.2,1)" : "none",
               willChange: "transform",
             }}
@@ -245,9 +238,10 @@ export default function TestimonialsSection() {
             {extended.map((t, i) => (
               <div
                 key={`${t.id}-${i}`}
-                aria-hidden={i < VISIBLE || i >= VISIBLE + total}
+                aria-hidden={i < visibleCards || i >= visibleCards + total}
                 style={{
-                  flex: `0 0 calc((100% - ${GAP * (VISIBLE - 1)}px) / ${VISIBLE})`,
+                  // A largura de cada card se ajusta à tela (100% no mobile, ~33.3% no desktop)
+                  flex: `0 0 calc((100% - ${GAP * (visibleCards - 1)}px) / ${visibleCards})`,
                   minWidth: 0,
                 }}
               >
@@ -257,9 +251,8 @@ export default function TestimonialsSection() {
           </div>
         </div>
 
-        {/* Controls: dots left · arrows right */}
+        {/* Controles do Carrossel */}
         <div className="mt-10 flex items-center justify-between">
-          {/* Pagination dots */}
           <div
             className="flex items-center gap-2"
             role="tablist"
@@ -271,7 +264,7 @@ export default function TestimonialsSection() {
                 role="tab"
                 aria-selected={i === dotIdx}
                 aria-label={`Go to testimonial ${i + 1}`}
-                onClick={() => goTo(i + VISIBLE)}
+                onClick={() => goTo(i + visibleCards)}
                 className={`h-2.5 w-2.5 rounded-full transition-all cursor-pointer ${
                   i === dotIdx
                     ? "bg-[#101012] scale-125"
@@ -281,25 +274,23 @@ export default function TestimonialsSection() {
             ))}
           </div>
 
-          {/* Arrow buttons */}
           <div className="flex items-center gap-2">
             <button
               onClick={prev}
               aria-label="Previous testimonial"
-              className="flex h-12 w-12 items-center justify-center rounded-lmd bg-white text-[#101012] transition-colors hover:bg-[#101012] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] cursor-pointer"
+              className="flex h-12 w-12 items-center justify-center rounded-md bg-white text-[#101012] transition-colors hover:bg-[#101012] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] cursor-pointer"
             >
               <MoveLeft size={20} strokeWidth={2} aria-hidden="true" />
             </button>
             <button
               onClick={next}
               aria-label="Next testimonial"
-              className="flex h-12 w-12 items-center justify-center rounded-lmd bg-white text-[#101012] transition-colors hover:bg-[#101012] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] cursor-pointer"
+              className="flex h-12 w-12 items-center justify-center rounded-md bg-white text-[#101012] transition-colors hover:bg-[#101012] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] cursor-pointer"
             >
               <MoveRight size={20} strokeWidth={2} aria-hidden="true" />
             </button>
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -34,7 +34,7 @@ export default function CarouselSection() {
       aria-labelledby="founder-heading"
       className="w-full bg-white py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-468 px-6 lg:px-12 xl:pr-64">
+      <div className="mx-auto max-w-468 items-center lg:items-start px-6 lg:px-12 xl:pr-64">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
 
           
@@ -50,7 +50,7 @@ export default function CarouselSection() {
           </div>
 
           
-          <div className="flex flex-col gap-10 w-full">
+          <div className="flex flex-col gap-10 w-full items-center lg:items-start">
             
             <h2
               id="founder-heading"
@@ -61,7 +61,7 @@ export default function CarouselSection() {
 
             
             <blockquote
-              className="font-['Geist'] text-[38px] font-light leading-[1.3] tracking-[-0.01em] text-[#101012]"
+              className="font-['Geist'] text-[38px] font-light leading-[1.3] tracking-[-0.01em] text-[#101012] text-center lg:text-left"
             >
               "Simply put, we're passionate about helping others grow their
               businesses. Our care for our partners runs deep, and we pride
@@ -70,7 +70,7 @@ export default function CarouselSection() {
             </blockquote>
 
             
-            <footer className="flex items-center gap-6 flex-wrap">
+            <footer className="flex items-center justify-center lg:justify-normal gap-6 flex-wrap">
               
               <div className="flex items-center gap-4">
                 <ThinkLogo />

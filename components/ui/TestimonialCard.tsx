@@ -22,7 +22,7 @@ export const Testimonial = ({
 }: TestimonialProps) => {
 
   return (
-    <div className={`mt-30 flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-start lg:gap-20 ${bgLight ? 'text-black' : 'text-[#F0F0F1]'}`}>
+    <div className={`mt-30 flex flex-col items-center justify-between gap-10 lg:flex-row lg:items-start lg:gap-20 ${bgLight ? 'text-black' : 'text-[#F0F0F1]'}`}>
       <div className="relative shrink-0">
         <div 
           aria-hidden="true"
@@ -39,8 +39,8 @@ export const Testimonial = ({
       </div>
 
       
-      <div className="flex flex-col gap-16">
-        <blockquote className={`font-['IBM_Plex_Sans'] text-[18px] font-normal leading-[1.7] tracking-[1%] ${bgLight ? 'text-black' : 'text-[#F0F0F1]'} lg:text-[28px]`}>
+      <div className="flex flex-col items-center lg:items-start gap-16">
+        <blockquote className={`font-['IBM_Plex_Sans'] text-[18px] font-normal leading-[1.7] tracking-[1%] ${bgLight ? 'text-black' : 'text-[#F0F0F1]'} lg:text-[28px] text-center lg:text-left`}>
           {quote}
         </blockquote>
 

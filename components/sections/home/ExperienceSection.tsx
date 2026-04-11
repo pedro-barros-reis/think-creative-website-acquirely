@@ -41,7 +41,7 @@ export default function ExperienceSection() {
       className="w-full bg-[#F0F0F1] py-24 lg:py-32"
     >
       <div className="mx-auto max-w-468 px-6 lg:px-12">
-        <div className="grid grid-cols-1 gap-112 lg:grid-cols-[1fr_1.4fr] lg:items-start">
+        <div className="grid grid-cols-1 gap-20 lg:gap-112 lg:grid-cols-[1fr_1.4fr] lg:items-start">
           <div className="flex flex-col gap-8 lg:top-28">
             <header className="flex flex-col gap-5">
               <h2
