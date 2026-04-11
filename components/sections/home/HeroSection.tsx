@@ -1,3 +1,4 @@
+import PressBanner from "@/components/ui/PressBanner";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,32 +10,7 @@ const STATS = [
   { value: "1,000s", label: "of #1 SEO rankings"     },
 ] as const;
 
-
-const PRESS_LOGOS: { id: string; alt: string }[] = [
-  { id: "usa-based",        alt: "100% USA Based"    },
-  { id: "ap-news",          alt: "AP News"                },
-  { id: "forbes",           alt: "Forbes"            },
-  { id: "yahoo-news",       alt: "Yahoo! News"       },
-  { id: "business-insider", alt: "Business Insider"  },
-  { id: "newsmax",          alt: "Newsmax"           },
-  { id: "apple-news",       alt: "Apple News"        },
-  { id: "inc",              alt: "Inc."              },
-  { id: "entrepreneur",     alt: "Entrepreneur"      },
-];
-
 // ─── Sub-components ────────────────────────────────────────────────────────
-
-/** Orange vertical divider between stat pairs */
-function StatDivider({ orientation }: { orientation: "vertical" | "horizontal" }) {
-  if (orientation === "vertical") {
-    return (
-      <div
-        aria-hidden="true"
-        className="hidden w-px self-stretch bg-[#FF5F1F] md:block"
-      />
-    );
-  }
-}
 
 /** Single stat card */
 function StatCard({ value, label }: { value: string; label: string }) {
@@ -165,31 +141,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* ── Press logos strip ──────────────────────────────────────── */}
-        <div
-          aria-label="As seen in"
-          className="mt-20 pt-12"
-        >
-          <ul
-            className="flex flex-wrap items-center justify-between gap-x-8 gap-y-6"
-            role="list"
-          >
-            {PRESS_LOGOS.map(({ id, alt }) => (
-              <li
-                key={id}
-                className="flex items-center justify-center opacity-60 grayscale transition-opacity hover:opacity-100"
-              >
-                {<Image
-                       src={`/svg/brands/${id}.svg`}
-                       alt={alt}
-                       width={120}
-                       height={32}
-                       className="h-7 w-auto object-contain"
-                     />}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <PressBanner />
       </div>
     </section>
   );

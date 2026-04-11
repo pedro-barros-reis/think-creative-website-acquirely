@@ -88,7 +88,7 @@ const TESTIMONIALS: Testimonial[] = [
 ];
 
 
-function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+function RatingCards({ testimonial }: { testimonial: Testimonial }) {
   return (
     <article
       className="flex h-full w-full flex-col justify-between rounded-lg bg-white"
@@ -251,7 +251,7 @@ export default function TestimonialsSection() {
                   minWidth: 0,
                 }}
               >
-                <TestimonialCard testimonial={t} />
+                <RatingCards testimonial={t} />
               </div>
             ))}
           </div>

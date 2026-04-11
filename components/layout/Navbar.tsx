@@ -1,9 +1,8 @@
 "use client";
 
-// components/think/Navbar.tsx
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import Image from "next/image";
 
 // ─── Services dropdown items ───────────────────────────────────────────────
@@ -122,9 +121,7 @@ export default function Navbar() {
           className="flex flex-col gap-[5px] md:hidden"
           aria-label="Open menu"
         >
-          <span className="h-[2px] w-6 bg-white" />
-          <span className="h-[2px] w-6 bg-white" />
-          <span className="h-[2px] w-4 bg-white" />
+          <Menu></Menu>
         </button>
       </div>
     </header>

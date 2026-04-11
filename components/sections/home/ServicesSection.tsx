@@ -1,15 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Testimonial } from "./ui/TestimonialCard";
+import { Testimonial } from "../../ui/TestimonialCard";
 
 function IconSEO() {
   return (
-    <Image 
-    alt="SEO Icon" 
-    src="/svg/services/seo.svg" 
-    width={136} 
-    height={111} />
+    <Image
+      alt="SEO Icon"
+      src="/svg/services/seo.svg"
+      width={136}
+      height={111}
+    />
   );
 }
 
@@ -77,35 +78,40 @@ const SERVICES = [
   {
     id: "seo",
     title: "SEO",
-    description: "We'll rank your website higher on Google's SERPs for more traffic, leads, and revenue.",
+    description:
+      "We'll rank your website higher on Google's SERPs for more traffic, leads, and revenue.",
     href: "/services/seo",
     icon: <IconSEO />,
   },
   {
     id: "ppc",
     title: "PPC",
-    description: "We'll serve your ads at the top of Google's SERPs for more traffic, leads, and revenue.",
+    description:
+      "We'll serve your ads at the top of Google's SERPs for more traffic, leads, and revenue.",
     href: "/services/ppc",
     icon: <IconPPC />,
   },
   {
     id: "facebook-ads",
     title: "Facebook Ads",
-    description: "We'll serve your ads on Facebook and IG for more awareness, leads, and revenue.",
+    description:
+      "We'll serve your ads on Facebook and IG for more awareness, leads, and revenue.",
     href: "/services/facebook-ads",
     icon: <IconFacebookAds />,
   },
   {
     id: "graphic-design",
     title: "Graphic Design",
-    description: "We'll enhance your digital presence for more engagement, leads, and revenue.",
+    description:
+      "We'll enhance your digital presence for more engagement, leads, and revenue.",
     href: "/services/graphic-design",
     icon: <IconGraphicDesign />,
   },
   {
     id: "web-development",
     title: "Web Development",
-    description: "We'll develop your project to your custom specifications and desired goals.",
+    description:
+      "We'll develop your project to your custom specifications and desired goals.",
     href: "/services/web-development",
     icon: <IconWebDevelopment />,
   },
@@ -124,7 +130,6 @@ function ServiceCard({
 }) {
   return (
     <article className="group flex flex-col gap-6 rounded-lg bg-[#101012] p-8 ">
-    
       <div className="h-[88px] w-auto">{icon}</div>
 
       <div className="flex flex-col gap-3">
@@ -153,7 +158,6 @@ function ServiceCard({
   );
 }
 
-
 export default function ServicesSection() {
   return (
     <section
@@ -161,7 +165,6 @@ export default function ServicesSection() {
       className="w-full bg-[#000000] py-24 lg:py-32"
     >
       <div className="mx-auto max-w-468 px-6 lg:px-12">
-
         {/* ── Section header ─────────────────────────────────────────── */}
         <header className="mb-20 flex flex-col items-center gap-8 text-center">
           <h2
@@ -218,8 +221,7 @@ export default function ServicesSection() {
           </Link>
         </div>
 
-        
-        <Testimonial 
+        <Testimonial
           imageSrc="/images/bob-chapa-photography.png"
           imageAlt="Bob Chapa, Founder & CEO of Signarama"
           authorName="Bob Chapa"
@@ -228,17 +230,17 @@ export default function ServicesSection() {
           quote={
             <>
               "As we approach our 20th year in business, I can absolutely claim
-              we've never worked with a <br/> marketing agency even close to the skill
-              level of Think Creative. Think Creative is basically a <br/> mind-reading
-              ninja; they listen well, study your needs, and execute consistently.
-              They <br/> redesigned our website and continued with marketing work, and
-              the results are showing for <br/> themselves. It's truly a pleasure
-              working with their entire team, and I see many years of a great <br/>
+              we've never worked with a <br /> marketing agency even close to
+              the skill level of Think Creative. Think Creative is basically a{" "}
+              <br /> mind-reading ninja; they listen well, study your needs, and
+              execute consistently. They <br /> redesigned our website and
+              continued with marketing work, and the results are showing for{" "}
+              <br /> themselves. It's truly a pleasure working with their entire
+              team, and I see many years of a great <br />
               relationship in our future."
             </>
           }
         />
-
       </div>
     </section>
   );

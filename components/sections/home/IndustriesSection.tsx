@@ -1,48 +1,47 @@
 import Image from "next/image";
-import { Testimonial } from "./ui/TestimonialCard";
-
+import { Testimonial } from "../../ui/TestimonialCard";
 
 const INDUSTRIES = [
-  { label: "Home Services",         active: false },
+  { label: "Home Services", active: false },
   { label: "Professional Services", active: true },
-  { label: "Health & Medical",      active: false },
-  { label: "RV & Automotive",       active: false },
-  { label: "Government",            active: false },
-  { label: "& hundreds more!",      active: false },
+  { label: "Health & Medical", active: false },
+  { label: "RV & Automotive", active: false },
+  { label: "Government", active: false },
+  { label: "& hundreds more!", active: false },
 ] as const;
-
-
 
 function RoofResourceLogo() {
   return (
-    <Image 
-    alt="Roof Resource Logo"
-    src='/svg/roof-resource-logo.svg'
-    width={52}
-    height={39}
+    <Image
+      alt="Roof Resource Logo"
+      src="/svg/roof-resource-logo.svg"
+      width={52}
+      height={39}
     />
   );
 }
 
-
 function StarRating({ count = 5 }: { count?: number }) {
   return (
-    <div className="flex items-center gap-1" aria-label={`${count} out of 5 stars`} role="img">
+    <div
+      className="flex items-center gap-1"
+      aria-label={`${count} out of 5 stars`}
+      role="img"
+    >
       {Array.from({ length: count }).map((_, i) => (
-        <Image 
-        alt="Star Rating"
-        src="/svg/rate-star.svg"
-        key={i}
-        width={37}
-        height={37}
-        className="fill-[#FF5F1F] text-[#FF5F1F]"
-        aria-hidden="true"
+        <Image
+          alt="Star Rating"
+          src="/svg/rate-star.svg"
+          key={i}
+          width={37}
+          height={37}
+          className="fill-[#FF5F1F] text-[#FF5F1F]"
+          aria-hidden="true"
         />
       ))}
     </div>
   );
 }
-
 
 export default function IndustriesSection() {
   return (
@@ -51,8 +50,6 @@ export default function IndustriesSection() {
       className="w-full bg-[#101012] py-24 lg:py-32"
     >
       <div className="mx-auto max-w-468 px-6 lg:px-12">
-
-       
         <div className="grid grid-cols-1 items-start gap-26 lg:grid-cols-2">
           <div className="flex flex-col w-full gap-10">
             <div className="relative w-full overflow-hidden rounded-lg">
@@ -66,9 +63,7 @@ export default function IndustriesSection() {
               />
             </div>
 
-            
             <div className="flex flex-wrap w-full items-start border border-[#18181C] px-11 py-6.75 rounded-lg">
-            
               <div className="flex flex-col items-center gap-2 w-1/2 h-full border-r border-[#18181C] pr-11">
                 <div className="flex items-center gap-3">
                   <span
@@ -84,7 +79,6 @@ export default function IndustriesSection() {
                 </span>
               </div>
 
-              
               <div className="flex flex-col mx-auto gap-2 h-full">
                 <span
                   className="font-['Geist'] text-[48px] font-semibold leading-none text-[#FF5F1F]"
@@ -108,7 +102,7 @@ export default function IndustriesSection() {
                 Marketing For All Industries
               </h2>
               <p className="font-['IBM_Plex_Sans'] text-[22px] font-normal leading-[1.4] tracking-[-1%] text-white">
-                While most businesses we do work for can be grouped by a<br/>
+                While most businesses we do work for can be grouped by a<br />
                 handful of major categories, if you name it, we do it.
               </p>
             </header>
@@ -120,8 +114,7 @@ export default function IndustriesSection() {
                     key={label}
                     className={`
                       flex items-center border-l-2 py-6 pl-6 transition-colors
-                      ${active ? "border-[#FF5F1F]" : "border-[#18181C]"
-                      }
+                      ${active ? "border-[#FF5F1F]" : "border-[#18181C]"}
                     `}
                   >
                     <span
@@ -139,23 +132,29 @@ export default function IndustriesSection() {
           </div>
         </div>
 
-        <Testimonial 
-            imageSrc="/images/mike-harvey.png"
-            imageAlt="Mike Harvey, Owner of The Roof Resource"
-            authorName="Mike Harvey"
-            authorTitle="Owner, The Roof Resource"
-            Logo={RoofResourceLogo}
-            quote={
+        <Testimonial
+          imageSrc="/images/mike-harvey.png"
+          imageAlt="Mike Harvey, Owner of The Roof Resource"
+          authorName="Mike Harvey"
+          authorTitle="Owner, The Roof Resource"
+          Logo={RoofResourceLogo}
+          quote={
             <>
-                “Think Creative immediately brought a level of professionalism you’d expect along with great <br/>
-                insight, direction, and a desire to learn our business model. Within a week, the team fired up our <br/>
-                marketing and we couldn’t be more pleased! I also appreciated their insight in the digital space<br/>
-                and the direction they gave us based on our needs today. I highly recommend a phone call to<br/>
-                Think Creative even if you are currently working with another agency.”
+              “Think Creative immediately brought a level of professionalism
+              you’d expect along with great <br />
+              insight, direction, and a desire to learn our business model.
+              Within a week, the team fired up our <br />
+              marketing and we couldn’t be more pleased! I also appreciated
+              their insight in the digital space
+              <br />
+              and the direction they gave us based on our needs today. I highly
+              recommend a phone call to
+              <br />
+              Think Creative even if you are currently working with another
+              agency.”
             </>
-            }
+          }
         />
-
       </div>
     </section>
   );
