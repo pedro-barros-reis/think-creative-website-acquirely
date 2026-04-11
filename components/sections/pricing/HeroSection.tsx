@@ -7,12 +7,12 @@ import PressBanner from "@/components/ui/PressBanner";
 
 // ─── Service options ───────────────────────────────────────────────────────
 const SERVICES = [
-  { id: "seo",             label: "SEO"              },
-  { id: "ppc",             label: "PPC"              },
-  { id: "facebook-ads",    label: "Facebook Ads"     },
-  { id: "graphic-design",  label: "Graphic Design"   },
-  { id: "web-development", label: "Web Development"  },
-  { id: "other",           label: "Other"            },
+  { id: "seo", label: "SEO" },
+  { id: "ppc", label: "PPC" },
+  { id: "facebook-ads", label: "Facebook Ads" },
+  { id: "graphic-design", label: "Graphic Design" },
+  { id: "web-development", label: "Web Development" },
+  { id: "other", label: "Other" },
 ] as const;
 
 type ServiceId = (typeof SERVICES)[number]["id"];
@@ -43,7 +43,10 @@ export default function PricingHeroSection() {
       className="relative w-full overflow-hidden bg-black"
     >
       {/* ── Background glow (same asset as homepage hero) ────────── */}
-      <div className="pointer-events-none absolute inset-0 z-0 select-none" aria-hidden="true">
+      <div
+        className="pointer-events-none absolute inset-0 z-0 select-none"
+        aria-hidden="true"
+      >
         <Image
           src="/images/hero-background.png"
           alt=""
@@ -56,24 +59,25 @@ export default function PricingHeroSection() {
 
       {/* ── Content ───────────────────────────────────────────────── */}
       <div className="relative z-10 mx-auto flex max-w-468 flex-col items-center gap-12 px-6 pb-20 pt-24 text-center lg:px-12 lg:pb-28 lg:pt-32">
-
         {/* Section heading */}
         <header className="flex flex-col items-center gap-5">
           <h1
             id="pricing-hero-heading"
             className="font-['Geist'] text-[52px] font-bold leading-[1.05] tracking-[-0.02em] text-white lg:text-[62px]"
           >
-            Get Your Free Marketing Plan<br/> Based On{" "}
+            Get Your Free Marketing Plan
+            <br /> Based On{" "}
             {/* "Real Client Data" — same text-selection highlight as homepage */}
             <mark className="bg-[#2D3748]/70 px-1 text-white not-italic [box-decoration-break:clone]">
               Real Client Data
             </mark>
           </h1>
 
-          <p className="font-['IBM_Plex_Sans'] text-[18px] font-normal leading-relaxed text-[#F0F0F1]">
+          <p className="font-['IBM Plex Sans'] text-[18px] font-normal leading-relaxed text-[#F0F0F1]">
             Winning marketing advice from our experience{" "}
             <br className="hidden sm:block" />
-            with <strong className="font-bold text-white">1,000+ clients</strong>.
+            with{" "}
+            <strong className="font-bold text-white">1,000+ clients</strong>.
           </p>
         </header>
 
@@ -83,7 +87,7 @@ export default function PricingHeroSection() {
             <h2 className="font-['Geist'] text-[32px] font-semibold leading-tight text-white">
               What do you need help with?
             </h2>
-            <p className="font-['IBM_Plex_Sans'] text-[18px] font-normal text-[#F0F0F1]/70">
+            <p className="font-['IBM Plex Sans'] text-[18px] font-normal text-[#F0F0F1]/70">
               Select all that apply.
             </p>
           </div>
@@ -107,9 +111,10 @@ export default function PricingHeroSection() {
                     transition-all duration-150 focus-visible:outline-none
                     focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2
                     focus-visible:ring-offset-[#18181C]
-                    ${isActive
-                      ? "bg-[#7C2D12] border border-[#FF5F1F] text-white"
-                      : "bg-[#101012] text-white hover:bg-[#222226]"
+                    ${
+                      isActive
+                        ? "bg-[#7C2D12] border border-[#FF5F1F] text-white"
+                        : "bg-[#101012] text-white hover:bg-[#222226]"
                     }
                   `}
                 >
@@ -132,7 +137,7 @@ export default function PricingHeroSection() {
           </div>
         </div>
 
-        <PressBanner/>
+        <PressBanner />
       </div>
     </section>
   );

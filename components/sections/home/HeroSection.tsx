@@ -4,10 +4,10 @@ import Link from "next/link";
 
 // ─── Stats data ────────────────────────────────────────────────────────────
 const STATS = [
-  { value: "15+",    label: "years in business"     },
-  { value: "100%",   label: "USA-based team"         },
-  { value: "$200M+", label: "managed ad spend"       },
-  { value: "1,000s", label: "of #1 SEO rankings"     },
+  { value: "15+", label: "years in business" },
+  { value: "100%", label: "USA-based team" },
+  { value: "$200M+", label: "managed ad spend" },
+  { value: "1,000s", label: "of #1 SEO rankings" },
 ] as const;
 
 // ─── Sub-components ────────────────────────────────────────────────────────
@@ -22,7 +22,7 @@ function StatCard({ value, label }: { value: string; label: string }) {
       >
         {value}
       </span>
-      <span className="font-['IBM_Plex_Sans'] text-[16px] md:text-[20px] font-normal leading-snug text-[#595A65]">
+      <span className="font-['IBM Plex Sans'] text-[16px] md:text-[20px] font-normal leading-snug text-[#595A65]">
         {label}
       </span>
     </div>
@@ -51,14 +51,12 @@ export default function HeroSection() {
 
       {/* ── Main content ──────────────────────────────────────────────── */}
       <div className="relative z-10 mx-auto max-w-468 px-6 pb-16 pt-20 lg:px-12 lg:pb-24 lg:pt-28">
-
         {/* Top grid: copy left · stats right */}
         <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
-
           {/* ── LEFT: Headline + subtitle + CTA ─────────────────────── */}
           <div className="flex flex-col gap-8">
             {/* H1 */}
-            <h1 className="font-['Geist'] text-[48px] font-bold leading-[1.05] tracking-tight text-white lg:text-[62px]">
+            <h1 className="font-['Geist'] text-[42px] font-semibold leading-[1.05] tracking-tight text-white lg:text-[62px] text-center lg:text-left">
               The{" "}
               {/*
                * "Michigan-Based" — text-selection highlight effect.
@@ -66,14 +64,14 @@ export default function HeroSection() {
                */}
               <mark className="bg-[#2D3748]/70 text-white [box-decoration-break:clone] px-1 not-italic">
                 Michigan-Based
-              </mark>
-              {" "}Marketing Agency <br/> With Local Expertise <br/> &amp; Tenacious Grit
+              </mark>{" "}
+              Marketing Agency With Local Expertise &amp; Tenacious Grit
             </h1>
 
             {/* Subtitle */}
-            <p className="font-['IBM_Plex_Sans'] text-[24px] font-normal leading-relaxed text-[#F0F0F1] text-center lg:text-left">
-              Successful companies partner with Think Creative to <br/> drive more
-              revenue, leads, and awareness.
+            <p className="font-['IBM Plex Sans'] text-[20px] lg:text-[24px] font-normal leading-[129%] text-[#F0F0F1] text-center lg:text-left">
+              Successful companies partner with Think Creative to drive
+              more revenue, leads, and awareness.
             </p>
 
             {/* CTA */}
@@ -86,7 +84,7 @@ export default function HeroSection() {
               </Link>
 
               {/* Social proof line */}
-              <p className="font-['IBM_Plex_Sans'] text-[16px] font-normal text-white/70 text-center lg:text-left">
+              <p className="font-['IBM Plex Sans'] text-[16px] font-normal text-white/70 text-center lg:text-left">
                 Winning marketing advice from our experience with{" "}
                 <strong className="font-bold text-white">1,000+ clients</strong>
               </p>
@@ -118,7 +116,6 @@ export default function HeroSection() {
                 <StatCard value={STATS[1].value} label={STATS[1].label} />
               </div>
             </div>
-
 
             {/* Row 2 */}
             <div className="contents">

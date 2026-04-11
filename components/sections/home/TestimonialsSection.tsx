@@ -6,18 +6,17 @@ import { MoveLeft, MoveRight } from "lucide-react";
 
 function GoogleLogo() {
   return (
-    <Image
-      src="/svg/google-logo.svg"
-      alt="Google"
-      width={36}
-      height={37}
-    />
+    <Image src="/svg/google-logo.svg" alt="Google" width={36} height={37} />
   );
 }
 
 function StarRow({ count = 5 }: { count?: number }) {
   return (
-    <div className="flex items-center gap-1" aria-label={`${count} stars`} role="img">
+    <div
+      className="flex items-center gap-1"
+      aria-label={`${count} stars`}
+      role="img"
+    >
       {Array.from({ length: count }).map((_, i) => (
         <Image
           alt="Star Rating"
@@ -44,35 +43,40 @@ export interface Testimonial {
 const TESTIMONIALS: Testimonial[] = [
   {
     id: "t1",
-    quote: '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
+    quote:
+      '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
     name: "Mike Bennett",
     avatar: "/images/mike-bennett.png",
     stars: 5,
   },
   {
     id: "t2",
-    quote: '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
+    quote:
+      '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
     name: "Mike Bennett",
     avatar: "/images/mike-bennett.png",
     stars: 5,
   },
   {
     id: "t3",
-    quote: '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
+    quote:
+      '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
     name: "Mike Bennett",
     avatar: "/images/mike-bennett.png",
     stars: 5,
   },
   {
     id: "t4",
-    quote: '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
+    quote:
+      '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
     name: "Mike Bennett",
     avatar: "/images/mike-bennett.png",
     stars: 5,
   },
   {
     id: "t5",
-    quote: '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
+    quote:
+      '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
     name: "Mike Bennett",
     avatar: "/images/mike-bennett.png",
     stars: 5,
@@ -91,7 +95,7 @@ function RatingCards({ testimonial }: { testimonial: Testimonial }) {
           <StarRow count={testimonial.stars ?? 5} />
         </div>
 
-        <p className="font-['IBM_Plex_Sans'] text-[20px] font-normal leading-[-1%] text-[#101012]">
+        <p className="font-['IBM Plex Sans'] text-[20px] font-normal leading-[-1%] text-[#101012]">
           {testimonial.quote}
         </p>
       </div>
@@ -124,18 +128,18 @@ export default function TestimonialsSection() {
   const [current, setCurrent] = useState(3); // Inicia apontando para o primeiro item real
   const [animated, setAnimated] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
-  
+
   const trackRef = useRef<HTMLDivElement>(null);
   const isTransitioning = useRef(false);
 
   // Efeito para lidar com o redimensionamento da janela e SSR
   useEffect(() => {
     setIsMounted(true);
-    
+
     const handleResize = () => {
       // Se a tela for menor que 1024px (lg no Tailwind), exibe 1 card. Caso contrário, 3.
       const newVisible = window.innerWidth < 1024 ? 1 : 3;
-      
+
       if (visibleCards !== newVisible) {
         setVisibleCards(newVisible);
         setCurrent(newVisible); // Reseta a posição para evitar bugs visuais durante o redimensionamento
@@ -152,7 +156,7 @@ export default function TestimonialsSection() {
   const cloneAfter = TESTIMONIALS.slice(0, visibleCards);
   const extended = [...cloneBefore, ...TESTIMONIALS, ...cloneAfter];
 
-  const dotIdx = ((current - visibleCards) % total + total) % total;
+  const dotIdx = (((current - visibleCards) % total) + total) % total;
 
   const goTo = useCallback((idx: number, withAnimation = true) => {
     if (isTransitioning.current) return;
@@ -230,7 +234,9 @@ export default function TestimonialsSection() {
               gap: `${GAP}px`,
               // O cálculo agora usa a variável de estado 'visibleCards' dinamicamente
               transform: `translateX(calc(-${current} * (calc((100% - ${GAP * (visibleCards - 1)}px) / ${visibleCards} + ${GAP}px))))`,
-              transition: animated ? "transform 500ms cubic-bezier(0.4,0,0.2,1)" : "none",
+              transition: animated
+                ? "transform 500ms cubic-bezier(0.4,0,0.2,1)"
+                : "none",
               willChange: "transform",
             }}
             onTransitionEnd={handleTransitionEnd}

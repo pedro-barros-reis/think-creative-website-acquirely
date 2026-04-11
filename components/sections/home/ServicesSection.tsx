@@ -136,7 +136,7 @@ function ServiceCard({
         <h3 className="font-['Geist'] text-[24px] font-semibold leading-[1.4] tracking-[-0.01em] text-white">
           {title}
         </h3>
-        <p className="font-['IBM_Plex_Sans'] text-[16px] font-normal leading-relaxed text-[#A1A1AA]">
+        <p className="font-['IBM Plex Sans'] text-[16px] font-normal leading-relaxed text-[#A1A1AA]">
           {description}
         </p>
       </div>
@@ -173,7 +173,7 @@ export default function ServicesSection() {
           >
             5&nbsp;&nbsp;Services Under 1 Roof
           </h2>
-          <p className="max-w-[560px] font-['IBM_Plex_Sans'] text-[22px] font-normal leading-relaxed tracking-[-0.01em] text-[#F0F0F1]">
+          <p className="max-w-[560px] font-['IBM Plex Sans'] text-[22px] font-normal leading-relaxed tracking-[-0.01em] text-[#F0F0F1]">
             We help companies scale their marketing strategies across multiple
             channels to drive the most success.
           </p>
@@ -214,11 +214,11 @@ export default function ServicesSection() {
         {/* ── CTA button ─────────────────────────────────────────────── */}
         <div className="mt-16 flex justify-center">
           <Link
-                href="/free-marketing-plan"
-                className="inline-flex w-fit items-center rounded-lg bg-[#FF5F1F] px-8 py-4 font-['Geist'] md:text-[20px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-              >
-                Get Your Free Marketing Plan
-              </Link>
+            href="/free-marketing-plan"
+            className="inline-flex w-fit items-center rounded-lg bg-[#FF5F1F] px-8 py-4 font-['Geist'] md:text-[20px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+          >
+            Get Your Free Marketing Plan
+          </Link>
         </div>
 
         <Testimonial

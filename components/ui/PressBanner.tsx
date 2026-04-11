@@ -30,7 +30,7 @@ export default function PressBanner({
           className={`mt-20 pt-12 ${className} w-full`}
         >
           <ul
-            className="flex flex-wrap items-center justify-between gap-x-8 gap-y-6"
+            className="flex flex-wrap items-center justify-evenly lg:justify-between gap-x-8 gap-y-6"
             role="list"
           >
             {PRESS_LOGOS.map(({ id, alt }) => (

@@ -42,9 +42,9 @@ export const TOKENS = {
       "font-[Geist] text-[48px] font-semibold leading-[1.1] tracking-tight",
 
     // Body / descriptions
-    heroDesc: "font-[IBM_Plex_Sans] text-[18px] font-normal leading-relaxed",
-    sectionDesc: "font-[IBM_Plex_Sans] text-[22px] font-normal leading-relaxed",
-    bodyText: "font-[IBM_Plex_Sans] text-base font-normal leading-relaxed",
+    heroDesc: "font-[IBM Plex Sans] text-[18px] font-normal leading-relaxed",
+    sectionDesc: "font-[IBM Plex Sans] text-[22px] font-normal leading-relaxed",
+    bodyText: "font-[IBM Plex Sans] text-base font-normal leading-relaxed",
 
     // Buttons
     button: "font-[Geist] font-bold text-sm tracking-wide uppercase",

@@ -7,54 +7,47 @@ import { ArrowRight } from "lucide-react";
 function ThinkLogoLg() {
   return (
     <Image
-    alt="Think Logo"
-    src="/svg/think-logo-lg.svg"
-    width={190}
-    height={83}
+      alt="Think Logo"
+      src="/svg/think-logo-lg.svg"
+      width={190}
+      height={83}
     />
   );
 }
-
 
 function ThinkIcon() {
   return (
-    <Image
-    alt="Think Icon"
-    width={48}
-    height={55}
-    src="/svg/think-icon.svg"
-    />
+    <Image alt="Think Icon" width={48} height={55} src="/svg/think-icon.svg" />
   );
 }
 
-
 const AGENCY_LINKS = [
-  { label: "Team",            href: "/team",            badge: null         },
-  { label: "Careers",         href: "/careers",         badge: "HIRING"     },
-  { label: "Partner Program", href: "/partner-program", badge: null         },
-  { label: "Contact Us",      href: "/contact",         badge: null         },
+  { label: "Team", href: "/team", badge: null },
+  { label: "Careers", href: "/careers", badge: "HIRING" },
+  { label: "Partner Program", href: "/partner-program", badge: null },
+  { label: "Contact Us", href: "/contact", badge: null },
 ] as const;
 
 const SERVICE_LINKS = [
-  { label: "SEO",              href: "/services/seo"              },
-  { label: "PPC",              href: "/services/ppc"              },
-  { label: "Facebook Ads",     href: "/services/facebook-ads"     },
-  { label: "Graphic Design",   href: "/services/graphic-design"   },
-  { label: "Web Development",  href: "/services/web-development"  },
+  { label: "SEO", href: "/services/seo" },
+  { label: "PPC", href: "/services/ppc" },
+  { label: "Facebook Ads", href: "/services/facebook-ads" },
+  { label: "Graphic Design", href: "/services/graphic-design" },
+  { label: "Web Development", href: "/services/web-development" },
 ] as const;
 
 // ─── Press logos — same order as HeroSection ──────────────────────────────
 // Drop your SVGs into /public/svg/brands/ matching these ids.
 const PRESS_LOGOS: { id: string; alt: string }[] = [
-  { id: "usa-based",        alt: "100% USA Based"   },
-  { id: "ap-news",          alt: "AP"               },
-  { id: "forbes",           alt: "Forbes"           },
-  { id: "yahoo-news",       alt: "Yahoo! News"      },
+  { id: "usa-based", alt: "100% USA Based" },
+  { id: "ap-news", alt: "AP" },
+  { id: "forbes", alt: "Forbes" },
+  { id: "yahoo-news", alt: "Yahoo! News" },
   { id: "business-insider", alt: "Business Insider" },
-  { id: "newsmax",          alt: "Newsmax"          },
-  { id: "apple-news",       alt: "Apple News"       },
-  { id: "inc",              alt: "Inc."             },
-  { id: "entrepreneur",     alt: "Entrepreneur"     },
+  { id: "newsmax", alt: "Newsmax" },
+  { id: "apple-news", alt: "Apple News" },
+  { id: "inc", alt: "Inc." },
+  { id: "entrepreneur", alt: "Entrepreneur" },
 ];
 
 // ─── Reusable footer nav column ───────────────────────────────────────────
@@ -81,11 +74,9 @@ function FooterNavColumn({
 export default function Footer() {
   return (
     <footer className="w-full bg-black" aria-label="Site footer">
-
       {/* ── Main footer body ──────────────────────────────────────── */}
       <div className="mx-auto max-w-468 px-6 lg:px-12 lg:py-20">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.8fr]">
-
           {/* ── LEFT — logo + contact card ──────────────────────── */}
           <div className="flex flex-col items-center lg:items-start gap-8">
             {/* Large logo */}
@@ -115,14 +106,13 @@ export default function Footer() {
 
           {/* ── RIGHT — nav columns ─────────────────────────────── */}
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
-
             {/* Agency */}
             <FooterNavColumn heading="Agency">
               {AGENCY_LINKS.map(({ label, href, badge }) => (
                 <li key={label} className="flex items-center gap-3">
                   <Link
                     href={href}
-                    className="font-['IBM_Plex_Sans'] text-[20px] font-normal text-white transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
+                    className="font-['IBM Plex Sans'] text-[20px] font-normal text-white transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
                   >
                     {label}
                   </Link>
@@ -141,7 +131,7 @@ export default function Footer() {
                 <li key={label}>
                   <Link
                     href={href}
-                    className="font-['IBM_Plex_Sans'] text-[20px] font-normal text-white transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
+                    className="font-['IBM Plex Sans'] text-[20px] font-normal text-white transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
                   >
                     {label}
                   </Link>
@@ -152,7 +142,7 @@ export default function Footer() {
             {/* Location */}
             <FooterNavColumn heading="Location">
               <li>
-                <address className="not-italic font-['IBM_Plex_Sans'] text-[20px] font-normal leading-relaxed text-white">
+                <address className="not-italic font-['IBM Plex Sans'] text-[20px] font-normal leading-relaxed text-white">
                   17195 Silver Pkwy #321
                   <br />
                   Fenton, MI 48430
@@ -167,7 +157,6 @@ export default function Footer() {
                 </a>
               </li>
             </FooterNavColumn>
-
           </div>
         </div>
 
@@ -184,12 +173,12 @@ export default function Footer() {
                 className="flex items-center justify-center grayscale brightness-[10] transition-opacity opacity-70"
               >
                 <Image
-                     src={`/svg/brands/${id}.svg`}
-                     alt={alt}
-                     width={110}
-                     height={28}
-                     className="h-7 w-auto object-contain"
-                   />
+                  src={`/svg/brands/${id}.svg`}
+                  alt={alt}
+                  width={110}
+                  height={28}
+                  className="h-7 w-auto object-contain"
+                />
               </li>
             ))}
           </ul>
@@ -209,7 +198,10 @@ export default function Footer() {
             >
               Terms &amp; Conditions
             </Link>
-            <span className="font-['Inter'] text-[15px] text-white/20" aria-hidden="true">
+            <span
+              className="font-['Inter'] text-[15px] text-white/20"
+              aria-hidden="true"
+            >
               |
             </span>
             <Link
@@ -221,7 +213,6 @@ export default function Footer() {
           </nav>
         </div>
       </div>
-
     </footer>
   );
 }

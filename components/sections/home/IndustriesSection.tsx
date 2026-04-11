@@ -75,7 +75,7 @@ export default function IndustriesSection() {
                   </span>
                   <StarRating count={5} />
                 </div>
-                <span className="font-['IBM_Plex_Sans'] text-[12px] lg:text-[16px] font-normal text-white">
+                <span className="font-['IBM Plex Sans'] text-[12px] lg:text-[16px] font-normal text-white">
                   rated services
                 </span>
               </div>
@@ -87,7 +87,7 @@ export default function IndustriesSection() {
                 >
                   98%
                 </span>
-                <span className="font-['IBM_Plex_Sans'] text-[12px] lg:text-[16px] font-normal text-white">
+                <span className="font-['IBM Plex Sans'] text-[12px] lg:text-[16px] font-normal text-white">
                   retention rate
                 </span>
               </div>
@@ -102,7 +102,7 @@ export default function IndustriesSection() {
               >
                 Marketing For All Industries
               </h2>
-              <p className="font-['IBM_Plex_Sans'] text-[22px] font-normal leading-[1.4] tracking-[-1%] text-white">
+              <p className="font-['IBM Plex Sans'] text-[22px] font-normal leading-[1.4] tracking-[-1%] text-white">
                 While most businesses we do work for can be grouped by a<br />
                 handful of major categories, if you name it, we do it.
               </p>

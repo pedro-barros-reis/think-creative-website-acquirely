@@ -52,7 +52,7 @@ export default function ExperienceSection() {
                 <br />
                 Worth Of Experience
               </h2>
-              <p className="font-['IBM_Plex_Sans'] text-[22px] font-normal leading-[1.4] tracking-[-0.01em] text-[#101012]">
+              <p className="font-['IBM Plex Sans'] text-[22px] font-normal leading-[1.4] tracking-[-0.01em] text-[#101012]">
                 Custom marketing strategies for your business based on
                 <br />
                 what performs best across 1,000+ other companies.
