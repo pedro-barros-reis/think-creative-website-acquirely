@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import TeamHeroSection from "@/components/sections/team/HeroSection";
 import TestimonialsSection from "@/components/sections/home/TestimonialsSection";
+import FounderTeamSection from "@/components/sections/team/FounderSection";
+import TeamServicesSection from "@/components/sections/team/ServicesSection";
+import BigTeamSection from "@/components/sections/team/BigTeamSection";
 
 export const metadata: Metadata = {
   title: "Team — Think Creative",
@@ -21,7 +24,10 @@ export default function TeamPage() {
         @import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
       `}</style>
       <TeamHeroSection />
+      <FounderTeamSection />
       <TestimonialsSection />
+      <TeamServicesSection />
+      <BigTeamSection/>
     </>
   );
 }

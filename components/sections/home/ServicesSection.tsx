@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Testimonial } from "../../ui/TestimonialCard";
+import CtaButton from "@/components/ui/CtaButton";
 
 function IconSEO() {
   return (
@@ -213,12 +214,7 @@ export default function ServicesSection() {
 
         {/* ── CTA button ─────────────────────────────────────────────── */}
         <div className="mt-16 flex justify-center">
-          <Link
-            href="/free-marketing-plan"
-            className="inline-flex w-fit items-center rounded-lg bg-[#FF5F1F] px-8 py-4 font-['Geist'] md:text-[20px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-          >
-            Get Your Free Marketing Plan
-          </Link>
+          <CtaButton ringOffset="focus-visible:ring-offset-black" />
         </div>
 
         <Testimonial

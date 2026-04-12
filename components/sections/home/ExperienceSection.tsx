@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Testimonial } from "../../ui/TestimonialCard";
+import CtaButton from "@/components/ui/CtaButton";
 
 function InstituteLogo() {
   return (
@@ -59,12 +60,7 @@ export default function ExperienceSection() {
               </p>
             </header>
 
-            <Link
-              href="/free-marketing-plan"
-              className="inline-flex w-fit items-center rounded-md bg-[#FF5F1F] px-8 py-4 font-['Geist'] text-[14px] font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F0F0F1]"
-            >
-              Get Your Free Marketing Plan
-            </Link>
+            <CtaButton ringOffset="focus-visible:ring-offset-black" />
           </div>
 
           <div className="flex flex-col gap-8">

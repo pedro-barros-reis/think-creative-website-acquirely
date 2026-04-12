@@ -110,7 +110,7 @@ export default function Navbar() {
 
             <Link
             href="/free-marketing-plan"
-            className="hidden rounded-lg bg-[#FF5F1F] px-5 py-3 font-['Geist'] text-[16px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black md:inline-flex"
+            className="hidden rounded-md bg-[#FF5F1F] px-5 py-3 font-['Geist'] text-[16px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black md:inline-flex"
             >
             Free Marketing Plan
             </Link>

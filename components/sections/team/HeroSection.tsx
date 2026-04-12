@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import PressBanner from "@/components/ui/PressBanner";
+import CtaButton from "@/components/ui/CtaButton";
 
 export default function TeamHeroSection() {
   return (
@@ -43,14 +44,9 @@ export default function TeamHeroSection() {
           everything.
         </p>
 
-        {/* CTA button */}
+        
         <div className="flex flex-col items-center gap-4 mt-8">
-          <Link
-            href="/free-marketing-plan"
-            className="inline-flex items-center rounded-lg bg-[#FF5F1F] px-10 py-4 font-['Geist'] text-[14px] font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-          >
-            Get Your Free Marketing Plan
-          </Link>
+          <CtaButton ringOffset="focus-visible:ring-offset-black"/>
 
           {/* Social proof line */}
           <p className="font-['IBM Plex Sans'] text-[16px] font-normal text-white/70 mt-5">

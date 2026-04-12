@@ -1,3 +1,4 @@
+import CtaButton from "@/components/ui/CtaButton";
 import PressBanner from "@/components/ui/PressBanner";
 import Image from "next/image";
 import Link from "next/link";
@@ -69,19 +70,14 @@ export default function HeroSection() {
             </h1>
 
             {/* Subtitle */}
-            <p className="font-['IBM Plex Sans'] text-[20px] lg:text-[24px] font-normal leading-[129%] text-[#F0F0F1] text-center lg:text-left">
+            <p className="font-['IBM Plex Sans'] max-w-[590px] text-[20px] lg:text-[24px] font-normal leading-[129%] text-[#F0F0F1] text-center lg:text-left">
               Successful companies partner with Think Creative to drive
               more revenue, leads, and awareness.
             </p>
 
             {/* CTA */}
             <div className="flex flex-col gap-4 items-center lg:items-start">
-              <Link
-                href="/free-marketing-plan"
-                className="inline-flex w-fit items-center rounded-lg bg-[#FF5F1F] px-8 py-4 font-['Geist'] md:text-[20px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-              >
-                Get Your Free Marketing Plan
-              </Link>
+              <CtaButton ringOffset="focus-visible:ring-offset-black" />
 
               {/* Social proof line */}
               <p className="font-['IBM Plex Sans'] text-[16px] font-normal text-white/70 text-center lg:text-left">
