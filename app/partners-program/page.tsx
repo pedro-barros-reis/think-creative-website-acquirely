@@ -1,3 +1,8 @@
+import ServicesSection from "@/components/sections/home/ServicesSection";
+import TestimonialsSection from "@/components/sections/home/TestimonialsSection";
+import CompaniesSection from "@/components/sections/partners-program/CompaniesSection";
+import PartnersHeroSection from "@/components/sections/partners-program/HeroSection";
+
 export default function PartnersProgram() {
     return (
      <>
@@ -6,16 +11,10 @@ export default function PartnersProgram() {
          }
          </style>
 
-         <div className="flex flex-col gap-8 lg:top-28">
-            <header className="flex flex-col gap-5">
-              <h2
-                id="experience-heading"
-                className="font-['Geist'] text-[48px] font-semibold leading-[1.2] tracking-[-0.02em] text-white"
-              >
-                PartnersProgram
-              </h2>
-            </header>
-          </div>
+         <PartnersHeroSection />
+         <TestimonialsSection />
+         <CompaniesSection />
+         <ServicesSection />
     </>
    )
 }

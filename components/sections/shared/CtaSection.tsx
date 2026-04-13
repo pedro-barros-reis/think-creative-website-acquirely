@@ -1,6 +1,5 @@
 import CtaButton from "@/components/ui/CtaButton";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function CtaSection() {
   return (

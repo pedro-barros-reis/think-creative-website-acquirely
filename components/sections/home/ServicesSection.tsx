@@ -163,7 +163,7 @@ export default function ServicesSection() {
   return (
     <section
       aria-labelledby="services-heading"
-      className="w-full bg-[#000000] py-24 lg:py-32"
+      className="w-full bg-[#000000] py-24 lg:py-30"
     >
       <div className="mx-auto max-w-468 px-6 lg:px-12">
         {/* ── Section header ─────────────────────────────────────────── */}
