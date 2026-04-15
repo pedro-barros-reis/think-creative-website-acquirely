@@ -1,18 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Testimonial } from "../../ui/TestimonialCard";
 import CtaButton from "@/components/ui/CtaButton";
-
-function InstituteLogo() {
-  return (
-    <Image
-      alt="Institute of Clinical Excellence Logo"
-      src="/svg/institute-logo.svg"
-      width={68}
-      height={68}
-    />
-  );
-}
 
 function FeatureCard({ icon, text }: { icon: string; text: React.ReactNode }) {
   return (
@@ -134,31 +121,6 @@ export default function ExperienceSection() {
             />
           </div>
         </div>
-
-        <Testimonial
-          imageSrc="/images/jeff-moore.png"
-          imageAlt="Jeff Moore, Owner of Institute of Clinical Excellence"
-          authorName="Jeff Moore"
-          authorTitle="Owner, Institute of Clinical Excellence"
-          Logo={InstituteLogo}
-          bgLight={true}
-          quote={
-            <>
-              “Think Creative went above and beyond across all dimensions to
-              reshape our brand and
-              <br />
-              marketing division. With a sharper brand in place, Think Creative
-              developed and executed a<br />
-              strategy resulting in the fastest and broadest growth in our
-              company’s nearly ten year
-              <br />
-              history. Looking back, the only regret we have is that we didn’t
-              team up with this crew sooner
-              <br />
-              and we can only imagine where we would be today!”
-            </>
-          }
-        />
       </div>
     </section>
   );

@@ -42,7 +42,7 @@ export default function PartnersHeroSection() {
         </h1>
 
         {/* Subtitle */}
-        <p className="max-w-[520px] font-['IBM Plex Sans'] text-[22px] font-normal leading-[150%] tracking-[-0.01em] text-[#F0F0F1]">
+        <p className="max-w-[520px] font-['IBM Plex Sans'] text-[22px] font-normal leading-[150%] tracking-[-1%] text-[#F0F0F1]">
           Make the warm introduction, and if they sign-up with us, you'll get
           paid monthly.
         </p>

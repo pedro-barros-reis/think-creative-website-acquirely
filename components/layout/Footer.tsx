@@ -25,7 +25,7 @@ const AGENCY_LINKS = [
   { label: "Team", href: "/team", badge: null },
   { label: "Careers", href: "/careers", badge: "HIRING" },
   { label: "Partners Program", href: "/partners-program", badge: null },
-  { label: "Contact Us", href: "/contact", badge: null },
+  { label: "Contact Us", href: "/contact-us", badge: null },
 ] as const;
 
 const SERVICE_LINKS = [

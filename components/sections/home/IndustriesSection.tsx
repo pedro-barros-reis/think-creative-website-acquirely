@@ -10,17 +10,6 @@ const INDUSTRIES = [
   { label: "& hundreds more!", active: false },
 ] as const;
 
-function RoofResourceLogo() {
-  return (
-    <Image
-      alt="Roof Resource Logo"
-      src="/svg/roof-resource-logo.svg"
-      width={52}
-      height={39}
-    />
-  );
-}
-
 function StarRating({ count = 5 }: { count?: number }) {
   return (
     <div
@@ -132,30 +121,6 @@ export default function IndustriesSection() {
             </nav>
           </div>
         </div>
-
-        <Testimonial
-          imageSrc="/images/mike-harvey.png"
-          imageAlt="Mike Harvey, Owner of The Roof Resource"
-          authorName="Mike Harvey"
-          authorTitle="Owner, The Roof Resource"
-          Logo={RoofResourceLogo}
-          quote={
-            <>
-              “Think Creative immediately brought a level of professionalism
-              you’d expect along with great <br />
-              insight, direction, and a desire to learn our business model.
-              Within a week, the team fired up our <br />
-              marketing and we couldn’t be more pleased! I also appreciated
-              their insight in the digital space
-              <br />
-              and the direction they gave us based on our needs today. I highly
-              recommend a phone call to
-              <br />
-              Think Creative even if you are currently working with another
-              agency.”
-            </>
-          }
-        />
       </div>
     </section>
   );

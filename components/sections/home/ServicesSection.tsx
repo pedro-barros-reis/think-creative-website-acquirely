@@ -63,18 +63,6 @@ function IconWebDevelopment() {
   );
 }
 
-function SignaramaLogo() {
-  return (
-    <Image
-      src="/svg/signarama-logo.svg"
-      alt=""
-      width={68}
-      height={53}
-      aria-hidden="true"
-    />
-  );
-}
-
 const SERVICES = [
   {
     id: "seo",
@@ -217,26 +205,6 @@ export default function ServicesSection() {
           <CtaButton ringOffset="focus-visible:ring-offset-black" />
         </div>
 
-        <Testimonial
-          imageSrc="/images/bob-chapa-photography.png"
-          imageAlt="Bob Chapa, Founder & CEO of Signarama"
-          authorName="Bob Chapa"
-          authorTitle="Founder & CEO, Signarama"
-          Logo={SignaramaLogo}
-          quote={
-            <>
-              "As we approach our 20th year in business, I can absolutely claim
-              we've never worked with a <br /> marketing agency even close to
-              the skill level of Think Creative. Think Creative is basically a{" "}
-              <br /> mind-reading ninja; they listen well, study your needs, and
-              execute consistently. They <br /> redesigned our website and
-              continued with marketing work, and the results are showing for{" "}
-              <br /> themselves. It's truly a pleasure working with their entire
-              team, and I see many years of a great <br />
-              relationship in our future."
-            </>
-          }
-        />
       </div>
     </section>
   );
