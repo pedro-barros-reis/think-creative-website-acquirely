@@ -114,20 +114,30 @@ export default function CareersHeroSection() {
       <Toaster position="top-center" />
 
       <section
-        aria-labelledby="careers-heading"
+        aria-label="Hero - Think Creative Marketing Agency"
         className="relative w-full overflow-hidden bg-black"
       >
-        {/* Background glow */}
-        <div className="pointer-events-none absolute inset-0 z-0 select-none" aria-hidden="true">
-          <Image
-            src="/images/hero-background.png"
-            alt=""
-            fill
-            priority
-            quality={90}
-            className="object-cover object-right-bottom"
+        <div className="pointer-events-none absolute inset-0 z-0 select-none">
+          
+          <div className="absolute inset-0 opacity-20">
+            <Image
+              src="/images/hero-burst.webp"
+              alt=""
+              fill
+              priority
+              className="object-cover object-bottom-right"
+              aria-hidden="true"
+            />
+          </div>
+  
+          <div 
+            className="absolute inset-0"
+            style={{
+              background: 'radial-gradient(circle at 90% 90%, rgba(194, 65, 12, 0.35) 0%, rgba(194, 65, 12, 0) 40%)'
+            }}
+            aria-hidden="true"
           />
-        </div>
+            </div>
 
         {/* Main grid */}
         <div className="relative z-10 mx-auto flex max-w-468 flex-col gap-12 px-6 py-20 lg:flex-row lg:items-start lg:gap-20 lg:px-12 lg:py-28">

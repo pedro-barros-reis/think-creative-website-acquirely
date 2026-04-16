@@ -34,18 +34,27 @@ function StatCard({ value, label }: { value: string; label: string }) {
 export default function HeroSection() {
   return (
     <section
-      aria-label="Hero — Think Creative Marketing Agency"
+      aria-label="Hero - Think Creative Marketing Agency"
       className="relative w-full overflow-hidden bg-black"
     >
-      {/* ── Background image (bottom-right glow) ──────────────────────── */}
       <div className="pointer-events-none absolute inset-0 z-0 select-none">
-        <Image
-          src="/images/hero-background.png"
-          alt=""
-          fill
-          priority
-          quality={90}
-          className="object-cover object-bottom-right"
+        
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="/images/hero-burst.webp"
+            alt=""
+            fill
+            priority
+            className="object-cover object-bottom-right"
+            aria-hidden="true"
+          />
+        </div>
+
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(circle at 90% 90%, rgba(194, 65, 12, 0.35) 0%, rgba(194, 65, 12, 0) 40%)'
+          }}
           aria-hidden="true"
         />
       </div>
