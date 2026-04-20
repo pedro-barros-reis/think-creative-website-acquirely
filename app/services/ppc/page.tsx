@@ -1,24 +1,25 @@
 import CarouselSection from "@/components/sections/home/CarouselSection";
-import ExperienceSection from "@/components/sections/home/ExperienceSection";
+import ExperienceSection from "@/components/sections/ppc/ExperienceSection";
 import HeroSection from "@/components/sections/home/HeroSection";
 import IndustriesSection from "@/components/sections/home/IndustriesSection";
 import TestimonialsSection from "@/components/sections/home/TestimonialsSection";
 import ValueSection from "@/components/sections/home/ValueSection";
-import SEOFeaturesSection from "@/components/sections/seo/FeaturesSection";
-import SEOProofSection from "@/components/sections/seo/ProofSection";
+import PPCHeroSection from "@/components/sections/ppc/HeroSection";
+import FeaturesSection from "@/components/sections/ppc/FeaturesSection";
+import PPCProofSection from "@/components/sections/ppc/ProofSection";
 import { Testimonial } from "@/components/ui/TestimonialCard";
 import { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-title: "SEO — Think Creative",
-description:
-  "Get your free marketing plan built on real client data. Select the services you need and we'll craft a custom strategy.",
-openGraph: {
-  title: "Free Marketing Plan — Think Creative",
-  description: "Built on real data from 1,000+ clients.",
-  type: "website",
-},
+  title: "PPC Advertising — Think Creative",
+  description:
+    "Maximize your ad spend with Think Creative's PPC management. We've managed hundreds of millions in paid search campaigns and know exactly how to get you more leads for less.",
+  openGraph: {
+    title: "PPC Advertising — Think Creative",
+    description: "Smarter ad spend. More conversions. Zero wasted budget.",
+    type: "website",
+  },
 };
 
 function SignaramaLogo() {
@@ -37,7 +38,7 @@ function RoofResourceLogo() {
   return (
     <Image
       alt="Roof Resource Logo"
-      src="/svg/roof-resource-logo.svg"
+      src="/svg/roof-resource-black-logo.svg"
       width={52}
       height={39}
     />
@@ -48,7 +49,7 @@ function InstituteLogo() {
   return (
     <Image
       alt="Institute of Clinical Excellence Logo"
-      src="/svg/institute-logo.svg"
+      src="/svg/institute-white-logo.svg"
       width={68}
       height={68}
     />
@@ -65,8 +66,8 @@ export default function PPC() {
          }
          </style>
 
-         <HeroSection />
-         <SEOProofSection />
+         <PPCHeroSection />
+         <PPCProofSection />
          <section
             aria-labelledby="testimonial-card"
             className="w-full mx-auto flex items-center justify-center bg-[#000000] pb-24 lg:pb-30"
@@ -117,7 +118,7 @@ export default function PPC() {
               }
             />
           </section>
-          <SEOFeaturesSection />
+          <FeaturesSection />
           <section
             aria-labelledby="testimonial-card"
             className="w-full mx-auto flex items-center justify-center bg-black pb-24 lg:pb-30"

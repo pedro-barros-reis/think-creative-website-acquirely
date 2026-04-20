@@ -1,6 +1,5 @@
 import CtaButton from "@/components/ui/CtaButton";
 import Image from "next/image";
-import Link from "next/link";
 
 const FEATURE_CARDS = [
   {
@@ -78,7 +77,7 @@ function FeatureCard({
 export default function ValueSection() {
   return (
     <section
-      aria-labelledby="experience-heading"
+      aria-labelledby="value-section"
       className="w-full bg-black py-24 lg:py-32"
     >
       <div className="mx-auto max-w-468 px-6 lg:px-12">
@@ -86,16 +85,14 @@ export default function ValueSection() {
           <div className="flex flex-col items-center lg:items-start gap-8 lg:top-28">
             <header className="flex flex-col gap-5 items-center lg:items-start text-center lg:text-left">
               <h2
-                id="experience-heading"
+                id="value-section"
                 className="font-['Geist'] text-[48px] font-semibold leading-[1.2] tracking-[-0.02em] text-white"
               >
                 High-Quality Work With <br />
                 Full Transparency
               </h2>
-              <p className="font-['IBM Plex Sans'] text-[22px] font-normal leading-[1.4] tracking-[-0.01em] text-[#F0F0F1]">
-                Custom marketing strategies for your business based on
-                <br />
-                what performs best across 1,000+ other companies.
+              <p className="md:w-[650px] font-['IBM Plex Sans'] text-[22px] font-normal leading-[1.4] tracking-[-0.01em] text-[#F0F0F1]">
+                We pride ourselves on doing things the right way, which means straight talk, no shortcuts, and crystal-clear results.
               </p>
             </header>
 

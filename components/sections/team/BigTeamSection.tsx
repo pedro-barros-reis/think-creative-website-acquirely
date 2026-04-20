@@ -17,14 +17,14 @@ export default function BigTeamSection() {
           Hands-On Feel
         </h2>
 
-        <p className="max-w-[560px] font-['IBM_Plex_Sans'] text-[22px] font-normal leading-[1.5] tracking-[-0.01em] text-[#F0F0F1]">
+        <p className="max-w-[560px] font-['IBM Plex Sans'] text-[22px] font-normal leading-[150%] tracking-[-1%] text-[#F0F0F1]">
           We're a team of search engine optimizers, advertising specialists,
           graphic designers, website developers, and everything in between, all
           here to serve you.
         </p>
       </div>
       
-      <div className="mt-16 w-full lg:mt-20">
+      <div className="mx-auto mt-16 max-w-468 px-6 lg:mt-20 lg:px-12">
         <Image
           src="/svg/workers.svg"
           alt="Illustration of the Think Creative team members"

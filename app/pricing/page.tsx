@@ -4,19 +4,19 @@ import PricingHeroSection from "@/components/sections/pricing/HeroSection";
 import ServicesSection from "@/components/sections/home/ServicesSection";
 import { Testimonial } from "@/components/ui/TestimonialCard";
 import Image from "next/image";
-import ExperienceSection from "@/components/sections/home/ExperienceSection";
+import ExperienceSection from "@/components/sections/pricing/ExperienceSection";
 import ValueSection from "@/components/sections/home/ValueSection";
 import TestimonialsSection from "@/components/sections/home/TestimonialsSection";
 import CarouselSection from "@/components/sections/home/CarouselSection";
 // Additional pricing sections (plans, FAQs, etc.) will be imported here as built.
  
 export const metadata: Metadata = {
-  title: "Pricing — Think Creative",
+  title: "Free Marketing Plan — Think Creative",
   description:
-    "Get your free marketing plan built on real client data. Select the services you need and we'll craft a custom strategy.",
+    "Get a free, custom marketing plan built on real data from 1,000+ clients. Choose your services and we'll craft a strategy tailored to your business.",
   openGraph: {
     title: "Free Marketing Plan — Think Creative",
-    description: "Built on real data from 1,000+ clients.",
+    description: "Custom strategy. Real data. Zero cost.",
     type: "website",
   },
 };
@@ -37,7 +37,7 @@ function RoofResourceLogo() {
   return (
     <Image
       alt="Roof Resource Logo"
-      src="/svg/roof-resource-logo.svg"
+      src="/svg/roof-resource-black-logo.svg"
       width={52}
       height={39}
     />
@@ -48,7 +48,7 @@ function InstituteLogo() {
   return (
     <Image
       alt="Institute of Clinical Excellence Logo"
-      src="/svg/institute-logo.svg"
+      src="/svg/institute-white-logo.svg"
       width={68}
       height={68}
     />

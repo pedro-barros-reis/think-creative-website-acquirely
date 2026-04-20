@@ -2,7 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { ChevronDown, Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { ChevronDown, Menu, X } from "lucide-react";
 import Image from "next/image";
 
 // ─── Services dropdown items ───────────────────────────────────────────────
@@ -14,7 +15,10 @@ const SERVICES = [
   { label: "WEB DEVELOPMENT", href: "/services/web-development" },
 ] as const;
 
-// ─── ThinkLogo (inline SVG — avoids an extra network request) ─────────────
+const NAV_LINK =
+  "text-[15px] font-medium text-white/90 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black";
+
+// ─── ThinkLogo ─────────────────────────────────────────────────────────────
 function ThinkLogo() {
   return (
     <Link href="/" aria-label="Think Creative — Home">
@@ -23,12 +27,11 @@ function ThinkLogo() {
   );
 }
 
-// ─── ServicesDropdown ──────────────────────────────────────────────────────
+// ─── ServicesDropdown (desktop) ────────────────────────────────────────────
 function ServicesDropdown() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  // Close on outside click
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) {
@@ -45,7 +48,7 @@ function ServicesDropdown() {
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="true"
         aria-expanded={open}
-        className="flex items-center gap-1 text-[15px] font-medium text-white/90 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black cursor-pointer"
+        className={`${NAV_LINK} flex items-center gap-1 cursor-pointer`}
       >
         Services
         <ChevronDown
@@ -80,50 +83,155 @@ function ServicesDropdown() {
 
 // ─── Navbar ────────────────────────────────────────────────────────────────
 export default function Navbar() {
+  const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+    setMobileServicesOpen(false);
+  }, [pathname]);
+
+  // Lock body scroll while mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
+  // Close on Escape
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setMobileOpen(false);
+    }
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
+
+  function closeMenu() {
+    setMobileOpen(false);
+    setMobileServicesOpen(false);
+  }
+
   return (
     <header className="sticky top-0 z-40 w-full bg-black">
       <div className="mx-auto flex h-20 max-w-468 items-center justify-between px-6 lg:px-12">
         <ThinkLogo />
 
-        
-        <div className="flex gap-20">
-            <nav
-            aria-label="Primary navigation"
-            className="hidden items-center gap-14 md:flex"
-            >
-            <Link
-                href="/pricing"
-                className="text-[15px] font-medium text-white/90 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-            >
-                Pricing
-            </Link>
-
+        {/* ── Desktop nav ─────────────────────────────────────── */}
+        <div className="hidden md:flex gap-20">
+          <nav aria-label="Primary navigation" className="flex items-center gap-14">
+            <Link href="/pricing" className={NAV_LINK}>Pricing</Link>
             <ServicesDropdown />
+            <Link href="/team" className={NAV_LINK}>Team</Link>
+          </nav>
 
-            <Link
-                href="/team"
-                className="text-[15px] font-medium text-white/90 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-            >
-                Team
-            </Link>
-            </nav>
-
-            <Link
+          <Link
             href="/free-marketing-plan"
-            className="hidden rounded-md bg-[#FF5F1F] px-5 py-3 font-['Geist'] text-[16px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black md:inline-flex"
-            >
+            className="rounded-md bg-[#FF5F1F] px-5 py-3 font-['Geist'] text-[16px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black inline-flex"
+          >
             Free Marketing Plan
-            </Link>
+          </Link>
         </div>
 
-        {/* Mobile hamburger placeholder */}
-        <button
-          className="flex flex-col gap-[5px] md:hidden"
-          aria-label="Open menu"
-        >
-          <Menu></Menu>
-        </button>
+        {/* ── Mobile right side ───────────────────────────────── */}
+        <div className="flex items-center gap-3 md:hidden">
+          <Link
+            href="/free-marketing-plan"
+            className="rounded-md bg-[#FF5F1F] px-3.5 py-2.5 font-['Geist'] text-[12px] font-bold uppercase tracking-[-1%] text-white transition-colors hover:bg-[#C2410C]"
+          >
+            Free Marketing Plan
+          </Link>
+
+          <button
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            className="flex items-center justify-center rounded-md p-1.5 text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
+          >
+            {mobileOpen ? <X size={22} strokeWidth={2} /> : <Menu size={22} strokeWidth={2} />}
+          </button>
+        </div>
       </div>
+
+      {/* ── Mobile menu panel ──────────────────────────────────── */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-x-0 top-20 z-50 bg-black md:hidden"
+          style={{ height: "calc(100dvh - 5rem)" }}
+          aria-label="Mobile navigation"
+        >
+          <nav className="flex flex-col px-6 py-8 gap-1 overflow-y-auto h-full">
+
+            <Link
+              href="/pricing"
+              onClick={closeMenu}
+              className="py-4 text-[18px] font-medium text-white/90 border-b border-white/10 hover:text-white transition-colors"
+            >
+              Pricing
+            </Link>
+
+            {/* Services accordion */}
+            <div className="border-b border-white/10">
+              <button
+                onClick={() => setMobileServicesOpen((v) => !v)}
+                aria-expanded={mobileServicesOpen}
+                className="flex w-full items-center justify-between py-4 text-[18px] font-medium text-white/90 hover:text-white transition-colors"
+              >
+                Services
+                <ChevronDown
+                  size={18}
+                  strokeWidth={2}
+                  className={`transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : "rotate-0"}`}
+                  aria-hidden="true"
+                />
+              </button>
+
+              {mobileServicesOpen && (
+                <div className="flex flex-col pb-3 pl-4 gap-0.5">
+                  {SERVICES.map((s) => (
+                    <Link
+                      key={s.href}
+                      href={s.href}
+                      onClick={closeMenu}
+                      className="py-3 text-[15px] font-medium text-white/60 hover:text-white transition-colors"
+                    >
+                      {s.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/team"
+              onClick={closeMenu}
+              className="py-4 text-[18px] font-medium text-white/90 border-b border-white/10 hover:text-white transition-colors"
+            >
+              Team
+            </Link>
+
+            <Link
+              href="/contact-us"
+              onClick={closeMenu}
+              className="py-4 text-[18px] font-medium text-white/90 border-b border-white/10 hover:text-white transition-colors"
+            >
+              Contact Us
+            </Link>
+
+            <div className="pt-8">
+              <Link
+                href="/free-marketing-plan"
+                onClick={closeMenu}
+                className="flex w-full items-center justify-center rounded-md bg-[#FF5F1F] py-4 font-['Geist'] text-[15px] font-bold uppercase tracking-[-1%] text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
+              >
+                Get Your Free Marketing Plan
+              </Link>
+            </div>
+
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

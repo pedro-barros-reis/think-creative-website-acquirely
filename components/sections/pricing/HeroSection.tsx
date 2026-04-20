@@ -7,34 +7,25 @@ import PressBanner from "@/components/ui/PressBanner";
 
 // ─── Service options ───────────────────────────────────────────────────────
 const SERVICES = [
-  { id: "seo", label: "SEO" },
-  { id: "ppc", label: "PPC" },
-  { id: "facebook-ads", label: "Facebook Ads" },
-  { id: "graphic-design", label: "Graphic Design" },
-  { id: "web-development", label: "Web Development" },
-  { id: "other", label: "Other" },
+  { id: "seo",              label: "SEO",              href: "/services/seo" },
+  { id: "ppc",              label: "PPC",              href: "/services/ppc" },
+  { id: "facebook-ads",     label: "Facebook Ads",     href: "/services/facebook-ads" },
+  { id: "graphic-design",   label: "Graphic Design",   href: "/services/graphic-design" },
+  { id: "web-development",  label: "Web Development",  href: "/services/web-development" },
+  { id: "other",            label: "Other",            href: "/free-marketing-plan" },
 ] as const;
 
 type ServiceId = (typeof SERVICES)[number]["id"];
 
 // ─── PricingHeroSection ────────────────────────────────────────────────────
 export default function PricingHeroSection() {
-  const [selected, setSelected] = useState<Set<ServiceId>>(new Set());
+  const [selected, setSelected] = useState<ServiceId | null>(null);
   const router = useRouter();
 
-  function toggle(id: ServiceId) {
-    setSelected((prev) => {
-      const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
-      return next;
-    });
-  }
-
   function handleSubmit() {
-    if (selected.size === 0) return;
-    const params = new URLSearchParams();
-    selected.forEach((id) => params.append("service", id));
-    router.push(`/free-marketing-plan?${params.toString()}`);
+    if (!selected) return;
+    const service = SERVICES.find((s) => s.id === selected);
+    if (service) router.push(service.href);
   }
 
   return (
@@ -102,16 +93,16 @@ export default function PricingHeroSection() {
           {/* Service toggle buttons — 3 cols desktop, 1 col mobile */}
           <div
             className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3"
-            role="group"
-            aria-label="Select services"
+            role="radiogroup"
+            aria-label="Select a service"
           >
             {SERVICES.map(({ id, label }) => {
-              const isActive = selected.has(id);
+              const isActive = selected === id;
               return (
                 <button
                   key={id}
                   type="button"
-                  onClick={() => toggle(id)}
+                  onClick={() => setSelected(id)}
                   aria-pressed={isActive}
                   className={`
                     rounded-lg px-6 py-4 font-['Geist'] text-[15px] font-bold
@@ -136,7 +127,7 @@ export default function PricingHeroSection() {
             <button
               type="button"
               onClick={handleSubmit}
-              disabled={selected.size === 0}
+              disabled={selected === null}
               className="w-full max-w-[280px] rounded-lg bg-[#FF5F1F] px-10 py-4 font-['Geist'] text-[14px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] disabled:cursor-not-allowed disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181C] sm:w-auto"
             >
               Get Started

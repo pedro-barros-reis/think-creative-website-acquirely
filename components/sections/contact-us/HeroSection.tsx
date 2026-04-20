@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -37,17 +38,64 @@ const EMPTY_FORM: FormState = {
 const INPUT =
   "w-full rounded-lg bg-[#1C1C1F] px-4 py-3 font-['IBM Plex Sans'] text-[15px] text-white placeholder-white/25 outline-none ring-1 ring-white/10 transition-shadow focus:ring-2 focus:ring-[#FF5F1F]";
 
+const INPUT_ERROR =
+  "w-full rounded-lg bg-[#1C1C1F] px-4 py-3 font-['IBM Plex Sans'] text-[15px] text-white placeholder-white/25 outline-none ring-1 ring-red-500 transition-shadow focus:ring-2 focus:ring-[#FF5F1F]";
+
+// ─── Phone mask ───────────────────────────────────────────────────────────
+function applyPhoneMask(raw: string): string {
+  const digits = raw.replace(/\D/g, "").slice(0, 10);
+  if (digits.length <= 3) return digits;
+  if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+}
+
+// ─── Validation ───────────────────────────────────────────────────────────
+function validate(form: FormState) {
+  const errors: Partial<Record<keyof FormState, string>> = {};
+  if (!form.name.trim()) errors.name = "Name is required.";
+  if (!form.email.trim()) {
+    errors.email = "Email is required.";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+    errors.email = "Enter a valid email address.";
+  }
+  const digits = form.phone.replace(/\D/g, "");
+  if (!digits) {
+    errors.phone = "Phone number is required.";
+  } else if (digits.length < 10) {
+    errors.phone = "Enter a complete 10-digit phone number.";
+  }
+  return errors;
+}
+
 // ─── ContactHeroSection ────────────────────────────────────────────────────
 export default function ContactHeroSection() {
+  const router = useRouter();
   const [form, setForm] = useState<FormState>(EMPTY_FORM);
+  const [errors, setErrors] = useState<
+    Partial<Record<keyof FormState, string>>
+  >({});
+  const [touched, setTouched] = useState(false);
   const [sending, setSending] = useState(false);
 
   function set(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-    setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    const updated = {
+      ...form,
+      [name]: name === "phone" ? applyPhoneMask(value) : value,
+    };
+    setForm(updated);
+    if (touched) setErrors(validate(updated));
   }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setTouched(true);
+    const fieldErrors = validate(form);
+    if (Object.keys(fieldErrors).length > 0) {
+      setErrors(fieldErrors);
+      return;
+    }
+
     setSending(true);
 
     // ── Replace this block with your actual API call ──────────────
@@ -55,7 +103,7 @@ export default function ContactHeroSection() {
     // ─────────────────────────────────────────────────────────────
 
     toast.success("Message sent! We'll be in touch shortly.", {
-      duration: 5000,
+      duration: 2500,
       style: {
         background: "#101012",
         color: "#fff",
@@ -69,12 +117,15 @@ export default function ContactHeroSection() {
     });
 
     setForm(EMPTY_FORM);
+    setErrors({});
+    setTouched(false);
     setSending(false);
+
+    setTimeout(() => router.push("/contact-us/sent"), 1500);
   }
 
   return (
     <>
-      {/* Toast portal */}
       <Toaster position="top-center" />
 
       <section
@@ -82,7 +133,6 @@ export default function ContactHeroSection() {
         className="relative w-full overflow-hidden bg-black"
       >
         <div className="pointer-events-none absolute inset-0 z-0 select-none">
-          
           <div className="absolute inset-0 opacity-20">
             <Image
               src="/images/hero-burst.webp"
@@ -93,11 +143,11 @@ export default function ContactHeroSection() {
               aria-hidden="true"
             />
           </div>
-  
-          <div 
+          <div
             className="absolute inset-0"
             style={{
-              background: 'radial-gradient(circle at 90% 90%, rgba(194, 65, 12, 0.35) 0%, rgba(194, 65, 12, 0) 40%)'
+              background:
+                "radial-gradient(circle at 90% 90%, rgba(194, 65, 12, 0.35) 0%, rgba(194, 65, 12, 0) 40%)",
             }}
             aria-hidden="true"
           />
@@ -105,7 +155,6 @@ export default function ContactHeroSection() {
 
         {/* Main grid */}
         <div className="relative z-10 mx-auto flex max-w-468 flex-col gap-12 px-6 py-20 lg:flex-row lg:items-start lg:gap-20 lg:px-12 lg:py-28">
-
           {/* ── LEFT — headline + checklist ─────────────────────── */}
           <div className="flex flex-col gap-8 lg:flex-1 lg:pt-4">
             <h1
@@ -127,7 +176,6 @@ export default function ContactHeroSection() {
             <ul className="flex flex-col gap-4" role="list">
               {FEATURES.map((item) => (
                 <li key={item} className="flex items-center gap-3">
-                  {/* Filled orange circle check */}
                   <span
                     className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#FF5F1F]"
                     aria-hidden="true"
@@ -148,8 +196,6 @@ export default function ContactHeroSection() {
 
           {/* ── RIGHT — contact form ─────────────────────────────── */}
           <div className="w-full rounded-lg bg-[#101012] p-8 lg:max-w-[500px] lg:p-10">
-
-            {/* Form header */}
             <div className="mb-8 flex flex-col items-center gap-1 text-center">
               <h2 className="font-['Geist'] text-[28px] font-bold text-white">
                 Reach Out!
@@ -162,13 +208,22 @@ export default function ContactHeroSection() {
               </a>
             </div>
 
-            <form onSubmit={onSubmit} noValidate className="flex flex-col gap-5">
-
+            <form
+              onSubmit={onSubmit}
+              noValidate
+              className="flex flex-col gap-5"
+            >
               {/* Row 1 — Name + Email */}
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="cf-name" className="font-['Geist'] text-[13px] font-bold text-white">
-                    Your Name <span className="text-[#FF5F1F]" aria-hidden="true">*</span>
+                <div className="flex flex-col gap-1.5">
+                  <label
+                    htmlFor="cf-name"
+                    className="font-['Geist'] text-[13px] font-bold text-white"
+                  >
+                    Your Name{" "}
+                    <span className="text-[#FF5F1F]" aria-hidden="true">
+                      *
+                    </span>
                   </label>
                   <input
                     id="cf-name"
@@ -178,13 +233,30 @@ export default function ContactHeroSection() {
                     autoComplete="name"
                     value={form.name}
                     onChange={set}
-                    className={INPUT}
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? "cf-name-error" : undefined}
+                    className={errors.name ? INPUT_ERROR : INPUT}
                   />
+                  {errors.name && (
+                    <p
+                      id="cf-name-error"
+                      role="alert"
+                      className="text-[12px] text-red-400"
+                    >
+                      {errors.name}
+                    </p>
+                  )}
                 </div>
 
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="cf-email" className="font-['Geist'] text-[13px] font-bold text-white">
-                    Your Email <span className="text-[#FF5F1F]" aria-hidden="true">*</span>
+                <div className="flex flex-col gap-1.5">
+                  <label
+                    htmlFor="cf-email"
+                    className="font-['Geist'] text-[13px] font-bold text-white"
+                  >
+                    Your Email{" "}
+                    <span className="text-[#FF5F1F]" aria-hidden="true">
+                      *
+                    </span>
                   </label>
                   <input
                     id="cf-email"
@@ -194,16 +266,35 @@ export default function ContactHeroSection() {
                     autoComplete="email"
                     value={form.email}
                     onChange={set}
-                    className={INPUT}
+                    aria-invalid={!!errors.email}
+                    aria-describedby={
+                      errors.email ? "cf-email-error" : undefined
+                    }
+                    className={errors.email ? INPUT_ERROR : INPUT}
                   />
+                  {errors.email && (
+                    <p
+                      id="cf-email-error"
+                      role="alert"
+                      className="text-[12px] text-red-400"
+                    >
+                      {errors.email}
+                    </p>
+                  )}
                 </div>
               </div>
 
               {/* Row 2 — Phone + Company Name */}
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="cf-phone" className="font-['Geist'] text-[13px] font-bold text-white">
-                    Your Phone Number <span className="text-[#FF5F1F]" aria-hidden="true">*</span>
+                <div className="flex flex-col gap-1.5">
+                  <label
+                    htmlFor="cf-phone"
+                    className="font-['Geist'] text-[13px] font-bold text-white"
+                  >
+                    Your Phone Number{" "}
+                    <span className="text-[#FF5F1F]" aria-hidden="true">
+                      *
+                    </span>
                   </label>
                   <input
                     id="cf-phone"
@@ -211,14 +302,31 @@ export default function ContactHeroSection() {
                     type="tel"
                     required
                     autoComplete="tel"
+                    placeholder="(000) 000-0000"
                     value={form.phone}
                     onChange={set}
-                    className={INPUT}
+                    aria-invalid={!!errors.phone}
+                    aria-describedby={
+                      errors.phone ? "cf-phone-error" : undefined
+                    }
+                    className={errors.phone ? INPUT_ERROR : INPUT}
                   />
+                  {errors.phone && (
+                    <p
+                      id="cf-phone-error"
+                      role="alert"
+                      className="text-[12px] text-red-400"
+                    >
+                      {errors.phone}
+                    </p>
+                  )}
                 </div>
 
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="cf-company" className="font-['Geist'] text-[13px] font-bold text-white">
+                <div className="flex flex-col gap-1.5">
+                  <label
+                    htmlFor="cf-company"
+                    className="font-['Geist'] text-[13px] font-bold text-white"
+                  >
                     Company Name
                   </label>
                   <input
@@ -233,9 +341,12 @@ export default function ContactHeroSection() {
                 </div>
               </div>
 
-              {/* Row 3 — Company Website (full width) */}
-              <div className="flex flex-col gap-2">
-                <label htmlFor="cf-website" className="font-['Geist'] text-[13px] font-bold text-white">
+              {/* Row 3 — Company Website */}
+              <div className="flex flex-col gap-1.5">
+                <label
+                  htmlFor="cf-website"
+                  className="font-['Geist'] text-[13px] font-bold text-white"
+                >
                   Company Website
                 </label>
                 <input
@@ -250,9 +361,12 @@ export default function ContactHeroSection() {
                 />
               </div>
 
-              {/* Row 4 — Comments (full width textarea) */}
-              <div className="flex flex-col gap-2">
-                <label htmlFor="cf-comments" className="font-['Geist'] text-[13px] font-bold text-white">
+              {/* Row 4 — Comments */}
+              <div className="flex flex-col gap-1.5">
+                <label
+                  htmlFor="cf-comments"
+                  className="font-['Geist'] text-[13px] font-bold text-white"
+                >
                   Any Comments?
                 </label>
                 <textarea
@@ -287,10 +401,8 @@ export default function ContactHeroSection() {
                   <ArrowRight size={14} strokeWidth={2.5} aria-hidden="true" />
                 </Link>
               </div>
-
             </form>
           </div>
-
         </div>
       </section>
     </>

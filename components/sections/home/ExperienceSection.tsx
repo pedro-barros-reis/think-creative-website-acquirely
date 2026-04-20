@@ -1,127 +1,37 @@
-import Image from "next/image";
-import CtaButton from "@/components/ui/CtaButton";
+import ExperienceSection from "@/components/sections/shared/ExperienceSection";
 
-function FeatureCard({ icon, text }: { icon: string; text: React.ReactNode }) {
+const CARDS = [
+  {
+    icon: "/svg/experiences/first-card.svg",
+    text: <><strong>Free marketing plan for your business</strong> to see how we can help you grow.</>,
+  },
+  {
+    icon: "/svg/experiences/second-card.svg",
+    text: <>Consulted for a company featured on <strong>ABC&apos;s hit TV show, Shark Tank.</strong></>,
+  },
+  {
+    icon: "/svg/experiences/third-card.svg",
+    text: <><strong>Hundreds of millions of managed ad spend</strong> for Fortune 50 to local.</>,
+  },
+  {
+    icon: "/svg/experiences/fourth-card.svg",
+    text: <><strong>Hundreds of thousands of keywords ranked</strong> on the first page of Google.</>,
+  },
+  {
+    icon: "/svg/experiences/fifth-card.svg",
+    text: <><strong>Graphic design that converts</strong> with a focus on enhancing your brand.</>,
+  },
+  {
+    icon: "/svg/experiences/sixth-card.svg",
+    text: <><strong>Web development experts</strong> in WordPress and custom applications.</>,
+  },
+] as const;
+
+export default function HomeExperienceSection() {
   return (
-    <article className="flex flex-col gap-7.5 rounded-lg bg-white p-12">
-      <div>
-        <Image
-          src={icon}
-          alt=""
-          width={137}
-          height={112}
-          className="h-34 w-auto object-contain"
-          aria-hidden="true"
-        />
-      </div>
-
-      <p className="font-['Geist'] text-[24px] font-normal leading-[-1%] text-[#101012]">
-        {text}
-      </p>
-    </article>
-  );
-}
-
-export default function ExperienceSection() {
-  return (
-    <section
-      aria-labelledby="experience-heading"
-      className="w-full bg-[#F0F0F1] py-24 lg:py-32"
-    >
-      <div className="mx-auto max-w-468 px-6 lg:px-12">
-        <div className="grid grid-cols-1 gap-20 lg:gap-112 lg:grid-cols-[1fr_1.4fr] lg:items-start">
-          <div className="flex flex-col gap-8 lg:top-28">
-            <header className="flex flex-col gap-5">
-              <h2
-                id="experience-heading"
-                className="font-['Geist'] text-[48px] font-semibold leading-[1.2] tracking-[-0.02em] text-[#101012]"
-              >
-                1,000+ Clients
-                <br />
-                Worth Of Experience
-              </h2>
-              <p className="font-['IBM Plex Sans'] text-[22px] font-normal leading-[1.4] tracking-[-0.01em] text-[#101012]">
-                Custom marketing strategies for your business based on
-                <br />
-                what performs best across 1,000+ other companies.
-              </p>
-            </header>
-
-            <CtaButton ringOffset="focus-visible:ring-offset-black" />
-          </div>
-
-          <div className="flex flex-col gap-8">
-            <FeatureCard
-              icon={"/svg/experiences/first-card.svg"}
-              text={
-                <>
-                  <strong>Free marketing plan for your business</strong> to see
-                  how <br />
-                  we can help you grow.
-                </>
-              }
-            />
-
-            <FeatureCard
-              icon={"/svg/experiences/second-card.svg"}
-              text={
-                <>
-                  Consulted for a company featured on 
-                  <strong>
-                    ABC’s hit TV
-                    <br />
-                    show, Shark Tank.
-                  </strong>
-                </>
-              }
-            />
-
-            <FeatureCard
-              icon={"/svg/experiences/third-card.svg"}
-              text={
-                <>
-                  <strong>Hundreds of millions of managed ad spend </strong>
-                  <br />
-                  for Fortune 50 to local.
-                </>
-              }
-            />
-
-            <FeatureCard
-              icon={"/svg/experiences/fourth-card.svg"}
-              text={
-                <>
-                  <strong>Hundreds of thousands of keywords ranked</strong> on
-                  <br />
-                  the first page of Google.
-                </>
-              }
-            />
-
-            <FeatureCard
-              icon={"/svg/experiences/fifth-card.svg"}
-              text={
-                <>
-                  <strong>Graphic design that converts </strong>with a focus on
-                  <br />
-                  enhancing your brand.
-                </>
-              }
-            />
-
-            <FeatureCard
-              icon={"/svg/experiences/sixth-card.svg"}
-              text={
-                <>
-                  <strong>Web development experts </strong>in WordPress and
-                  <br />
-                  custom applications.
-                </>
-              }
-            />
-          </div>
-        </div>
-      </div>
-    </section>
+    <ExperienceSection
+      subtitle="Custom marketing strategies for your business based on what performs best across 1,000+ other companies."
+      cards={CARDS}
+    />
   );
 }

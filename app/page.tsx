@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import Navbar from "@/components/layout/Navbar";
 import HeroSection from "@/components/sections/home/HeroSection";
 import ServicesSection from "@/components/sections/home/ServicesSection";
 import IndustriesSection from "@/components/sections/home/IndustriesSection";
@@ -8,8 +7,6 @@ import ExperienceSection from "@/components/sections/home/ExperienceSection";
 import ValueSection from "@/components/sections/home/ValueSection";
 import TestimonialsSection from "@/components/sections/home/TestimonialsSection";
 import CarouselSection from "@/components/sections/home/CarouselSection";
-import CtaSection from "@/components/sections/shared/CtaSection";
-import Footer from "@/components/layout/Footer";
 import { Testimonial } from "@/components/ui/TestimonialCard";
 import Image from "next/image";
 
@@ -52,22 +49,22 @@ export const TOKENS = {
     button: "font-[Geist] font-bold text-sm tracking-wide uppercase",
   },
 
-  radius: "rounded-lg", // 8px — Tailwind `rounded-lg` = 8px
+  radius: "rounded-md", // 8px — Tailwind `rounded-lg` = 8px
 
   // Reusable button variants
   buttonPrimary:
-    "inline-flex items-center gap-2 rounded-lg bg-[#FF5F1F] px-6 py-3 font-[Geist] font-bold text-sm text-white uppercase tracking-wide transition-colors hover:bg-[#E54E0E] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2",
+    "inline-flex items-center gap-2 rounded-md bg-[#FF5F1F] px-6 py-3 font-[Geist] font-bold text-sm text-white uppercase tracking-wide transition-colors hover:bg-[#E54E0E] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2",
   buttonOutline:
-    "inline-flex items-center gap-2 rounded-lg border border-white/30 px-6 py-3 font-[Geist] font-bold text-sm text-white uppercase tracking-wide transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2",
+    "inline-flex items-center gap-2 rounded-md border border-white/30 px-6 py-3 font-[Geist] font-bold text-sm text-white uppercase tracking-wide transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2",
 } as const;
 
 // ─── Page Metadata ─────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-  title: "Think Website",
+  title: "Think Creative — Michigan-Based Marketing Agency",
   description:
-    "Local expertise and tenacious grit. $200M+ in results, 1,000+ clients, and a 100% satisfaction track record.",
+    "Michigan-based marketing agency with $200M+ in results, 1,000+ clients, and a 100% satisfaction track record. SEO, PPC, Facebook Ads, Web Development & Graphic Design.",
   openGraph: {
-    title: "Think | Michigan-Based Marketing Agency",
+    title: "Think Creative — Michigan-Based Marketing Agency",
     description: "Local expertise. Tenacious grit. Real results.",
     type: "website",
   },

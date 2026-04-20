@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import PressBanner from "../ui/PressBanner";
 
 // ─── Think Large Logo (inline SVG) ────────────────────────────────────────
 function ThinkLogoLg() {
@@ -99,7 +100,7 @@ export default function Footer() {
                   We're here to help.
                 </p>
                 <Link
-                  href="/contact"
+                  href="/contact-us"
                   className="inline-flex items-center gap-2 font-['Geist'] text-[16px] font-semibold text-[#FF5F1F] transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#101012]"
                 >
                   Get In Touch
@@ -166,32 +167,19 @@ export default function Footer() {
         </div>
 
         {/* ── Press logos strip ──────────────────────────────────── */}
-        <div className="mt-6 pt-12">
+        <div className="mb-6">
           <ul
             className="flex flex-wrap items-center justify-between gap-x-6 gap-y-6"
             role="list"
             aria-label="As seen in"
           >
-            {PRESS_LOGOS.map(({ id, alt }) => (
-              <li
-                key={id}
-                className="flex items-center justify-center grayscale brightness-[10] transition-opacity opacity-70"
-              >
-                <Image
-                  src={`/svg/brands/${id}.svg`}
-                  alt={alt}
-                  width={110}
-                  height={28}
-                  className="h-7 w-auto object-contain"
-                />
-              </li>
-            ))}
+            <PressBanner />
           </ul>
         </div>
       </div>
 
       {/* ── Copyright bar ─────────────────────────────────────────── */}
-      <div className="mb-4">
+      <div className="mb-4 md:mb-0">
         <div className="mx-auto flex max-w-468 px-6 lg:px-12 flex-wrap items-center justify-between gap-4 py-6">
           <p className="font-['Inter'] text-[15px] font-normal text-[#AAA]">
             © Think Creative 2026

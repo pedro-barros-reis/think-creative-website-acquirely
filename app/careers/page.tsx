@@ -4,14 +4,14 @@ import CareersWorksSection from "@/components/sections/careers/WorksSection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-title: "Careers — Think Creative",
-description:
-  "Get your free marketing plan built on real client data. Select the services you need and we'll craft a custom strategy.",
-openGraph: {
-  title: "Free Marketing Plan — Think Creative",
-  description: "Built on real data from 1,000+ clients.",
-  type: "website",
-},
+  title: "Careers — Think Creative",
+  description:
+    "Join the Think Creative team. We're a Michigan-based marketing agency looking for talented marketers, designers, developers, and more who love to win.",
+  openGraph: {
+    title: "Careers at Think Creative",
+    description: "Grow your career with a team that's passionate about results.",
+    type: "website",
+  },
 };
 
 export default function CareersPage() {

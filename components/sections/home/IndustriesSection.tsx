@@ -83,7 +83,7 @@ export default function IndustriesSection() {
             </div>
           </div>
 
-          <div className="flex flex-col items-center gap-16 lg:pt-4">
+          <div className="flex flex-col items-center sm:items-baseline gap-16 lg:pt-4">
             <header className="flex flex-col gap-8">
               <h2
                 id="industries-heading"
