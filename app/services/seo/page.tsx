@@ -58,11 +58,6 @@ function InstituteLogo() {
 export default function Seo() {
     return (
      <>
-       <style>{`
-         @import url('https://fonts.googleapis.com/css2?family=Geist&display=swap');`
-         }
-         </style>
-
          <SEOHeroSection />
          <SEOProofSection />
          <section

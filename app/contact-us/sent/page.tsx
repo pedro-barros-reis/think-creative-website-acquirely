@@ -11,10 +11,6 @@ export const metadata: Metadata = {
 export default function Sent() {
     return (
         <>
-        <style>{`
-         @import url('https://fonts.googleapis.com/css2?family=Geist&display=swap');`
-         }
-         </style>
          <ContactSentHeroSection />
         <TestimonialsSection />
         </>

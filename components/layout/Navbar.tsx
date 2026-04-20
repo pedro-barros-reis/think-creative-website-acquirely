@@ -114,6 +114,14 @@ export default function Navbar() {
   }
 
   return (
+    <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-[#FF5F1F] focus:px-4 focus:py-2 focus:font-['Geist'] focus:text-[14px] focus:font-bold focus:text-white focus:outline-none"
+      >
+        Skip to content
+      </a>
+
     <header className="sticky top-0 z-40 w-full bg-black">
       <div className="mx-auto flex h-20 max-w-468 items-center justify-between px-6 lg:px-12">
         <ThinkLogo />
@@ -156,12 +164,12 @@ export default function Navbar() {
 
       {/* ── Mobile menu panel ──────────────────────────────────── */}
       {mobileOpen && (
-        <div
+        <nav
           className="fixed inset-x-0 top-20 z-50 bg-black md:hidden"
           style={{ height: "calc(100dvh - 5rem)" }}
           aria-label="Mobile navigation"
         >
-          <nav className="flex flex-col px-6 py-8 gap-1 overflow-y-auto h-full">
+          <div className="flex flex-col px-6 py-8 gap-1 overflow-y-auto h-full">
 
             <Link
               href="/pricing"
@@ -229,9 +237,11 @@ export default function Navbar() {
               </Link>
             </div>
 
-          </nav>
-        </div>
+          </div>
+        </nav>
       )}
     </header>
-  );
+    </>
+
+);
 }

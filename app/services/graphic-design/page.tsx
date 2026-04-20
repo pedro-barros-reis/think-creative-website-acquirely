@@ -58,11 +58,6 @@ function InstituteLogo() {
 export default function GraphicDesign() {
     return (
          <>
-          <style>{`
-            @import url('https://fonts.googleapis.com/css2?family=Geist&display=swap');`
-            }
-            </style>
-    
             <GraphicDesignHeroSection />
             <GraphicDesignProofSection />
             <section

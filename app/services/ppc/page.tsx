@@ -61,11 +61,6 @@ export default function PPC() {
 
     return (
      <>
-       <style>{`
-         @import url('https://fonts.googleapis.com/css2?family=Geist&display=swap');`
-         }
-         </style>
-
          <PPCHeroSection />
          <PPCProofSection />
          <section

@@ -58,11 +58,6 @@ function InstituteLogo() {
 export default function FacebookAds() {
     return (
      <>
-       <style>{`
-         @import url('https://fonts.googleapis.com/css2?family=Geist&display=swap');`
-         }
-         </style>
-
          <FacebookAdsHeroSection />
          <FacebookAdsProofSection />
          <section

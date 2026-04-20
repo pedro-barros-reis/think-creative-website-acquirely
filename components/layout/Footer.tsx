@@ -74,11 +74,6 @@ function FooterNavColumn({
 // ─── Footer ───────────────────────────────────────────────────────────────
 export default function Footer() {
   return (
-    <>
-    <style>{`
-      @import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
-      `}
-    </style>
     <footer className="w-full bg-black" aria-label="Site footer">
       {/* ── Main footer body ──────────────────────────────────────── */}
       <div className="mx-auto max-w-468 px-6 lg:px-12 lg:py-20">
@@ -207,6 +202,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-    </>
   );
 }

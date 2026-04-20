@@ -18,11 +18,6 @@ export const metadata: Metadata = {
 export default function PartnersProgram() {
     return (
      <>
-       <style>{`
-         @import url('https://fonts.googleapis.com/css2?family=Geist&display=swap');`
-         }
-         </style>
-
          <PartnersHeroSection />
          <TestimonialsSection />
          <CompaniesSection />
