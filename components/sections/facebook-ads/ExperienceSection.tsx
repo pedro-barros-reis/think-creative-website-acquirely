@@ -25,7 +25,7 @@ const CARDS = [
     icon: "/svg/experiences/sixth-card.svg",
     text: <>Sit back and enjoy our results with our <strong>full-scale and done-for-you Facebook Ads.</strong></>,
   },
-] as const;
+];
 
 export default function FacebookAdsExperienceSection() {
   return (

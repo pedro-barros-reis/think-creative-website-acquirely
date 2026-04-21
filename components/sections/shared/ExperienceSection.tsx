@@ -13,7 +13,7 @@ export interface ExperienceSectionProps {
   /** Inserted between "1,000+" and "Clients" — omit for generic "1,000+ Clients" */
   serviceLabel?: string;
   subtitle: ReactNode;
-  cards: [ExperienceCard, ExperienceCard, ExperienceCard, ExperienceCard, ExperienceCard, ExperienceCard];
+  cards: readonly ExperienceCard[];
 }
 
 // ─── FeatureCard ───────────────────────────────────────────────────────────
