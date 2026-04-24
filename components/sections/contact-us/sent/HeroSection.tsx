@@ -66,17 +66,14 @@ export default function ContactSentHeroSection() {
           <ul className="flex flex-col gap-4" role="list">
             {FEATURES.map((item) => (
               <li key={item} className="flex items-center gap-3">
-                {/* Filled orange circle check */}
-                <span
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#FF5F1F]"
-                  aria-hidden="true"
-                >
-                  <CheckCircle
-                    size={14}
-                    strokeWidth={3}
-                    className="text-white"
-                  />
-                </span>
+                <Image
+                  src="/svg/check-icon.svg"
+
+                  alt="Check Icon"
+                  width={25}
+                  height={25}
+                  className="text-white"
+                />
                 <span className="font-['IBM Plex Sans'] text-[17px] font-normal text-white">
                   {item}
                 </span>

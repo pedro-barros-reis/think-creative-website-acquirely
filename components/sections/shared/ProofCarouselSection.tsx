@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState, useCallback, useEffect, useId } from "react";
+import { useId } from "react";
 import Image from "next/image";
 import CtaButton from "@/components/ui/CtaButton";
 
@@ -12,55 +12,23 @@ interface Props {
   heading: React.ReactNode;
   description: string;
   images: CarouselImage[];
-  cardAspect?: "portrait" | "square";
 }
 
-const CARD_W = 280;
+const CARD_W = 348;
+const CARD_H = 451;
+const GAP = 16;
+const SPEED_PX_PER_SEC = 250;
 
 export default function ProofCarouselSection({
   heading,
   description,
   images,
-  cardAspect = "portrait",
 }: Props) {
   const headingId = useId();
-  const [activeIdx, setActiveIdx] = useState(() => Math.floor(images.length / 2));
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const centerCard = useCallback(
-    (idx: number, behavior: ScrollBehavior = "smooth") => {
-      const container = scrollRef.current;
-      if (!container) return;
-      const card = container.children[idx] as HTMLElement | undefined;
-      if (!card) return;
-      container.scrollTo({
-        left: card.offsetLeft + card.offsetWidth / 2 - container.offsetWidth / 2,
-        behavior,
-      });
-    },
-    []
-  );
-
-  useEffect(() => {
-    centerCard(Math.floor(images.length / 2), "instant" as ScrollBehavior);
-  }, [centerCard, images.length]);
-
-  const handleScroll = useCallback(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-    const viewCenter = container.scrollLeft + container.offsetWidth / 2;
-    let closest = 0;
-    let minDist = Infinity;
-    Array.from(container.children).forEach((el, i) => {
-      const h = el as HTMLElement;
-      const dist = Math.abs(h.offsetLeft + h.offsetWidth / 2 - viewCenter);
-      if (dist < minDist) {
-        minDist = dist;
-        closest = i;
-      }
-    });
-    setActiveIdx(closest);
-  }, []);
+  const track = [...images, ...images];
+  const loopDistance = images.length * (CARD_W + GAP);
+  const duration = loopDistance / SPEED_PX_PER_SEC;
+  const animationName = `proof-marquee-${useId().replace(/:/g, "")}`;
 
   return (
     <section
@@ -75,49 +43,51 @@ export default function ProofCarouselSection({
           >
             {heading}
           </h2>
-          <p className="max-w-[600px] font-['IBM Plex Sans'] text-[18px] lg:text-[22px] font-normal leading-[150%] text-[#F0F0F1]">
+          <p className="max-w-[600px] font-['IBM Plex Sans'] text-[18px] lg:text-[22px] font-light leading-[150%] text-[#F0F0F1]">
             {description}
           </p>
         </header>
 
         <div
-          ref={scrollRef}
-          onScroll={handleScroll}
-          style={{ paddingInline: `calc(50% - ${CARD_W / 2}px)` }}
-          className="flex w-full gap-4 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="w-full overflow-hidden"
+          role="region"
+          aria-label="Work samples carousel"
         >
-          {images.map((img, i) => {
-            const dist = Math.abs(i - activeIdx);
-            const scale = dist === 0 ? 1 : dist === 1 ? 0.92 : 0.85;
-            const opacity = dist === 0 ? 1 : dist === 1 ? 0.72 : 0.5;
-            return (
+          <div
+            className="flex gap-4 w-max"
+            style={{
+              animation: `${animationName} ${duration}s linear infinite`,
+              willChange: "transform",
+            }}
+          >
+            {track.map((img, i) => (
               <div
                 key={i}
-                onClick={() => {
-                  setActiveIdx(i);
-                  centerCard(i);
-                }}
-                style={{
-                  width: CARD_W,
-                  flexShrink: 0,
-                  transform: `scale(${scale})`,
-                  opacity,
-                }}
-                className={`snap-center cursor-pointer rounded-xl overflow-hidden transition-all duration-300 origin-center relative ${
-                  cardAspect === "square" ? "aspect-square" : "aspect-[3/4]"
-                }`}
+                style={{ flexShrink: 0 }}
+                className="rounded-xl overflow-hidden"
               >
                 <Image
                   src={img.src}
                   alt={img.alt}
-                  fill
-                  className={`object-cover ${cardAspect === "portrait" ? "object-top" : "object-center"}`}
-                  sizes={`${CARD_W}px`}
+                  width={CARD_W}
+                  height={CARD_H}
+                  style={{ width: CARD_W, height: CARD_H }}
+                  className="block object-cover"
                 />
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
+
+        <style>{`
+          @keyframes ${animationName} {
+            from { transform: translateX(0); }
+            to { transform: translateX(-${loopDistance}px); }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            [style*="${animationName}"] { animation: none !important; }
+          }
+        `}</style>
 
         <CtaButton ringOffset="focus-visible:ring-offset-black" />
       </div>

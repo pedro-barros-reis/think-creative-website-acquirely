@@ -1,6 +1,6 @@
 import CarouselSection from "@/components/sections/home/CarouselSection";
 import ExperienceSection from "@/components/sections/web-development/ExperienceSection";
-import IndustriesSection from "@/components/sections/home/IndustriesSection";
+import IndustriesSection from "@/components/sections/shared/IndustriesSection";
 import TestimonialsSection from "@/components/sections/home/TestimonialsSection";
 import ValueSection from "@/components/sections/home/ValueSection";
 import FeaturesSection from "@/components/sections/web-development/FeaturesSection";
@@ -133,7 +133,7 @@ export default function WebDevelopment() {
             }
           />
         </section>
-        <IndustriesSection />
+        <IndustriesSection title="Web Development For All Industries" />
         <ValueSection />
         <TestimonialsSection />
         <CarouselSection />

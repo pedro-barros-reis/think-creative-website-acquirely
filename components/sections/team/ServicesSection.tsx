@@ -89,7 +89,7 @@ export default function TeamServicesSection() {
       aria-labelledby="team-services-heading"
       className="w-full bg-[#000000] py-24 lg:py-32"
     >
-      <div className="mx-auto flex max-w-468 flex-col gap-16 px-6 lg:px-12">
+      <div className="mx-auto flex max-w-468 flex-col gap-16 px-6 lg:px-30">
         {/* Header */}
         <header className="flex flex-col items-center gap-6 text-center">
           <h2

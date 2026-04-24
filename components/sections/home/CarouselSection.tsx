@@ -33,7 +33,7 @@ export default function CarouselSection() {
       aria-labelledby="founder-heading"
       className="w-full bg-white py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-468 items-center lg:items-start px-6 lg:px-12 xl:pr-64">
+      <div className="mx-auto max-w-468 items-center lg:items-start px-6 lg:px-30 xl:pr-64">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div className="relative w-full max-w-xl overflow-hidden rounded-lg">
             <Image
@@ -46,15 +46,15 @@ export default function CarouselSection() {
             />
           </div>
 
-          <div className="flex flex-col gap-10 w-full items-center lg:items-start">
+          <div className="flex flex-col gap-6 lg:gap-10 w-full items-center lg:items-start">
             <h2
               id="founder-heading"
-              className="font-['Geist'] text-[48px] font-semibold leading-[1.2] tracking-[-0.02em] text-[#101012]"
+              className="font-['Geist'] text-[34px] lg:text-[48px] font-semibold leading-[120%] tracking-[-2%] text-[#101012]"
             >
               Hear It From Us
             </h2>
 
-            <blockquote className="font-['Geist'] text-[38px] font-light leading-[1.3] tracking-[-0.01em] text-[#101012] text-center lg:text-left">
+            <blockquote className="font-['Geist'] text-[24px] lg:text-[38px] font-light leading-[130%] tracking-[-1%] text-[#101012] text-center lg:text-left">
               "Simply put, we're passionate about helping others grow their
               businesses. Our care for our partners runs deep, and we pride
               ourselves on integrity. You'll always feel honesty and
@@ -62,9 +62,9 @@ export default function CarouselSection() {
             </blockquote>
 
             <footer className="flex items-center justify-center lg:justify-normal gap-6 flex-wrap">
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col md:flex-row items-center gap-4">
                 <ThinkLogo />
-                <div className="flex flex-col">
+                <div className="flex flex-col text-center md:text-start">
                   <span className="font-['Geist'] text-[20px] font-bold leading-snug text-[#101012]">
                     Ryan Battishill
                   </span>

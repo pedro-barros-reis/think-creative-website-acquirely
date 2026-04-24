@@ -163,16 +163,14 @@ export default function CareersHeroSection() {
             <ul className="flex flex-col gap-4" role="list">
               {TRAITS.map((item) => (
                 <li key={item} className="flex items-center gap-3">
-                  <span
-                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#FF5F1F]"
-                    aria-hidden="true"
-                  >
-                    <Check
-                      size={14}
-                      strokeWidth={3}
-                      className="text-black"
-                    />
-                  </span>
+                  <Image
+                    src="/svg/check-icon.svg"
+
+                    alt="Check Icon"
+                  width={25}
+                    height={25}
+                    className="text-white"
+                  />
                   <span className="font-['IBM Plex Sans'] text-[20px] leading-[160%] tracking-[-1%] text-white">
                     {item}
                   </span>

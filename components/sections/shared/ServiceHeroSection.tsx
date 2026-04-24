@@ -29,7 +29,7 @@ function StatCard({ value, label }: HeroStat) {
   return (
     <div className="flex flex-col gap-2 px-6 md:px-8 py-8 lg:py-10">
       <span
-        className="font-['Geist'] text-[34px] md:text-[56px] font-semibold leading-none tracking-tight text-white lg:text-[62px]"
+        className="font-['Geist'] text-[32px] md:text-[56px] font-semibold leading-none tracking-tight text-white lg:text-[62px]"
         aria-label={`${value} — ${label}`}
       >
         {value}
@@ -59,13 +59,13 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
     >
       {/* ── Background ──────────────────────────────────────────────── */}
       <div className="pointer-events-none absolute inset-0 z-0 select-none">
-        <div className="absolute inset-0 opacity-20 lg:opacity-70">
+        <div className="absolute -bottom-28 -right-36 lg:-bottom-76 lg:-right-112 aspect-square w-[95%] max-w-270 opacity-30 lg:opacity-35">
           <Image
-            src="/images/hero-burst.webp"
+            src="/images/bursticonbg.svg"
             alt=""
             fill
             priority
-            className="object-cover object-bottom-right"
+            className="object-contain object-bottom-right -rotate-6"
             aria-hidden="true"
           />
         </div>
@@ -80,12 +80,12 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
       </div>
 
       {/* ── Main content ──────────────────────────────────────────────── */}
-      <div className="relative z-10 mx-auto max-w-468 px-6 pb-16 pt-20 lg:px-12 lg:pb-24 lg:pt-28">
-        <div className={`grid grid-cols-1 gap-16 lg:grid-cols-2 ${props.variant === "stats" ? "items-start" : "items-center"}`}>
+      <div className="relative z-10 mx-auto max-w-468 px-6 lg:px-30 pb-16 lg:pb-24 pt-8 sm:pt-20 lg:pt-28">
+        <div className={`grid grid-cols-1 gap-12 lg:grid-cols-2 ${props.variant === "stats" ? "items-start" : "items-center"}`}>
 
           {/* ── LEFT: Headline + subtitle + CTA ─────────────────────── */}
           <div className="flex flex-col gap-8">
-            <h1 className="font-['Geist'] lg:max-w-[674px] text-[42px] font-semibold leading-[1.05] tracking-tight text-white lg:text-[62px] text-center lg:text-left">
+            <h1 className="font-['Geist'] lg:max-w-[674px] text-[40px] font-semibold leading-[1.05] tracking-tight text-white lg:text-[62px] text-center lg:text-left">
               {headingPrefix}
               <mark className="bg-[#2D3748]/70 text-white [box-decoration-break:clone] px-1 not-italic">
                 {headingHighlight}
@@ -93,15 +93,15 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
               {headingAfterHighlight}
             </h1>
 
-            <p className="font-['IBM Plex Sans'] max-w-[590px] text-[20px] lg:text-[24px] font-normal leading-[150%] tracking-[-1%] text-[#F0F0F1] text-center lg:text-left">
+            <p className="font-['IBM Plex Sans'] max-w-[590px] text-[20px] lg:text-[24px] font-light leading-[150%] tracking-[-1%] text-[#F0F0F1] text-center lg:text-left">
               {subtitle}
             </p>
 
             <div className="flex flex-col gap-4 items-center lg:items-start">
               <CtaButton ringOffset="focus-visible:ring-offset-black" />
-              <p className="font-['IBM Plex Sans'] text-[16px] font-normal text-white/70 text-center lg:text-left">
-                Winning {serviceLabel} advice from our experience with{" "}
-                <strong className="font-bold text-white">1,000+ clients</strong>
+              <p className="max-w-[260px] sm:max-w-full w-full font-['IBM Plex Sans'] text-[14px] font-light text-[#F0F0F1] text-center lg:text-left">
+                Winning {serviceLabel} advice from our experience with
+                <strong className="font-bold text-white">{" "} 1,000+ clients</strong>
               </p>
             </div>
           </div>

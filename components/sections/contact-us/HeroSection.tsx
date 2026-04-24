@@ -159,7 +159,7 @@ export default function ContactHeroSection() {
           <div className="flex flex-col gap-8 lg:flex-1 lg:pt-4">
             <h1
               id="contact-heading"
-              className="font-['Geist'] text-[48px] font-bold leading-[1.05] tracking-[-0.02em] text-white lg:text-[58px]"
+              className="font-['Geist'] text-[48px] font-semibold leading-[110%] tracking-[-2%] text-white lg:text-[58px]"
             >
               Are We{" "}
               <mark className="bg-[#2D3748]/70 px-1 text-white not-italic [box-decoration-break:clone]">
@@ -176,16 +176,14 @@ export default function ContactHeroSection() {
             <ul className="flex flex-col gap-4" role="list">
               {FEATURES.map((item) => (
                 <li key={item} className="flex items-center gap-3">
-                  <span
-                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#FF5F1F]"
-                    aria-hidden="true"
-                  >
-                    <CheckCircle
-                      size={14}
-                      strokeWidth={3}
-                      className="text-white"
-                    />
-                  </span>
+                  <Image
+                    src="/svg/check-icon.svg"
+
+                    alt="Check Icon"
+                    width={25}
+                    height={25}
+                    className="text-white"
+                  />
                   <span className="font-['IBM Plex Sans'] text-[17px] font-normal text-white">
                     {item}
                   </span>

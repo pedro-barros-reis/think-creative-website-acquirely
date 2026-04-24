@@ -1,6 +1,6 @@
 import CarouselSection from "@/components/sections/home/CarouselSection";
 import ExperienceSection from "@/components/sections/facebook-ads/ExperienceSection";
-import IndustriesSection from "@/components/sections/home/IndustriesSection";
+import IndustriesSection from "@/components/sections/shared/IndustriesSection";
 import TestimonialsSection from "@/components/sections/home/TestimonialsSection";
 import ValueSection from "@/components/sections/home/ValueSection";
 import FeaturesSection from "@/components/sections/facebook-ads/FeaturesSection";
@@ -134,7 +134,7 @@ export default function FacebookAds() {
                      />
                    </section>
                    <ValueSection />
-                  <IndustriesSection />
+                  <IndustriesSection title="Facebook Ads For All Industries" />
                   <TestimonialsSection />
                   <CarouselSection />
     </>

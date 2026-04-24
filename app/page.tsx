@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import HeroSection from "@/components/sections/home/HeroSection";
 import ServicesSection from "@/components/sections/home/ServicesSection";
-import IndustriesSection from "@/components/sections/home/IndustriesSection";
+import IndustriesSection from "@/components/sections/shared/IndustriesSection";
 import ExperienceSection from "@/components/sections/home/ExperienceSection";
 import ValueSection from "@/components/sections/home/ValueSection";
 import TestimonialsSection from "@/components/sections/home/TestimonialsSection";
@@ -113,7 +113,7 @@ export default function HomePage() {
         <ServicesSection />
         <section
           aria-labelledby="testimonial-card"
-          className="w-full mx-auto flex items-center justify-center bg-[#000000] pb-24 lg:pb-30"
+          className="w-full mx-auto flex items-center justify-center bg-[#000000] pb-12 md:pb-24 lg:pb-30"
         >
           <Testimonial
             theme="dark" 
@@ -140,7 +140,7 @@ export default function HomePage() {
         <IndustriesSection />
         <section
           aria-labelledby="testimonial-card"
-          className="w-full mx-auto flex items-center justify-center bg-[#101012] pb-24 lg:pb-30"
+          className="w-full mx-auto flex items-center justify-center bg-[#101012] pb-12 md:pb-24 lg:pb-30"
         >
           <Testimonial
             theme="dark"
@@ -164,7 +164,7 @@ export default function HomePage() {
         <ExperienceSection />
         <section
           aria-labelledby="testimonial-card"
-          className="w-full mx-auto flex items-center justify-center bg-[#F0F0F1] pb-24 lg:pb-30"
+          className="w-full mx-auto flex items-center justify-center bg-[#F0F0F1] pb-12 md:pb-24 lg:pb-30"
         >
           <Testimonial
             theme="light"

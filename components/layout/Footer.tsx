@@ -76,7 +76,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-black" aria-label="Site footer">
       {/* ── Main footer body ──────────────────────────────────────── */}
-      <div className="mx-auto max-w-468 px-6 lg:px-12 lg:py-20">
+      <div className="mx-auto max-w-468 px-6 lg:px-30 lg:py-20">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.8fr]">
           {/* ── LEFT — logo + contact card ──────────────────────── */}
           <div className="flex flex-col items-center lg:items-start gap-8">
@@ -175,7 +175,7 @@ export default function Footer() {
 
       {/* ── Copyright bar ─────────────────────────────────────────── */}
       <div className="mb-4 md:mb-0">
-        <div className="mx-auto flex max-w-468 px-6 lg:px-12 flex-wrap items-center justify-between gap-4 py-6">
+        <div className="mx-auto flex max-w-468 px-6 lg:px-30 flex-wrap items-center justify-between gap-4 py-6">
           <p className="font-['Inter'] text-[15px] font-normal text-[#AAA]">
             © Think Creative 2026
           </p>

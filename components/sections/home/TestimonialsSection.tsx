@@ -22,9 +22,9 @@ function StarRow({ count = 5 }: { count?: number }) {
           alt="Star Rating"
           src="/svg/rate-star.svg"
           key={i}
-          width={20}
-          height={20}
-          className="fill-[#FF5F1F] text-[#FF5F1F]"
+          width={28}
+          height={28}
+          className="fill-[#FF5F1F] text-[#FF5F1F] w-7 h-7 md:w-5 md:h-5"
           aria-hidden="true"
         />
       ))}
@@ -86,21 +86,20 @@ const TESTIMONIALS: Testimonial[] = [
 function RatingCards({ testimonial }: { testimonial: Testimonial }) {
   return (
     <article
-      className="flex h-full w-full flex-col justify-between rounded-lg bg-white"
-      style={{ padding: "46px 54px" }}
+      className="flex h-full w-full flex-col justify-between rounded-lg bg-white p-8 md:px-[54px] md:py-[46px]"
     >
       <div className="flex flex-col gap-6">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-7">
           <GoogleLogo />
           <StarRow count={testimonial.stars ?? 5} />
         </div>
 
-        <p className="font-['IBM Plex Sans'] text-[20px] font-normal leading-[-1%] text-[#101012]">
+        <p className="font-['IBM Plex Sans'] text-[18px] lg:text-[20px] font-normal leading-[150%] tracking-[-1%] text-[#101012]">
           {testimonial.quote}
         </p>
       </div>
 
-      <footer className="mt-10 flex items-center gap-4">
+      <footer className="mt-4 lg:mt-10 flex items-center gap-4">
         <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full">
           <Image
             src={testimonial.avatar}
@@ -110,7 +109,7 @@ function RatingCards({ testimonial }: { testimonial: Testimonial }) {
             sizes="48px"
           />
         </div>
-        <span className="font-['Geist'] text-[16px] font-bold text-[#101012]">
+        <span className="font-['Geist'] text-[20px] font-bold leading-[140%] tracking-[-1%] text-[#101012]">
           {testimonial.name}
         </span>
       </footer>
@@ -210,12 +209,12 @@ export default function TestimonialsSection() {
   return (
     <section
       aria-labelledby="testimonials-heading"
-      className="w-full bg-[#F0F0F1] py-24 lg:py-32"
+      className="w-full bg-[#F0F0F1] py-12 md:py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+      <div className="mx-auto max-w-7xl px-6 lg:px-30">
         <h2
           id="testimonials-heading"
-          className="mb-12 text-center font-['Geist'] text-[48px] font-semibold leading-[1.2] tracking-[-0.02em] text-[#101012]"
+          className="mb-5 lg:mb-12 text-center font-['Geist'] text-[34px] lg:text-[48px] font-semibold leading-[120%] tracking-[-2%] text-[#101012]"
         >
           What Others Think
         </h2>
@@ -258,9 +257,9 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Controles do Carrossel */}
-        <div className="mt-10 flex items-center justify-between">
+        <div className="mt-6 lg:mt-10 flex items-center justify-between">
           <div
-            className="flex items-center gap-2"
+            className="flex items-center gap-4.5 md:gap-2"
             role="tablist"
             aria-label="Carousel pagination"
           >
@@ -271,7 +270,7 @@ export default function TestimonialsSection() {
                 aria-selected={i === dotIdx}
                 aria-label={`Go to testimonial ${i + 1}`}
                 onClick={() => goTo(i + visibleCards)}
-                className={`h-2.5 w-2.5 rounded-full transition-all cursor-pointer ${
+                className={`h-4 md:h-2.5 w-4 md:w-2.5 rounded-full transition-all cursor-pointer ${
                   i === dotIdx
                     ? "bg-[#101012] scale-125"
                     : "bg-[#D6DCE3] hover:bg-[#101012]/50"

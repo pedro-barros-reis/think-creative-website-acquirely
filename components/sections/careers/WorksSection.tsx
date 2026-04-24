@@ -45,7 +45,7 @@ export default function CareersWorksSection() {
       aria-labelledby="careers-works-heading"
       className="w-full bg-black py-24 lg:py-32"
     >
-      <div className="mx-auto flex max-w-468 flex-col items-center gap-16 px-6 lg:px-12">
+      <div className="mx-auto flex max-w-468 flex-col items-center gap-16 px-6 lg:px-30">
 
         <header className="flex flex-col items-center gap-6 text-center">
           <h2

@@ -1,6 +1,6 @@
 import CarouselSection from "@/components/sections/home/CarouselSection";
 import ExperienceSection from "@/components/sections/graphic-design/ExperienceSection";
-import IndustriesSection from "@/components/sections/home/IndustriesSection";
+import IndustriesSection from "@/components/sections/shared/IndustriesSection";
 import TestimonialsSection from "@/components/sections/home/TestimonialsSection";
 import ValueSection from "@/components/sections/home/ValueSection";
 import FeaturesSection from "@/components/sections/graphic-design/FeaturesSection";
@@ -134,7 +134,7 @@ export default function GraphicDesign() {
               />
             </section>
             <ValueSection />
-            <IndustriesSection />
+            <IndustriesSection title="Graphic Design For All Industries" />
             <TestimonialsSection />
             <CarouselSection />
         </>

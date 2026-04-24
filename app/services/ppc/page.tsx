@@ -1,7 +1,7 @@
 import CarouselSection from "@/components/sections/home/CarouselSection";
 import ExperienceSection from "@/components/sections/ppc/ExperienceSection";
 import HeroSection from "@/components/sections/home/HeroSection";
-import IndustriesSection from "@/components/sections/home/IndustriesSection";
+import IndustriesSection from "@/components/sections/shared/IndustriesSection";
 import TestimonialsSection from "@/components/sections/home/TestimonialsSection";
 import ValueSection from "@/components/sections/home/ValueSection";
 import PPCHeroSection from "@/components/sections/ppc/HeroSection";
@@ -137,7 +137,7 @@ export default function PPC() {
             />
           </section>
           <ValueSection />
-         <IndustriesSection />
+         <IndustriesSection title="PPC For All Industries" />
          <TestimonialsSection />
          <CarouselSection />
     </>

@@ -61,7 +61,7 @@ export default function PricingHeroSection() {
         <header className="flex flex-col items-center gap-5">
           <h1
             id="pricing-hero-heading"
-            className="font-['Geist'] text-[52px] font-bold leading-[1.05] tracking-[-0.02em] text-white lg:text-[62px]"
+            className="font-['Geist'] text-[52px] font-semibold leading-[1.05] tracking-[-0.02em] text-white lg:text-[62px]"
           >
             Get Your Free Marketing Plan
             <br /> Based On{" "}
@@ -128,7 +128,7 @@ export default function PricingHeroSection() {
               type="button"
               onClick={handleSubmit}
               disabled={selected === null}
-              className="w-full max-w-[280px] rounded-lg bg-[#FF5F1F] px-10 py-4 font-['Geist'] text-[14px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] disabled:cursor-not-allowed disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181C] sm:w-auto"
+              className="w-full max-w-[280px] rounded-md bg-[#FF5F1F] px-10 py-4 font-['Geist'] text-[16px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] disabled:cursor-not-allowed disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181C] sm:w-auto"
             >
               Get Started
             </button>

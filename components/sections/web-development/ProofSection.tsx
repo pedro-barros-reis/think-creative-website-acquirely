@@ -23,7 +23,6 @@ export default function WebDevelopmentProofSection() {
       }
       description="Get a website that showcases your professionalism, ranks well on Google, and converts visitors into leads."
       images={IMAGES}
-      cardAspect="portrait"
     />
   );
 }

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 2689.59 2761.42">
+  <!-- Generator: Adobe Illustrator 29.5.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 141)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: url(#linear-gradient2);
+        stroke: url(#linear-gradient3);
+      }
+
+      .st0, .st1, .st2 {
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .st1 {
+        fill: url(#linear-gradient4);
+        stroke: url(#linear-gradient5);
+      }
+
+      .st2 {
+        fill: url(#linear-gradient);
+        stroke: url(#linear-gradient1);
+      }
+
+      .st3 {
+        opacity: .95;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="5433.62" y1="1682.64" x2="7553.62" y2="4600.57" gradientTransform="translate(-2119.02 6334.17) rotate(-31.38) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff5f1f"/>
+      <stop offset=".46" stop-color="#531f0a" stop-opacity="0"/>
+      <stop offset=".88" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient1" x1="12166.96" y1="-998.16" x2="13175.15" y2="-998.16" gradientTransform="translate(-1984.94 12763.27) rotate(-77.6) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset=".04" stop-color="#ff9255"/>
+      <stop offset=".73" stop-color="#531f0a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient2" x1="8069.09" y1="818.57" x2="5737.26" y2="4299.58" gradientTransform="translate(-2503.9 7866.55) rotate(-42.26) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff5f1f"/>
+      <stop offset=".65" stop-color="#531f0a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient3" x1="12620.47" y1="-1912.3" x2="13206.45" y2="-940.5" gradientTransform="translate(-1159.59 14155.02) rotate(-88.47) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff9255"/>
+      <stop offset=".73" stop-color="#531f0a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient4" x1="4302.3" y1="916.94" x2="5826.56" y2="2494.72" gradientTransform="translate(-2119.02 6334.17) rotate(-31.38) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset=".15" stop-color="#000" stop-opacity="0"/>
+      <stop offset=".52" stop-color="#531f0a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#ff5f1f"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient5" x1="10577.2" y1="-963.7" x2="11584.98" y2="-963.7" gradientTransform="translate(-1984.94 12763.27) rotate(-77.6) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset=".27" stop-color="#531f0a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#ff9255"/>
+    </linearGradient>
+  </defs>
+  <path class="st2" d="M2124.88,179.49l271.8,181.39-378.66,567.45c-89.54,134.41-249.53,199.58-407.5,166.32-50.34-10.52-96.95-30.49-137.72-57.8-87.53-58.32-149.29-150.41-168.16-258.95l-117.47-673.05,322.02-56.15,102.56,587.4.26,1.34,52.26,336.38c4.02,25.1,40.11,25.33,44.17.18l-5.42-43.75c-8.05-64.33,7.17-129.41,43.24-183.31l378.66-567.45h-.02Z"/>
+  <g class="st3">
+    <path class="st0" d="M259.12,886.6l127.33-300.95,628.29,265.79c148.79,62.81,242.76,207.77,239.63,369.19-.91,51.41-11.81,100.95-31.01,146.1-40.91,96.89-119.82,174.79-222.91,213.65l-639.18,241.34-115.42-305.82,557.84-210.65,1.27-.5,320.66-114.28c23.91-8.65,17.38-44.15-8.1-43.43l-41.96,13.52c-61.69,19.95-128.47,17.18-188.15-8.17l-628.29-265.79h0Z"/>
+  </g>
+  <path class="st1" d="M921.48,2570.5l-271.84-181.34,378.57-567.52c89.52-134.43,249.5-199.63,407.48-166.39,50.34,10.51,96.95,30.47,137.74,57.77,87.54,58.3,149.3,150.39,168.21,258.92l117.59,673.03-322,56.21-102.65-587.38-.26-1.34-52.32-336.38c-4.03-25.1-40.11-25.33-44.17-.17l5.43,43.75c8.06,64.33-7.15,129.41-43.21,183.31l-378.57,567.52h0Z"/>
+</svg>

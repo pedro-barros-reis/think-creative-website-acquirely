@@ -17,7 +17,6 @@ const PRESS_LOGOS: { id: string; alt: string }[] = [
 ];
 
 interface PressBannerProps {
-  /** Extra classes on the wrapper div */
   className?: string;
 }
 
@@ -27,24 +26,24 @@ export default function PressBanner({
   return (
     <div
           aria-label="As seen in"
-          className={`mt-20 pt-12 ${className} w-full`}
+          className={`sm:mt-14 pt-12 ${className} w-full`}
         >
           <ul
-            className="flex flex-wrap items-center justify-evenly lg:justify-between gap-x-8 gap-y-6"
+            className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 sm:gap-x-10 sm:gap-y-8 lg:flex-nowrap lg:justify-between lg:gap-x-0"
             role="list"
           >
             {PRESS_LOGOS.map(({ id, alt }) => (
               <li
                 key={id}
-                className="flex items-center justify-center opacity-60 grayscale transition-opacity hover:opacity-100"
+                className="flex items-center justify-center w-20 h-7 sm:w-28 sm:h-8 opacity-60 grayscale transition-opacity hover:opacity-100"
               >
-                {<Image
-                       src={`/svg/brands/${id}.svg`}
-                       alt={alt}
-                       width={120}
-                       height={32}
-                       className="h-7 w-auto object-contain"
-                     />}
+                <Image
+                  src={`/svg/brands/${id}.svg`}
+                  alt={alt}
+                  width={120}
+                  height={32}
+                  className="max-h-full max-w-full object-contain"
+                />
               </li>
             ))}
           </ul>

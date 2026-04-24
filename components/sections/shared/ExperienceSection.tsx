@@ -20,7 +20,7 @@ export interface ExperienceSectionProps {
 
 function FeatureCard({ icon, text }: ExperienceCard) {
   return (
-    <article className="flex flex-col gap-7.5 rounded-lg bg-white p-12">
+    <article className="flex flex-col gap-7.5 rounded-lg bg-white p-8 lg:p-12">
       <div>
         <Image
           src={icon}
@@ -31,7 +31,7 @@ function FeatureCard({ icon, text }: ExperienceCard) {
           aria-hidden="true"
         />
       </div>
-      <p className="font-['Geist'] text-[24px] font-normal leading-[-1%] text-[#101012]">
+      <p className="font-['Geist'] text-[19px] md:text-[24px] font-normal leading-[130%] tracking-[-1%] text-[#101012]">
         {text}
       </p>
     </article>
@@ -46,22 +46,22 @@ export default function ExperienceSection({ serviceLabel, subtitle, cards }: Exp
   return (
     <section
       aria-labelledby="experience-heading"
-      className="w-full bg-[#F0F0F1] py-24 lg:py-32"
+      className="w-full bg-[#F0F0F1] py-12 md:py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-468 px-6 lg:px-12">
-        <div className="grid grid-cols-1 gap-20 lg:gap-112 lg:grid-cols-[1fr_1.4fr] lg:items-start">
+      <div className="mx-auto max-w-468 px-6 lg:px-30">
+        <div className="grid grid-cols-1 gap-8 md:gap-20 lg:gap-112 lg:grid-cols-[1fr_1.4fr] lg:items-start">
 
           {/* ── LEFT: heading + subtitle + CTA ──────────────────────── */}
           <div className="flex flex-col gap-8 lg:top-28">
-            <header className="flex flex-col gap-5">
+            <header className="flex flex-col gap-4">
               <h2
                 id="experience-heading"
-                className="md:w-[650px] font-['Geist'] text-[48px] font-semibold leading-[1.2] tracking-[-0.02em] text-[#101012]"
+                className="md:w-[650px] font-['Geist'] text-[34px] md:text-[48px] font-semibold leading-[120%] tracking-[-2%] text-[#101012]"
               >
                 1,000+ {headingLabel}Clients<br />
                 Worth Of Experience
               </h2>
-              <p className="font-['IBM Plex Sans'] text-[22px] font-normal leading-[1.4] tracking-[-0.01em] text-[#101012]">
+              <p className="font-['IBM Plex Sans'] text-[18px] md:text-[22px] font-normal leading-[150%] tracking-[-1%] text-[#101012]">
                 {subtitle}
               </p>
             </header>
@@ -70,7 +70,7 @@ export default function ExperienceSection({ serviceLabel, subtitle, cards }: Exp
           </div>
 
           {/* ── RIGHT: feature cards ─────────────────────────────────── */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6 lg:gap-8">
             {cards.map((card, i) => (
               <FeatureCard key={i} icon={card.icon} text={card.text} />
             ))}

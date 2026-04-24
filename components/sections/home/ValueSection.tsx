@@ -50,7 +50,7 @@ function FeatureCard({
   text: React.ReactNode;
 }) {
   return (
-    <article className="flex flex-col gap-7.5 rounded-lg bg-[#101012] p-12">
+    <article className="flex flex-col gap-7.5 rounded-lg bg-[#101012] p-8 lg:p-12">
       <div>
         <Image
           src={icon}
@@ -61,12 +61,12 @@ function FeatureCard({
           aria-hidden="true"
         />
       </div>
-      <div className="flex flex-col gap-4">
-        <h3 className="font-['Geist'] text-[24px] font-semibold text-white">
+      <div className="flex flex-col gap-3.5">
+        <h3 className="font-['Geist'] text-[20px] lg:text-[24px] leading-[140%] tracking-[-1%] font-semibold text-white">
           {title}
         </h3>
 
-        <p className="font-['IBM Plex Sans'] text-[20px] leading-[-1%] text-[#F0F0F1]">
+        <p className="font-['IBM Plex Sans'] text-[17px] leading-[120%] font-light text-[#F0F0F1]">
           {text}
         </p>
       </div>
@@ -78,20 +78,20 @@ export default function ValueSection() {
   return (
     <section
       aria-labelledby="value-section"
-      className="w-full bg-black py-24 lg:py-32"
+      className="w-full bg-black py-12 md:py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-468 px-6 lg:px-12">
-        <div className="grid grid-cols-1 gap-20 lg:gap-112 lg:grid-cols-[1fr_1.4fr] lg:items-start">
+      <div className="mx-auto max-w-468 px-6 lg:px-30">
+        <div className="grid grid-cols-1 gap-8 lg:gap-20 lg:gap-112 lg:grid-cols-[1fr_1.4fr] lg:items-start">
           <div className="flex flex-col items-center lg:items-start gap-8 lg:top-28">
-            <header className="flex flex-col gap-5 items-center lg:items-start text-center lg:text-left">
+            <header className="flex flex-col gap-4 items-center lg:items-start text-center lg:text-left">
               <h2
                 id="value-section"
-                className="font-['Geist'] text-[48px] font-semibold leading-[1.2] tracking-[-0.02em] text-white"
+                className="font-['Geist'] text-[32px] lg:text-[48px] font-semibold leading-[120%] tracking-[-2%] text-white"
               >
-                High-Quality Work With <br />
+                High-Quality Work With
                 Full Transparency
               </h2>
-              <p className="md:w-[650px] font-['IBM Plex Sans'] text-[22px] font-normal leading-[1.4] tracking-[-0.01em] text-[#F0F0F1]">
+              <p className="md:w-[650px] font-['IBM Plex Sans'] text-[18px] lg:text-[22px] font-light leading-[150%] tracking-[-1%] text-[#F0F0F1]">
                 We pride ourselves on doing things the right way, which means straight talk, no shortcuts, and crystal-clear results.
               </p>
             </header>

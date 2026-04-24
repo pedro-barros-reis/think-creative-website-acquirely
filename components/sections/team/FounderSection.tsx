@@ -26,7 +26,7 @@ export default function FounderTeamSection() {
       aria-labelledby="founder-team-heading"
       className="w-full bg-white py-24 lg:py-32"
     >
-      <div className="mx-auto flex max-w-468 flex-col gap-20 px-6 lg:px-12">
+      <div className="mx-auto flex max-w-468 flex-col gap-20 px-6 lg:px-30">
         {/* ── Top: centered quote block ─────────────────────────────── */}
         <div className="flex flex-col items-center gap-6 text-center">
           <ThinkAlternativeLogo />
