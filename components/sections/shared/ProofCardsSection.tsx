@@ -18,7 +18,7 @@ interface Props {
 
 function Card({ image, imageAlt, title, description }: ProofCard) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-lg bg-[#101012]">
+    <article className="flex flex-col overflow-hidden rounded-lg bg-[#18181C]">
       <div className="relative w-full overflow-hidden">
         <Image
           src={image}
@@ -29,10 +29,10 @@ function Card({ image, imageAlt, title, description }: ProofCard) {
         />
       </div>
       <div className="flex flex-col gap-3 p-8">
-        <h3 className="font-['Geist'] text-[24px] font-semibold leading-[140%] tracking-[-0.01em] text-white">
+        <h3 className="font-['Geist'] text-[20px] lg:text-[24px] font-semibold leading-[140%] tracking-[-0.01em] text-white">
           {title}
         </h3>
-        <p className="font-['IBM Plex Sans'] text-[18px] font-normal leading-[140%] text-[#F0F0F1]">
+        <p className="font-['IBM Plex Sans'] text-[18px] font-light leading-[120%] lg:leading-[140%] text-[#F0F0F1]">
           {description}
         </p>
       </div>
@@ -49,13 +49,13 @@ export default function ProofCardsSection({
   return (
     <section
       aria-labelledby={`${sectionId}-heading`}
-      className="w-full bg-black py-24 lg:py-32"
+      className="w-full bg-black py-12 lg:py-30"
     >
-      <div className="mx-auto flex max-w-468 flex-col items-center gap-16 px-6 lg:px-30">
+      <div className="mx-auto flex max-w-468 flex-col items-center gap-8 lg:gap-16 px-6 lg:px-30">
         <header className="flex flex-col items-center gap-6 text-center">
           <h2
             id={`${sectionId}-heading`}
-            className="font-['Geist'] text-[40px] lg:text-[48px] font-semibold leading-[120%] tracking-[-0.02em] text-white"
+            className="font-['Geist'] text-[32px] lg:text-[48px] font-semibold leading-[120%] tracking-[-2%] text-white"
           >
             {heading}
           </h2>

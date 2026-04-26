@@ -71,10 +71,10 @@ function ServiceCard({
       </div>
 
       <div className="flex flex-col gap-3 px-3 pb-2">
-        <h3 className="font-['Geist'] text-[24px] font-semibold leading-[140%] tracking-[-1%] text-white">
+        <h3 className="font-['Geist'] text-[20px] lg:text-[24px] font-semibold leading-[140%] tracking-[-1%] text-white">
           {title}
         </h3>
-        <p className="font-['IBM Plex Sans'] text-[19px] font-normal leading-relaxed text-[#F0F0F1]">
+        <p className="font-['IBM Plex Sans'] text-[18px] font-normal leading-[140%] text-[#F0F0F1]">
           {description}
         </p>
       </div>
@@ -87,20 +87,20 @@ export default function TeamServicesSection() {
   return (
     <section
       aria-labelledby="team-services-heading"
-      className="w-full bg-[#000000] py-24 lg:py-32"
+      className="w-full bg-[#000000] py-12 lg:py-30"
     >
-      <div className="mx-auto flex max-w-468 flex-col gap-16 px-6 lg:px-30">
+      <div className="mx-auto flex max-w-468 flex-col gap-8 lg:gap-16 px-6 lg:px-30">
         {/* Header */}
-        <header className="flex flex-col items-center gap-6 text-center">
+        <header className="flex flex-col items-center gap-4 lg:gap-6 text-center">
           <h2
             id="team-services-heading"
-            className="font-['Geist'] text-[48px] font-semibold leading-[1.1] tracking-[-0.02em] text-white"
+            className="font-['Geist'] text-[31px] lg:text-[48px] font-semibold leading-[120%] tracking-[-2%] text-white"
           >
             Old-School Grind With
             <br />
             New-School Ideas
           </h2>
-          <p className="max-w-[650px] font-['IBM Plex Sans'] text-[22px] font-normal leading-[150%] tracking-[-1%] text-[#F0F0F1]">
+          <p className="max-w-[650px] font-['IBM Plex Sans'] text-[18px] lg:text-[22px] font-normal leading-[150%] tracking-[-1%] text-[#F0F0F1]">
             Get the best of both worlds with commitment, honesty, and hustle
             paired with cutting-edge and innovative strategies.
           </p>

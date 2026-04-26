@@ -22,7 +22,7 @@ export interface ForYouSectionProps {
 
 function FeatureCard({ icon, iconAlt, title }: ForYouFeature) {
   return (
-    <article className="flex flex-col gap-6 rounded-lg bg-[#101012] p-8">
+    <article className="flex flex-col items-center gap-6 rounded-lg bg-[#101012] p-8">
       <div className="flex items-center justify-start">
         <Image
           src={icon}
@@ -33,7 +33,7 @@ function FeatureCard({ icon, iconAlt, title }: ForYouFeature) {
           aria-hidden="true"
         />
       </div>
-      <h3 className="font-['Geist'] text-[24px] font-semibold leading-[140%] text-white">
+      <h3 className="font-['Geist'] text-[20px] lg:text-[24px] font-semibold leading-[140%] tracking-[-1%] text-white">
         {title}
       </h3>
     </article>
@@ -56,22 +56,22 @@ export default function ForYouSection({
   return (
     <section
       aria-labelledby="for-you-heading"
-      className="w-full bg-black py-24 lg:py-32"
+      className="w-full bg-black pt-12 lg:pt-30"
     >
-      <div className="mx-auto flex max-w-468 flex-col items-center gap-16 px-6 lg:px-30">
+      <div className="mx-auto flex max-w-468 flex-col items-center gap-8.5 lg:gap-16.5 px-6 lg:px-30">
         <header className="flex flex-col items-center gap-6 text-center">
           <h2
             id="for-you-heading"
-            className="font-['Geist'] text-[48px] font-semibold leading-[120%] tracking-[-2%] text-white"
+            className="font-['Geist'] text-[32px] lg:text-[48px] font-semibold leading-[120%] tracking-[-2%] text-white"
           >
             {heading}
           </h2>
-          <p className="max-w-[560px] font-['IBM Plex Sans'] text-[22px] font-normal leading-[150%] tracking-[-1%] text-[#F0F0F1]">
+          <p className="max-w-[560px] font-['IBM Plex Sans'] text-[18px] lg:text-[22px] font-light leading-[150%] tracking-[-1%] text-[#F0F0F1]">
             {subtitle}
           </p>
         </header>
 
-        <div className={`grid w-full gap-6 ${gridCols}`}>
+        <div className={`grid w-full gap-6 lg:gap-8 ${gridCols}`}>
           {features.map((f) => (
             <FeatureCard key={f.id} {...f} />
           ))}

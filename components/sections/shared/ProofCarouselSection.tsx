@@ -33,17 +33,17 @@ export default function ProofCarouselSection({
   return (
     <section
       aria-labelledby={headingId}
-      className="w-full bg-black py-24 lg:py-32 overflow-hidden"
+      className="w-full bg-black pt-12 lg:pt-30 overflow-hidden"
     >
-      <div className="flex flex-col items-center gap-12 lg:gap-16">
-        <header className="flex flex-col items-center gap-6 px-6 text-center">
+      <div className="flex flex-col items-center gap-8 lg:gap-15.5">
+        <header className="flex flex-col items-center gap-6 lg:gap-8 px-6 text-center">
           <h2
             id={headingId}
-            className="font-['Geist'] text-[40px] lg:text-[48px] font-semibold leading-[120%] tracking-[-0.02em] text-white"
+            className="font-['Geist'] text-[32px] lg:text-[48px] font-semibold leading-[120%] tracking-[-2%] text-white"
           >
             {heading}
           </h2>
-          <p className="max-w-[600px] font-['IBM Plex Sans'] text-[18px] lg:text-[22px] font-light leading-[150%] text-[#F0F0F1]">
+          <p className="max-w-[600px] font-['IBM Plex Sans'] text-[18px] lg:text-[22px] font-light leading-[150%] tracking-[-1%] text-[#F0F0F1]">
             {description}
           </p>
         </header>
@@ -89,7 +89,7 @@ export default function ProofCarouselSection({
           }
         `}</style>
 
-        <CtaButton ringOffset="focus-visible:ring-offset-black" />
+        <CtaButton ringOffset="focus-visible:ring-offset-black"  className="lg:mt-8"/>
       </div>
     </section>
   );

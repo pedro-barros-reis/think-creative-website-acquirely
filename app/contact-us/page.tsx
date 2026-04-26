@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 export default function ContacUS() {
     return (
      <>
-         <ContactHeroSection />
-         <TestimonialsSection />
+      <ContactHeroSection />
+      <TestimonialsSection />
     </>
    )
 }

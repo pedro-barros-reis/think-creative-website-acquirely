@@ -65,6 +65,8 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
             alt=""
             fill
             priority
+            quality={90}
+            sizes="(max-width: 768px) 95vw, 50vw"
             className="object-contain object-bottom-right -rotate-6"
             aria-hidden="true"
           />
@@ -84,7 +86,7 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
         <div className={`grid grid-cols-1 gap-12 lg:grid-cols-2 ${props.variant === "stats" ? "items-start" : "items-center"}`}>
 
           {/* ── LEFT: Headline + subtitle + CTA ─────────────────────── */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6 lg:gap-8">
             <h1 className="font-['Geist'] lg:max-w-[674px] text-[40px] font-semibold leading-[1.05] tracking-tight text-white lg:text-[62px] text-center lg:text-left">
               {headingPrefix}
               <mark className="bg-[#2D3748]/70 text-white [box-decoration-break:clone] px-1 not-italic">
@@ -93,7 +95,7 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
               {headingAfterHighlight}
             </h1>
 
-            <p className="font-['IBM Plex Sans'] max-w-[590px] text-[20px] lg:text-[24px] font-light leading-[150%] tracking-[-1%] text-[#F0F0F1] text-center lg:text-left">
+            <p className="font-['IBM Plex Sans'] max-w-[590px] text-[21px] lg:text-[24px] font-light leading-[150%] tracking-[-1%] text-[#F0F0F1] text-center lg:text-left">
               {subtitle}
             </p>
 
@@ -131,6 +133,7 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
                 height={props.imageHeight ?? 505}
                 className="h-auto w-full max-w-[560px] lg:max-w-none lg:w-[110%]"
                 priority
+                quality={90}
               />
             </div>
           )}

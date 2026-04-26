@@ -32,7 +32,7 @@ function WorkStyleCard({ icon, iconAlt, title }: { icon: string; iconAlt: string
         className="h-auto w-full max-w-[220px] object-contain"
         aria-hidden="true"
       />
-      <h3 className="font-['Geist'] text-[24px] font-semibold tracking-[-1%] text-white">
+      <h3 className="font-['Geist'] text-[20px] lg:text-[24px] font-semibold leading-[140%] tracking-[-1%] text-white">
         {title}
       </h3>
     </article>
@@ -43,20 +43,19 @@ export default function CareersWorksSection() {
   return (
     <section
       aria-labelledby="careers-works-heading"
-      className="w-full bg-black py-24 lg:py-32"
+      className="w-full bg-black py-12 lg:py-30"
     >
-      <div className="mx-auto flex max-w-468 flex-col items-center gap-16 px-6 lg:px-30">
+      <div className="mx-auto flex max-w-468 flex-col items-center gap-12 lg:gap-16 px-6 lg:px-30">
 
         <header className="flex flex-col items-center gap-6 text-center">
           <h2
             id="careers-works-heading"
-            className="max-w-[700px] font-['Geist'] text-[48px] font-semibold leading-[120%] tracking-[-2%] text-white"
+            className="max-w-[700px] font-['Geist'] text-[32px] lg:text-[48px] font-semibold leading-[120%] tracking-[-2%] text-white"
           >
             We Have Work Styles That
-            <br />
             Work For You
           </h2>
-          <p className="max-w-[500px] font-['IBM Plex Sans'] text-[22px] font-normal leading-[150%] tracking-[-1%] text-[#F0F0F1]">
+          <p className="max-w-[500px] font-['IBM Plex Sans'] text-[18px] lg:text-[22px] font-light leading-[150%] tracking-[-1%] text-[#F0F0F1]">
             Flexible options to provide you more time, more fun, and more life.
           </p>
         </header>

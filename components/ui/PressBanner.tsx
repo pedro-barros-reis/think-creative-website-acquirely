@@ -26,7 +26,7 @@ export default function PressBanner({
   return (
     <div
           aria-label="As seen in"
-          className={`sm:mt-14 pt-12 ${className} w-full`}
+          className={`mt-0 sm:mt-14 pt-12 ${className} w-full`}
         >
           <ul
             className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 sm:gap-x-10 sm:gap-y-8 lg:flex-nowrap lg:justify-between lg:gap-x-0"

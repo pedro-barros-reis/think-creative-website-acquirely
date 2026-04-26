@@ -1,7 +1,7 @@
-import CtaButton from "@/components/ui/CtaButton";
-import Image from "next/image";
+import SharedValueSection from "@/components/sections/shared/ValueSection";
+import type { ValueCard } from "@/components/sections/shared/ValueSection";
 
-const FEATURE_CARDS = [
+const FEATURE_CARDS: readonly ValueCard[] = [
   {
     id: "usa-based-team",
     icon: "/svg/values/first-card.svg",
@@ -12,7 +12,7 @@ const FEATURE_CARDS = [
     id: "roi-focused",
     icon: "/svg/values/second-card.svg",
     title: "ROI-Focused Reporting",
-    text: "Clicks, impressions, and leads are great, but are you making more money? You’ll know with us.",
+    text: "Clicks, impressions, and leads are great, but are you making more money? You'll know with us.",
   },
   {
     id: "midwest-values",
@@ -24,7 +24,7 @@ const FEATURE_CARDS = [
     id: "millions-of-managed-ad-spend",
     icon: "/svg/values/fourth-card.svg",
     title: "Millions Of Managed Ad Spend",
-    text: "We’ve seen it all in every industry across Google, YouTube, Facebook, Instagram, and more.",
+    text: "We've seen it all in every industry across Google, YouTube, Facebook, Instagram, and more.",
   },
   {
     id: "no-percentage-of-ad-spend",
@@ -36,76 +36,16 @@ const FEATURE_CARDS = [
     id: "custom-design-that-converts",
     icon: "/svg/values/sixth-card.svg",
     title: "Custom Design That Converts",
-    text: "Our designs don’t only look pretty, but also focus on driving you more leads, revenue, and profit.",
+    text: "Our designs don't only look pretty, but also focus on driving you more leads, revenue, and profit.",
   },
-] as const;
-
-function FeatureCard({
-  icon,
-  title,
-  text,
-}: {
-  icon: string;
-  title: string;
-  text: React.ReactNode;
-}) {
-  return (
-    <article className="flex flex-col gap-7.5 rounded-lg bg-[#101012] p-8 lg:p-12">
-      <div>
-        <Image
-          src={icon}
-          alt=""
-          width={137}
-          height={112}
-          className="h-34 w-auto object-contain"
-          aria-hidden="true"
-        />
-      </div>
-      <div className="flex flex-col gap-3.5">
-        <h3 className="font-['Geist'] text-[20px] lg:text-[24px] leading-[140%] tracking-[-1%] font-semibold text-white">
-          {title}
-        </h3>
-
-        <p className="font-['IBM Plex Sans'] text-[17px] leading-[120%] font-light text-[#F0F0F1]">
-          {text}
-        </p>
-      </div>
-    </article>
-  );
-}
+];
 
 export default function ValueSection() {
   return (
-    <section
-      aria-labelledby="value-section"
-      className="w-full bg-black py-12 md:py-24 lg:py-32"
-    >
-      <div className="mx-auto max-w-468 px-6 lg:px-30">
-        <div className="grid grid-cols-1 gap-8 lg:gap-20 lg:gap-112 lg:grid-cols-[1fr_1.4fr] lg:items-start">
-          <div className="flex flex-col items-center lg:items-start gap-8 lg:top-28">
-            <header className="flex flex-col gap-4 items-center lg:items-start text-center lg:text-left">
-              <h2
-                id="value-section"
-                className="font-['Geist'] text-[32px] lg:text-[48px] font-semibold leading-[120%] tracking-[-2%] text-white"
-              >
-                High-Quality Work With
-                Full Transparency
-              </h2>
-              <p className="md:w-[650px] font-['IBM Plex Sans'] text-[18px] lg:text-[22px] font-light leading-[150%] tracking-[-1%] text-[#F0F0F1]">
-                We pride ourselves on doing things the right way, which means straight talk, no shortcuts, and crystal-clear results.
-              </p>
-            </header>
-
-            <CtaButton ringOffset="focus-visible:ring-offset-black" />
-          </div>
-
-          <div className="flex flex-col gap-8">
-            {FEATURE_CARDS.map(({ id, icon, title, text }) => (
-              <FeatureCard key={id} icon={icon} title={title} text={text} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+    <SharedValueSection
+      heading={<>High-Quality Work With Full Transparency</>}
+      subtitle="We pride ourselves on doing things the right way, which means straight talk, no shortcuts, and crystal-clear results."
+      cards={FEATURE_CARDS}
+    />
   );
 }

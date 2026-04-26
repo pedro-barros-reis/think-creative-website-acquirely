@@ -8,7 +8,7 @@ export default function SEOHeroSection() {
       headingAfterHighlight=" SEO Agency With Local Expertise & Tenacious Grit"
       subtitle="Successful companies partner with Think Creative to drive more revenue, leads, and awareness."
       serviceLabel="SEO"
-      imageSrc="/svg/google-search.svg"
+      imageSrc="/images/seo/google-search.png"
       imageAlt="Example Google search results showing Think Creative clients ranking #1"
       imageWidth={728}
       imageHeight={505}

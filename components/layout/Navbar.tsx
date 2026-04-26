@@ -143,7 +143,7 @@ export default function Navbar() {
             </nav>
 
             <Link
-              href="/free-marketing-plan"
+              href="/pricing"
               className="inline-flex rounded-md bg-[#FF5F1F] px-5 py-3 font-['Geist'] text-[16px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               Free Marketing Plan
@@ -152,7 +152,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4 md:hidden">
             <Link
-              href="/free-marketing-plan"
+              href="/pricing"
               className="inline-flex items-center whitespace-nowrap select-none rounded bg-[#FF5F1F] px-4 py-2 font-['Geist'] text-[11px] font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#C2410C]"
             >
               Free Marketing Plan
@@ -242,7 +242,7 @@ export default function Navbar() {
 
             <div className="pt-8">
               <Link
-                href="/free-marketing-plan"
+                href="/pricing"
                 onClick={closeMenu}
                 className="flex w-full items-center justify-center rounded-md bg-[#FF5F1F] py-4 font-['Geist'] text-[15px] font-bold uppercase tracking-[-1%] text-white transition-colors hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
               >

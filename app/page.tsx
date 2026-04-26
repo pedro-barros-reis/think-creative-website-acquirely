@@ -69,7 +69,7 @@ export default function HomePage() {
         >
           <Testimonial
             theme="dark" 
-            imageSrc="/images/bob-chapa-photography.png"
+            imageSrc="/images/testimonials/bob-chapa.png"
             imageAlt="Bob Chapa, Founder & CEO of Signarama"
             authorName="Bob Chapa"
             authorTitle="Founder & CEO, Signarama"
@@ -96,7 +96,7 @@ export default function HomePage() {
         >
           <Testimonial
             theme="dark"
-            imageSrc="/images/mike-harvey.png"
+            imageSrc="/images/testimonials/mike-harvey.png"
             imageAlt="Mike Harvey, Owner of The Roof Resource"
             authorName="Mike Harvey"
             authorTitle="Owner, The Roof Resource"
@@ -120,7 +120,7 @@ export default function HomePage() {
         >
           <Testimonial
             theme="light"
-            imageSrc="/images/jeff-moore.png"
+            imageSrc="/images/testimonials/jeff-moore.png"
             imageAlt="Jeff Moore, Owner of Institute of Clinical Excellence"
             authorName="Jeff Moore"
             authorTitle="Owner, Institute of Clinical Excellence"

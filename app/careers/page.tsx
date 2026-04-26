@@ -17,9 +17,9 @@ export const metadata: Metadata = {
 export default function CareersPage() {
    return (
      <>
-         <CareersHeroSection />
-         <CareersWorksSection />
-         <CareersOpportunitiesSection />
+      <CareersHeroSection />
+      <CareersWorksSection />
+      <CareersOpportunitiesSection />
     </>
    )
 };

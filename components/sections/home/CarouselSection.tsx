@@ -1,9 +1,5 @@
-// components/think/CarouselSection.tsx  (named "FounderSection" in design)
-// "Hear It From Us" — Ryan Battishill founder quote with signature
-
 import Image from "next/image";
 
-// ─── Think Creative logo (inline SVG — circular black badge) ──────────────
 function ThinkLogo() {
   return (
     <Image
@@ -33,20 +29,23 @@ export default function CarouselSection() {
       aria-labelledby="founder-heading"
       className="w-full bg-white py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-468 items-center lg:items-start px-6 lg:px-30 xl:pr-64">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          <div className="relative w-full max-w-xl overflow-hidden rounded-lg">
+      <div className="mx-auto max-w-468 px-6 lg:px-27.5">
+        <div className="flex flex-col-reverse items-center lg:items-start lg:flex-row gap-12 lg:gap-12">
+          {/* ── Photo ──────────────────────────────────────────────── */}
+          <div className="relative w-full max-w-sm lg:max-w-[430px] lg:max-h-[450px] shrink-0 overflow-hidden rounded-lg">
             <Image
               src="/images/ryan-battishill.png"
               alt="Ryan Battishill, Founder of Think Creative"
               width={640}
               height={560}
+              priority
+              quality={90}
               className="h-auto w-full object-cover object-top"
-              priority={false}
             />
           </div>
 
-          <div className="flex flex-col gap-6 lg:gap-10 w-full items-center lg:items-start">
+          {/* ── Content ────────────────────────────────────────────── */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-6 lg:gap-10">
             <h2
               id="founder-heading"
               className="font-['Geist'] text-[34px] lg:text-[48px] font-semibold leading-[120%] tracking-[-2%] text-[#101012]"
@@ -54,7 +53,7 @@ export default function CarouselSection() {
               Hear It From Us
             </h2>
 
-            <blockquote className="font-['Geist'] text-[24px] lg:text-[38px] font-light leading-[130%] tracking-[-1%] text-[#101012] text-center lg:text-left">
+            <blockquote className="font-['Geist'] text-[24px] lg:text-[38px] font-light leading-[130%] tracking-[-1%] text-[#101012]">
               "Simply put, we're passionate about helping others grow their
               businesses. Our care for our partners runs deep, and we pride
               ourselves on integrity. You'll always feel honesty and

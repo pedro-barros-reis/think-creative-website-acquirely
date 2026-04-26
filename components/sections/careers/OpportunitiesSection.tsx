@@ -60,10 +60,10 @@ function OpportunityCard({
         aria-hidden="true"
       />
       <div className="flex flex-col gap-3">
-        <h3 className="font-['Geist'] text-[24px] font-semibold leading-[140%] tracking-[-1%] text-white">
+        <h3 className="font-['Geist'] text-[20px] lg:text-[24px] font-semibold leading-[140%] tracking-[-1%] text-white">
           {title}
         </h3>
-        <p className="font-['IBM Plex Sans'] text-[18px] font-normal leading-[140%] text-[#F0F0F1]">
+        <p className="font-['IBM Plex Sans'] text-[18px] font-light leading-[140%] text-[#F0F0F1]">
           {description}
         </p>
       </div>
@@ -75,19 +75,19 @@ export default function CareersOpportunitiesSection() {
   return (
     <section
       aria-labelledby="opportunities-heading"
-      className="w-full bg-black py-24 lg:py-32"
+      className="w-full bg-black py-12 lg:py-30"
     >
-      <div className="mx-auto flex max-w-468 flex-col items-center gap-16 px-6 lg:px-30">
+      <div className="mx-auto flex max-w-468 flex-col items-center gap-6 lg:gap-16 px-6 lg:px-30">
 
         {/* Header */}
         <header className="flex flex-col items-center gap-6 text-center">
           <h2
             id="opportunities-heading"
-            className="max-w-[800px] font-['Geist'] text-[48px] font-semibold leading-[120%] tracking-[-2%] text-white"
+            className="font-['Geist'] text-[31px] lg:text-[48px] font-semibold leading-[120%] tracking-[-2%] text-white"
           >
             Exciting Opportunities For Every Skill-Set
           </h2>
-          <p className="max-w-[480px] font-['IBM Plex Sans'] text-[22px] font-normal leading-[150%] tracking-[-1%] text-[#F0F0F1]">
+          <p className="max-w-[480px] font-['IBM Plex Sans'] text-[18px] lg:text-[22px] font-light leading-[150%] tracking-[-1%] text-[#F0F0F1]">
             Join the best culture, fastest growth, and team that suits you best.
           </p>
         </header>

@@ -40,8 +40,8 @@ function StarRating({ count = 5 }: { count?: number }) {
 
 function StatsBar() {
   return (
-    <div className="flex flex-wrap w-full items-start justify-between border border-[#18181C] px-6 lg:px-11 py-6 rounded-lg">
-      <div className="flex flex-col items-center gap-2 h-full">
+    <div className="flex w-full items-center gap-4 lg:gap-8 border border-[#18181C] px-6 lg:px-11 py-6 rounded-lg">
+      <div className="flex flex-1 min-w-0 flex-col items-center gap-2">
         <div className="flex items-center gap-2 md:gap-3">
           <span
             className="font-['Geist'] text-[32px] lg:text-[48px] font-semibold leading-none text-[#FF5F1F]"
@@ -56,9 +56,9 @@ function StatsBar() {
         </span>
       </div>
 
-      <div className="divider w-px h-15 bg-[#18181C]"></div>
+      <div className="w-px self-stretch bg-[#18181C]"></div>
 
-      <div className="flex flex-col gap-2 h-full">
+      <div className="flex flex-1 flex-col items-center gap-2">
         <span
           className="font-['Geist'] text-[32px] lg:text-[48px] font-semibold leading-none text-[#FF5F1F]"
           aria-label="98% retention rate"
@@ -76,7 +76,7 @@ function StatsBar() {
 export default function IndustriesSection({
   title = "Marketing For All Industries",
 }: IndustriesSectionProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(1);
   const active = INDUSTRIES[activeIndex];
 
   return (

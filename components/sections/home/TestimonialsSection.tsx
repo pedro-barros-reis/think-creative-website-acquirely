@@ -44,41 +44,81 @@ const TESTIMONIALS: Testimonial[] = [
   {
     id: "t1",
     quote:
-      '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
-    name: "Mike Bennett",
-    avatar: "/images/mike-bennett.png",
+      '"I have been very impressed with the scope of expertise at Think Marketing. Ask a question, and you get a complete answer based on fact and experience. Their design work is outstanding. Their follow-through is spectacular. Any small or mid-sized business who wants to grow through digital and social media marketing should absolutely check them out. Five star rating from me."',
+    name: "Douglas B.",
+    avatar: "/images/google-feedbacks/t1.png",
     stars: 5,
   },
   {
     id: "t2",
     quote:
-      '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
-    name: "Mike Bennett",
-    avatar: "/images/mike-bennett.png",
+      '"Ryan and his team at "Think" are truly exceptional in what they do. From start to finish, Ryan was the consummate professional going above and beyond the requests and expectations I set during our first email exchange. His work with me at a smaller company parallels his work with larger institutions demonstrating the character and quality of this organization. As questions and changes have cropped up from time to time, Ryan and his team remain accessible and timely with their responses and solutions despite their growth. If you are in need of work in this space, you would be hard pressed to find a better team to work alongside.',
+    name: "Tucker F.",
+    avatar: "/images/google-feedbacks/t2.png",
     stars: 5,
   },
   {
     id: "t3",
     quote:
-      '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
-    name: "Mike Bennett",
-    avatar: "/images/mike-bennett.png",
+      `"Ryan and his team at Think Marketing have done an amazing job managing our social media. We are able to view the schedule in Asana and make adjustments as needed. They are flexible and accommodating to our suggestions, Ryan does a great job of explaining all of the "behind the scenes" things you don't understand 🙂 He is very easy to get ahold of and very responsive. I would recommend them to my friends!"`,
+    name: "Lex R.",
+    avatar: "/images/google-feedbacks/t3.png",
     stars: 5,
   },
   {
     id: "t4",
     quote:
-      '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
-    name: "Mike Bennett",
-    avatar: "/images/mike-bennett.png",
+      `"WEBSITE NO-BRAINER! Ryan and his team at Think Marketing redesigned our website from the ground up. It's 10x more beautiful, simple, and has increased our web traffic and conversions dramatically. CHANGES ARE SIMPLE! Whether I'm adding new locations, new providers, or new services, I love how easy it is to make changes. The new build is a simpler, updated-looking site that takes very little time to maintain/update. The interconnected method of how they built the site means info updated in one location in wordpress populates all related pages/content - halleluiah! Beyond the small stuff, I utilize the Think Marketing team for idea generation and major changes. They are prompt, responsive, and make changes beyond the little day-to-day updates easy. PAID FOR ITSELF IN ONE MONTH This is by far and away the best marketing money we have spent. It paid for itself in one month via increased traffic, increased conversions, and reduced time spent on maintenance. Spend money here before you spend additional money on advertising. If you have not updated your website in the last 3 years, you're missing out on improved traffic, conversions, functionality, and ease of maintenance - I would not hire anyone except Think Marketing."`,
+    name: "Joan K.",
+    avatar: "/images/google-feedbacks/t4.png",
     stars: 5,
   },
   {
     id: "t5",
     quote:
-      '"True experts in their field. Not just one person doing all the things. They have individuals who focus on every aspect of marketing to help grow your business!"',
-    name: "Mike Bennett",
-    avatar: "/images/mike-bennett.png",
+      `"I’ve been using Think Marketing for a few years now and the return has been amazing. We use Facebook, PPC, Google local and we get great results. The communication is always clear and they are always evolving our ads to make sure we’re getting the most out of our advertising. Highly recommend!!"`,
+    name: "Matt C.",
+    avatar: "/images/google-feedbacks/t5.png",
+    stars: 5,
+  },
+  {
+    id: "t6",
+    quote:
+      `"Jessica has consistently delivered professional, beautiful, timely service and products. She's done multiple projects for me now, and I'm thrilled to have her and Think Marketing as a partner in my business!"`,
+    name: "Ellen P.",
+    avatar: "/images/google-feedbacks/t6.png",
+    stars: 5,
+  },
+  {
+    id: "t7",
+    quote:
+      `"Working with Ryan and his team was so easy and the turn around on our website had to be a new world record. We are so grateful for Ryan and team for our amazing, modern, and functional website. We gave him a very short deadline and the end result blew us away. Would choose Think Marketing + Design 100 times over again! Thank you, Ryan!!"`,
+    name: "Kaiti M.",
+    avatar: "/images/google-feedbacks/t7.png",
+    stars: 5,
+  },
+  {
+    id: "t8",
+    quote:
+      `"Ryan does phenomenal work. He's one of the best web designers available and you can't beat his price. The website turned out clean and aesthetically pleasing."`,
+    name: "Hope C.",
+    avatar: "/images/google-feedbacks/t8.png",
+    stars: 5,
+  },
+  {
+    id: "t9",
+    quote:
+      `"Ryan and Jessica went above and beyond on my new website. I cannot express how grateful I am for their incredible efforts to capture our business. They are always proficient, professional and timely. An absolute amazing job for me and rebranding my business."`,
+    name: "Marnee L.",
+    avatar: "/images/google-feedbacks/t9.png",
+    stars: 5,
+  },
+  {
+    id: "t10",
+    quote:
+      `"Amazing website redesign and upgrade. Ryan and his team hit it out of the park!"`,
+    name: "Orbital P.",
+    avatar: "/images/google-feedbacks/t10.png",
     stars: 5,
   },
 ];
@@ -86,20 +126,20 @@ const TESTIMONIALS: Testimonial[] = [
 function RatingCards({ testimonial }: { testimonial: Testimonial }) {
   return (
     <article
-      className="flex h-full w-full flex-col justify-between rounded-lg bg-white p-8 md:px-[54px] md:py-[46px]"
+      className="flex w-full h-full max-h-[322px] lg:max-h-[422px] flex-col rounded-lg bg-white p-8 md:px-[54px] md:py-[46px]"
     >
-      <div className="flex flex-col gap-6">
-        <div className="flex items-center gap-7">
-          <GoogleLogo />
-          <StarRow count={testimonial.stars ?? 5} />
-        </div>
+      <div className="flex shrink-0 items-center gap-7">
+        <GoogleLogo />
+        <StarRow count={testimonial.stars ?? 5} />
+      </div>
 
+      <div className="mt-6 min-h-0 flex-1 overflow-y-auto scrollbar-hide">
         <p className="font-['IBM Plex Sans'] text-[18px] lg:text-[20px] font-normal leading-[150%] tracking-[-1%] text-[#101012]">
           {testimonial.quote}
         </p>
       </div>
 
-      <footer className="mt-4 lg:mt-10 flex items-center gap-4">
+      <footer className="mt-4 lg:mt-10 flex shrink-0 items-center gap-4">
         <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full">
           <Image
             src={testimonial.avatar}
@@ -211,7 +251,7 @@ export default function TestimonialsSection() {
       aria-labelledby="testimonials-heading"
       className="w-full bg-[#F0F0F1] py-12 md:py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-30">
+      <div className="mx-auto max-w-468 px-6 lg:px-30">
         <h2
           id="testimonials-heading"
           className="mb-5 lg:mb-12 text-center font-['Geist'] text-[34px] lg:text-[48px] font-semibold leading-[120%] tracking-[-2%] text-[#101012]"
@@ -257,9 +297,9 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Controles do Carrossel */}
-        <div className="mt-6 lg:mt-10 flex items-center justify-between">
+        <div className="mt-6 lg:mt-10 flex items-center justify-between gap-4">
           <div
-            className="flex items-center gap-4.5 md:gap-2"
+            className="flex min-w-0 flex-wrap items-center gap-2 md:gap-2"
             role="tablist"
             aria-label="Carousel pagination"
           >
@@ -270,16 +310,16 @@ export default function TestimonialsSection() {
                 aria-selected={i === dotIdx}
                 aria-label={`Go to testimonial ${i + 1}`}
                 onClick={() => goTo(i + visibleCards)}
-                className={`h-4 md:h-2.5 w-4 md:w-2.5 rounded-full transition-all cursor-pointer ${
+                className={`h-2.5 w-2.5 rounded-full transition-all cursor-pointer ${
                   i === dotIdx
-                    ? "bg-[#101012] scale-125"
+                    ? "bg-[#101012]"
                     : "bg-[#D6DCE3] hover:bg-[#101012]/50"
                 }`}
               />
             ))}
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2">
             <button
               onClick={prev}
               aria-label="Previous testimonial"

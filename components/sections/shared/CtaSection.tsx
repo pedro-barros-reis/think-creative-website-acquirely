@@ -5,7 +5,7 @@ export default function CtaSection() {
   return (
     <section
       aria-labelledby="cta-heading"
-      className="w-full bg-black py-16 lg:py-20"
+      className="w-full bg-black py-6 lg:py-12 lg:pt-24"
     >
       <div className="mx-auto max-w-468 px-6 lg:px-30">
         <div className="relative overflow-hidden rounded-lg bg-[#FF5F1F]">

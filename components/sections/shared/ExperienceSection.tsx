@@ -20,7 +20,7 @@ export interface ExperienceSectionProps {
 
 function FeatureCard({ icon, text }: ExperienceCard) {
   return (
-    <article className="flex flex-col gap-7.5 rounded-lg bg-white p-8 lg:p-12">
+    <article className="flex flex-col gap-7.5 rounded-lg bg-white p-8 lg:p-12 lg:max-w-[664px]">
       <div>
         <Image
           src={icon}
@@ -49,14 +49,14 @@ export default function ExperienceSection({ serviceLabel, subtitle, cards }: Exp
       className="w-full bg-[#F0F0F1] py-12 md:py-24 lg:py-32"
     >
       <div className="mx-auto max-w-468 px-6 lg:px-30">
-        <div className="grid grid-cols-1 gap-8 md:gap-20 lg:gap-112 lg:grid-cols-[1fr_1.4fr] lg:items-start">
+        <div className="grid grid-cols-1 gap-8 md:gap-20 lg:gap-16 lg:grid-cols-[1fr_1.4fr] lg:items-start">
 
           {/* ── LEFT: heading + subtitle + CTA ──────────────────────── */}
-          <div className="flex flex-col gap-8 lg:top-28">
+          <div className="flex flex-col gap-8 lg:sticky lg:top-28">
             <header className="flex flex-col gap-4">
               <h2
                 id="experience-heading"
-                className="md:w-[650px] font-['Geist'] text-[34px] md:text-[48px] font-semibold leading-[120%] tracking-[-2%] text-[#101012]"
+                className="font-['Geist'] text-[34px] md:text-[48px] font-semibold leading-[120%] tracking-[-2%] text-[#101012]"
               >
                 1,000+ {headingLabel}Clients<br />
                 Worth Of Experience
@@ -70,7 +70,7 @@ export default function ExperienceSection({ serviceLabel, subtitle, cards }: Exp
           </div>
 
           {/* ── RIGHT: feature cards ─────────────────────────────────── */}
-          <div className="flex flex-col gap-6 lg:gap-8">
+          <div className="flex flex-col gap-6 lg:gap-8 lg:justify-self-end">
             {cards.map((card, i) => (
               <FeatureCard key={i} icon={card.icon} text={card.text} />
             ))}

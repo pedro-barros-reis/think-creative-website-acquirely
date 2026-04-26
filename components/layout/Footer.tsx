@@ -60,11 +60,11 @@ function FooterNavColumn({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-6">
-      <h3 className="font-['Geist'] text-[22px] font-bold text-white">
+    <div className="flex flex-col gap-3">
+      <h3 className="font-['Geist'] text-[20px] font-semibold md:font-bold text-white">
         {heading}
       </h3>
-      <ul className="flex flex-col gap-4 text-[20px]" role="list">
+      <ul className="flex flex-col gap-2 text-[18px]" role="list">
         {children}
       </ul>
     </div>
@@ -74,22 +74,22 @@ function FooterNavColumn({
 // ─── Footer ───────────────────────────────────────────────────────────────
 export default function Footer() {
   return (
-    <footer className="w-full bg-black" aria-label="Site footer">
+    <footer className="w-full bg-black pt-8 lg:pt-0" aria-label="Site footer">
       {/* ── Main footer body ──────────────────────────────────────── */}
-      <div className="mx-auto max-w-468 px-6 lg:px-30 lg:py-20">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.8fr]">
+      <div className="mx-auto max-w-468 px-6 lg:px-30 lg:py-15">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.8fr]">
           {/* ── LEFT — logo + contact card ──────────────────────── */}
-          <div className="flex flex-col items-center lg:items-start gap-8">
+          <div className="order-1 flex flex-col items-center lg:items-start gap-8">
             {/* Large logo */}
             <Link href="/" aria-label="Think Creative — Home">
               <ThinkLogoLg />
             </Link>
 
             {/* Contact card */}
-            <div className="flex items-start gap-5 rounded-lg bg-[#101012] p-6">
+            <div className="w-full lg:max-w-[398px] flex gap-11.5 rounded-lg bg-[#101012] p-6">
               <ThinkIcon />
               <div className="flex flex-col gap-4">
-                <p className="font-['Geist'] text-[17px] font-medium leading-snug text-white">
+                <p className="font-['Geist'] text-[17px] font-light leading-snug text-white">
                   Have a question?
                   <br />
                   We're here to help.
@@ -99,26 +99,31 @@ export default function Footer() {
                   className="inline-flex items-center gap-2 font-['Geist'] text-[16px] font-semibold text-[#FF5F1F] transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#101012]"
                 >
                   Get In Touch
-                  <ArrowRight size={16} strokeWidth={2.5} aria-hidden="true" />
+                  <ArrowRight size={16} strokeWidth={2.5} aria-hidden="true" className="text-white" />
                 </Link>
               </div>
             </div>
           </div>
 
+          {/* ── Press logos — mobile: between logo and nav, desktop: bottom ── */}
+          <div className="order-2 lg:order-3 lg:col-span-2">
+            <PressBanner />
+          </div>
+
           {/* ── RIGHT — nav columns ─────────────────────────────── */}
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
+          <div className="pt-12 md:pt-0 lg:pl-16 xl:pl-0 order-3 lg:order-2 grid grid-cols-1 gap-10 sm:grid-cols-3">
             {/* Agency */}
             <FooterNavColumn heading="Agency">
               {AGENCY_LINKS.map(({ label, href, badge }) => (
                 <li key={label} className="flex items-center gap-3">
                   <Link
                     href={href}
-                    className="font-['IBM Plex Sans'] text-[20px] font-normal text-white transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
+                    className="font-['IBM Plex Sans'] text-[18px] font-light leading-[129%] tracking-[-1%] text-white transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
                   >
                     {label}
                   </Link>
                   {badge && (
-                    <span className="rounded bg-[#FF5F1F] px-2 py-0.5 font-['Geist'] text-[11px] font-bold uppercase tracking-wider text-white">
+                    <span className="rounded-lg bg-[#FF5F1F] px-2 py-0.5 font-['IBM Plex Sans'] text-[18px] font-medium uppercase tracking-[-1%] text-white">
                       {badge}
                     </span>
                   )}
@@ -132,7 +137,7 @@ export default function Footer() {
                 <li key={label}>
                   <Link
                     href={href}
-                    className="font-['IBM Plex Sans'] text-[20px] font-normal text-white transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
+                  className="font-['IBM Plex Sans'] text-[18px] font-light leading-[129%] tracking-[-1%] text-white transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
                   >
                     {label}
                   </Link>
@@ -143,7 +148,7 @@ export default function Footer() {
             {/* Location */}
             <FooterNavColumn heading="Location">
               <li>
-                <address className="not-italic font-['IBM Plex Sans'] text-[20px] font-normal leading-relaxed text-white">
+                <address className="not-italic font-['IBM Plex Sans'] text-[18px] font-light leading-[133%] tracking-[-1%] text-white">
                   17195 Silver Pkwy #321
                   <br />
                   Fenton, MI 48430
@@ -152,7 +157,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:+18106423556"
-                  className="font-['Geist'] text-[16px] font-semibold text-[#FF5F1F] transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
+                  className="font-['IBM Plex Sans'] text-[18px] font-normal leading-[140%] tracking-[-1%] text-[#FF5F1F] transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
                 >
                   (810) 642-3556
                 </a>
@@ -160,41 +165,30 @@ export default function Footer() {
             </FooterNavColumn>
           </div>
         </div>
-
-        {/* ── Press logos strip ──────────────────────────────────── */}
-        <div className="mb-6">
-          <ul
-            className="flex flex-wrap items-center justify-between gap-x-6 gap-y-6"
-            role="list"
-            aria-label="As seen in"
-          >
-            <PressBanner />
-          </ul>
-        </div>
       </div>
 
       {/* ── Copyright bar ─────────────────────────────────────────── */}
       <div className="mb-4 md:mb-0">
         <div className="mx-auto flex max-w-468 px-6 lg:px-30 flex-wrap items-center justify-between gap-4 py-6">
-          <p className="font-['Inter'] text-[15px] font-normal text-[#AAA]">
+          <p className="font-[var(--font-inter)] text-[14px] font-normal text-[#AAA]">
             © Think Creative 2026
           </p>
           <nav aria-label="Legal links" className="flex items-center gap-1">
             <Link
               href="/terms"
-              className="font-['Inter'] text-[15px] font-normal text-[#AAA] transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
+              className="font-[var(--font-inter)] text-[14px] font-normal leading-[160%]  text-[#AAA] transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
             >
               Terms &amp; Conditions
             </Link>
             <span
-              className="font-['Inter'] text-[15px] text-white/20"
+              className="font-[var(--font-inter)] text-[14px] text-[#AAA] leading-[160%]"
               aria-hidden="true"
             >
               |
             </span>
             <Link
               href="/privacy"
-              className="font-['Inter'] text-[15px] font-normal text-[#AAA] transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
+              className="font-[var(--font-inter)] text-[14px] font-normal leading-[160%]  text-[#AAA] transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
             >
               Privacy Policy
             </Link>
