@@ -79,7 +79,7 @@ export default function IndustriesSection({
   const [activeIndex, setActiveIndex] = useState(0);
   const active = INDUSTRIES[activeIndex];
   const scrollRef = useRef<HTMLDivElement>(null);
-  const scrollTimer = useRef<ReturnType<typeof setTimeout>>();
+  const scrollTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const handleCarouselScroll = useCallback(() => {
     clearTimeout(scrollTimer.current);
