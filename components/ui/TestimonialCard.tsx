@@ -57,7 +57,7 @@ export function TestimonialCard({
 
   return (
     <div
-      className={`w-full max-w-468 px-6 lg:px-30 flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-16@ ${className}`}
+      className={`w-full max-w-468 px-6 lg:px-30 flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-16 ${className}`}
     >
    
       <div className="relative shrink-0">

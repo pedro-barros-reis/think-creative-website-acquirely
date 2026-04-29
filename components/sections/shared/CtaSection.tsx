@@ -1,5 +1,4 @@
 import CtaButton from "@/components/ui/CtaButton";
-import Image from "next/image";
 
 export default function CtaSection() {
   return (
@@ -13,14 +12,23 @@ export default function CtaSection() {
             className="pointer-events-none absolute inset-0 select-none"
             aria-hidden="true"
           >
-            <Image
-              src="/images/cta-background-card.png"
-              alt=""
-              fill
-              sizes="100vw"
-              className="object-cover object-center"
-              quality={90}
-              priority={false}
+            <div
+              className="absolute left-20 -top-10 aspect-square w-[85%] -translate-x-[55%] -translate-y-[55%] rotate-135 lg:w-[35%]"
+              style={{
+                backgroundImage: "url('/svg/bursticonctabg.svg')",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+              }}
+            />
+            <div
+              className="absolute bottom-10 right-0 aspect-square w-[75%] translate-x-[55%] translate-y-[55%] -rotate-45 lg:w-[35%]"
+              style={{
+                backgroundImage: "url('/svg/bursticonctabg.svg')",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+              }}
             />
           </div>
 

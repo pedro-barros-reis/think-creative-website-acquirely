@@ -25,6 +25,8 @@ function Card({ image, imageAlt, title, description }: ProofCard) {
           alt={imageAlt}
           width={640}
           height={400}
+          priority={true}
+          quality={90}
           className="h-auto w-full object-cover"
         />
       </div>
@@ -64,7 +66,7 @@ export default function ProofCardsSection({
           </p>
         </header>
 
-        <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-3">
+        <div className="grid w-full max-w-[1363px] grid-cols-1 gap-8 lg:grid-cols-3">
           {cards.map((card) => (
             <Card key={card.id} {...card} />
           ))}

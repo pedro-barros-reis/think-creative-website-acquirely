@@ -2,7 +2,7 @@ import ProofCarouselSection, {
   CarouselImage,
 } from "@/components/sections/shared/ProofCarouselSection";
 
-// Add carousel images 1.png – 5.png to /public/images/web-development/carousel/
+
 const IMAGES: CarouselImage[] = [
   { src: "/images/web-development/carousel/1.png", alt: "Website built by Think Creative" },
   { src: "/images/web-development/carousel/2.png", alt: "Website built by Think Creative" },

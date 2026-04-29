@@ -118,7 +118,7 @@ function ServiceCard({
   icon: React.ReactNode;
 }) {
   return (
-    <article className="group flex flex-col gap-6 rounded-lg bg-[#101012] p-8 ">
+    <article className="group flex h-full flex-col gap-6 rounded-lg bg-[#101012] p-8 ">
       <div className="h-[88px] w-auto">{icon}</div>
 
       <div className="flex flex-col gap-3">
@@ -173,31 +173,17 @@ export default function ServicesSection() {
          * Layout: Row 1 → 3 equal cols | Row 2 → 2 cols centered
          * Implemented as a 6-col grid with offset on the second row items.
          */}
-        <div className="grid grid-cols-1 gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {/* Row 1 — first 3 cards */}
+        <div className="grid grid-cols-1 gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-6">
           {SERVICES.slice(0, 3).map((s) => (
-            <ServiceCard key={s.id} {...s} />
-          ))}
-
-          {/* Row 2 — last 2 cards, centered via col-start offset */}
-          <div className="contents lg:col-span-3 lg:flex lg:gap-6">
-            {/*
-             * On lg+: wrap row-2 in a flex row with max-w matching
-             * exactly 2 of the 3 columns (2/3 of the grid width).
-             */}
-            <div className="sm:col-span-2 hidden lg:flex lg:grid-cols-3 lg:gap-6 lg:w-full lg:justify-center">
-              {SERVICES.slice(3).map((s) => (
-                <ServiceCard key={s.id} {...s} />
-              ))}
+            <div key={s.id} className="lg:col-span-2">
+              <ServiceCard {...s} />
             </div>
-          </div>
-
-          {/* Mobile / tablet fallback — last 2 cards render normally in flow */}
-          <div className="col-span-full lg:hidden grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {SERVICES.slice(3).map((s) => (
-              <ServiceCard key={s.id} {...s} />
-            ))}
-          </div>
+          ))}
+          {SERVICES.slice(3).map((s, i) => (
+            <div key={s.id} className={`lg:col-span-2 ${i === 0 ? "lg:col-start-2" : ""}`}>
+              <ServiceCard {...s} />
+            </div>
+          ))}
         </div>
 
         {/* ── CTA button ─────────────────────────────────────────────── */}

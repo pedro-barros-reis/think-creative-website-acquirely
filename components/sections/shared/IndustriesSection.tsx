@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const INDUSTRIES = [
   { label: "Home Services", image: "/images/industries/carousel/1.png" },
@@ -76,8 +76,39 @@ function StatsBar() {
 export default function IndustriesSection({
   title = "Marketing For All Industries",
 }: IndustriesSectionProps) {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
   const active = INDUSTRIES[activeIndex];
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const scrollTimer = useRef<ReturnType<typeof setTimeout>>();
+
+  const handleCarouselScroll = useCallback(() => {
+    clearTimeout(scrollTimer.current);
+    scrollTimer.current = setTimeout(() => {
+      const el = scrollRef.current;
+      if (!el) return;
+      const slides = el.querySelectorAll<HTMLElement>("[data-slide]");
+      let closest = 0;
+      let minDist = Infinity;
+      slides.forEach((slide, i) => {
+        const dist = Math.abs(slide.offsetLeft - el.scrollLeft - 24);
+        if (dist < minDist) {
+          minDist = dist;
+          closest = i;
+        }
+      });
+      setActiveIndex(closest);
+    }, 100);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el || !el.clientWidth) return;
+    const slide = el.querySelector<HTMLElement>(`[data-slide="${activeIndex}"]`);
+    if (!slide) return;
+    const target = slide.offsetLeft - 24;
+    if (Math.abs(el.scrollLeft - target) < 5) return;
+    el.scrollTo({ left: target, behavior: "smooth" });
+  }, [activeIndex]);
 
   return (
     <section
@@ -180,23 +211,35 @@ export default function IndustriesSection({
             </nav>
           </div>
 
-          <div className="flex flex-col w-77.5 md:w-full gap-5 lg:gap-10 order-2 lg:order-1">
-            <div className="relative w-full overflow-hidden rounded-lg">
+          <div className="flex flex-col w-full gap-5 lg:gap-10 order-2 lg:order-1">
+            <div
+              ref={scrollRef}
+              onScroll={handleCarouselScroll}
+              className="-mx-6 flex gap-3 overflow-x-auto px-6 scroll-pl-6 snap-x snap-mandatory lg:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {INDUSTRIES.filter((i) => i.image).map((industry, index) => (
+                <div
+                  key={industry.label}
+                  data-slide={index}
+                  className="shrink-0 w-[calc(100vw-5rem)] snap-start overflow-hidden rounded-lg"
+                >
+                  <Image
+                    src={industry.image}
+                    alt={`${industry.label} — Think Creative marketing work sample`}
+                    width={664}
+                    height={622}
+                    className="h-auto w-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="relative hidden w-full overflow-hidden rounded-lg lg:block">
               <Image
                 src={active.image}
                 alt={`${active.label} — Think Creative marketing work sample`}
                 width={664}
                 height={622}
-                className="hidden sm:block h-auto w-full object-cover"
-                priority={false}
-              />
-              <Image
-                src={active.image}
-                alt={`${active.label} — Think Creative marketing work sample`}
-                width={310}
-                height={289}
-                className="h-auto sm:hidden w-full object-cover"
-                priority={false}
+                className="h-auto w-full max-w-[664px] max-h-[622px] object-cover"
               />
             </div>
             <StatsBar />

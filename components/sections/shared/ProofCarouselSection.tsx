@@ -17,7 +17,7 @@ interface Props {
 const CARD_W = 348;
 const CARD_H = 451;
 const GAP = 16;
-const SPEED_PX_PER_SEC = 250;
+const SPEED_PX_PER_SEC = 80;
 
 export default function ProofCarouselSection({
   heading,

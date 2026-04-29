@@ -131,8 +131,8 @@ export default function ServiceHeroSection(props: ServiceHeroSectionProps) {
                 alt={props.imageAlt}
                 width={props.imageWidth ?? 728}
                 height={props.imageHeight ?? 505}
-                className="h-auto w-full max-w-[560px] lg:max-w-none lg:w-[110%]"
-                priority
+                className="h-auto w-full max-w-[560px] lg:max-w-[728px] lg:max-h-[505px]"
+                priority={true}
                 quality={90}
               />
             </div>
