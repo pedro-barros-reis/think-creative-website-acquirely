@@ -77,12 +77,12 @@ function SubmitButton({
   onClick: () => void;
 }) {
   return (
-    <div className="mt-8 flex justify-center">
+    <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
       <button
         type="button"
         onClick={onClick}
         disabled={disabled}
-        className="w-full max-w-[280px] rounded-md bg-[#FF5F1F] px-10 py-4 font-['Geist'] text-[16px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] disabled:cursor-not-allowed disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181C] sm:w-auto"
+        className="sm:col-start-2 w-full rounded-md bg-[#FF5F1F] px-10 py-4 font-['Geist'] text-[16px] font-bold uppercase tracking-[-2%] text-white transition-colors hover:bg-[#C2410C] disabled:cursor-not-allowed disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181C]"
       >
         {label}
       </button>

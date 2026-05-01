@@ -175,7 +175,7 @@ export default function Footer() {
           </p>
           <nav aria-label="Legal links" className="flex items-center gap-1">
             <Link
-              href="/terms"
+              href="/terms-and-conditions"
               className="font-[var(--font-inter)] text-[14px] font-normal leading-[160%]  text-[#AAA] transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
             >
               Terms &amp; Conditions
@@ -187,7 +187,7 @@ export default function Footer() {
               |
             </span>
             <Link
-              href="/privacy"
+              href="/privacy-policy"
               className="font-[var(--font-inter)] text-[14px] font-normal leading-[160%]  text-[#AAA] transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5F1F]"
             >
               Privacy Policy
